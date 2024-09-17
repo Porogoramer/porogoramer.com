@@ -58,7 +58,7 @@ export default [
 
 		rules: {
       		'brace-style': ['error'],
-      		'curly': ['warn', 'multi-line'],
+      		'eqeqeq': ['warn'],
       		'camelcase': 'error',
       		'comma-spacing': ['error', { 'before': false, 'after': true }],
 			'no-undef': 'warn',
