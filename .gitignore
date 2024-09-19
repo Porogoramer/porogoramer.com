@@ -302,6 +302,7 @@ dist
 ### Node Patch ###
 # Serverless Webpack directories
 .webpack/
+main.js*
 
 # Optional stylelint cache
 
