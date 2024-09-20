@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TodoExample from './TodoExample';
+import TodoExample from './sample/TodoExample';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface AppProps {

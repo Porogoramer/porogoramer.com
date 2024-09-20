@@ -13,31 +13,37 @@ afterEach(cleanup)
 
 describe('TodoExample', () => {
     const setup = (todo = { name:'wash clothes', completed: false }) => {
-        const container = render(<TodoExample todo={todo} />);
+        render(<TodoExample todo={todo} />);
         
         return {
-            container: container.container,
             checkbox: screen.getByRole('checkbox'),
             paragraph: screen.getByRole('paragraph'),
         }
     }
 
-    it('Renders the component with correct props', () => {
-        const { container, checkbox, paragraph} = setup();
+    it('Renders the component with correct props when completed', () => {
+        const { checkbox, paragraph} = setup();
 
-        expect(container).not.toHaveClass('done')
         expect(checkbox).not.toBeChecked();
         expect(paragraph).toHaveTextContent(/wash clothes/);
-    })
+        expect(paragraph).not.toHaveClass('done');
+    });
+
+    it('Renders the component with correct props when not completed', () => {
+        const { checkbox, paragraph} = setup({ name: 'wash clothes', completed: true });
+
+        expect(checkbox).toBeChecked();
+        expect(paragraph).toHaveClass('done');
+    });
 
     it('Sets the className on container after clicked', async () => {
-        const { container, checkbox, paragraph } = setup();
+        const { checkbox, paragraph } = setup();
         const user = userEvent.setup();
 
         await user.click(checkbox);
 
         expect(checkbox).toBeChecked();
-        expect(container).toHaveClass('done');
-    })
+        expect(paragraph).toHaveClass('done');
+    });
 })
     

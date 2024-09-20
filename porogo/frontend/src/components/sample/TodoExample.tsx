@@ -16,9 +16,9 @@ export default function TodoExample({ todo }: { todo: TodoExampleProps}) {
     }
 
     return (
-        <div className={className}>
-            <input type="checkbox" name="done" checked={done} onClick={toggleDone}></input>
-            <p>{name}</p>
+        <div>
+            <input type="checkbox" name="done" checked={done} onChange={toggleDone}></input>
+            <p className={className}>{name}</p>
         </div>
     );
 }

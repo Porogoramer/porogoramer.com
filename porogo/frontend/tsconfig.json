@@ -22,7 +22,7 @@
     "scripts",
     "acceptance-tests",
     "webpack",
-    "jest",
+    "jest.config.cjs",
     "**/main.js",
     "eslint.config.mjs",
     "src/setupTests.ts",
