@@ -25,6 +25,8 @@ export default [
 			'**/webpack.config.{js,cjs}',
 			'**/tsconfig.json',
 			'*.config*',
+			'**/__tests__',
+			'**/main.js'
 		]
 	},
 

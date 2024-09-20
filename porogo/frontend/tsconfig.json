@@ -22,10 +22,11 @@
     "scripts",
     "acceptance-tests",
     "webpack",
-    "jest",
+    "jest.config.cjs",
+    "**/main.js",
     "eslint.config.mjs",
     "src/setupTests.ts",
-    "webpack.config.js",      // Exclude webpack.config.js
+    "webpack.config.cjs",      // Exclude webpack.config.js
     "src/index.js"            // Exclude non-existent index.js
   ],
   "types": [
