@@ -1,11 +1,10 @@
-name: Test and Lint
+name: Frontend Test and Lint
 on: [push]
+permissions:
+  contents: read
+  actions: read
+  checks: write
 jobs:
-  test-job:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo ${{ github.ref }}
-
   run-jest-tests:
     if: ${{ startsWith(github.ref, 'refs/heads/frontend') }}
     runs-on: ubuntu-latest
@@ -22,8 +21,9 @@ jobs:
         if: success() || failure()    # run this step even if previous step failed
         with: 
           name: JEST Tests
+          path: reports/jest-*.xml
+          reporter: jest-junit
           
-      
   run-js-lint:
     if: ${{ startsWith(github.ref, 'refs/heads/frontend') }}
     runs-on: ubuntu-latest
@@ -34,22 +34,3 @@ jobs:
       - run: cd porogo/frontend
       - run: npm install
       - run: npm run lint  
-
-  run-django-tests:
-    if: ${{ startsWith(github.ref, 'refs/heads/backend') }}
-    runs-on: python:3.12-alpine
-    steps:
-      - run: python -m venv .venv
-      - run: . .venv/bin/activate
-      - run: cd porogo
-      - run: python manage.py test
-      
-  run-py-lint:
-    if: ${{ startsWith(github.ref, 'refs/heads/backend') }}
-    runs-on: python:3.12-alpine
-    steps:
-      - run: python -m venv .venv
-      - run: . .venv/bin/activate
-      - run: cd porogo
-      - run: djlint . --lint
-   

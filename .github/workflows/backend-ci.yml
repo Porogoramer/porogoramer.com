@@ -1,0 +1,25 @@
+name: Backend Test and Lint
+on: [push]
+permissions:
+  contents: read
+  actions: read
+  checks: write
+jobs:
+  run-django-tests:
+    if: ${{ startsWith(github.ref, 'refs/heads/backend') }}
+    runs-on: python:3.12-alpine
+    steps:
+      - run: python -m venv .venv
+      - run: . .venv/bin/activate
+      - run: cd porogo
+      - run: python manage.py test
+      
+  run-py-lint:
+    if: ${{ startsWith(github.ref, 'refs/heads/backend') }}
+    runs-on: python:3.12-alpine
+    steps:
+      - run: python -m venv .venv
+      - run: . .venv/bin/activate
+      - run: cd porogo
+      - run: djlint . --lint
+   
