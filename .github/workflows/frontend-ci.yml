@@ -9,6 +9,8 @@ jobs:
     if: ${{ startsWith(github.ref, 'refs/heads/frontend') }}
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.0.4
         with: 
@@ -28,6 +30,8 @@ jobs:
     if: ${{ startsWith(github.ref, 'refs/heads/frontend') }}
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
       - uses: actions/setup-node@v4.0.4
         with: 
           node-version: '20.17.0'
