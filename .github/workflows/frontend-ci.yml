@@ -31,6 +31,10 @@ jobs:
           name: JEST Tests
           path: reports/jest-*.xml
           reporter: jest-junit
+      - name: Coverage Report
+        uses: romeovs/lcov-reporter-action@v0.3.1
+        with:
+          lcov-file: porogo/frontend/coverage/lcov.info
           
   run-js-lint:
     runs-on: ubuntu-latest
