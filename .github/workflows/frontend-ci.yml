@@ -1,4 +1,4 @@
-name: Frontend Test and Lint
+name: Frontend Test, Coverage and Lint
 on:
   push:
     branches:
