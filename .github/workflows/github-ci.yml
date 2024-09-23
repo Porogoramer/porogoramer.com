@@ -1,8 +1,13 @@
 name: Test and Lint
 on: [push]
 jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.ref }}
+
   run-jest-tests:
-    if: ${{ startsWith(github.ref, 'frontend') }}
+    if: ${{ startsWith('frontend', github.ref) }}
     runs-on: node:20.17.0
     steps:
       - run: cd porogo/frontend
@@ -10,7 +15,7 @@ jobs:
       - run: npm run test
       
   run-js-lint:
-    if: ${{ startsWith(github.ref, 'frontend') }}
+    if: ${{ startsWith('frontend', github.ref) }}
     runs-on: node:20.17.0
     steps:
       - run: cd porogo/frontend
@@ -18,7 +23,7 @@ jobs:
       - run: npm run lint  
 
   run-django-tests:
-    if: ${{ startsWith(github.ref, 'backend') }}
+    if: ${{ startsWith('backend', github.ref) }}
     runs-on: python:3.12-alpine
     steps:
       - run: python -m venv .venv
@@ -27,7 +32,7 @@ jobs:
       - run: python manage.py test
       
   run-py-lint:
-    if: ${{ startsWith(github.ref, 'backend') }}
+    if: ${{ startsWith('backend', github.ref) }}
     runs-on: python:3.12-alpine
     steps:
       - run: python -m venv .venv
