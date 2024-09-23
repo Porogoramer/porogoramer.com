@@ -7,8 +7,12 @@ permissions:
 jobs:
   run-django-tests:
     if: ${{ startsWith(github.ref, 'refs/heads/backend') }}
-    runs-on: python:3.12-alpine
+    runs-on: ubuntu-latest
     steps:
+      - name: Setup Python
+        uses: actions/setup-python@v5.2.0
+        with: 
+          python-version: '3.12.1'
       - run: python -m venv .venv
       - run: . .venv/bin/activate
       - run: cd porogo
@@ -16,8 +20,12 @@ jobs:
       
   run-py-lint:
     if: ${{ startsWith(github.ref, 'refs/heads/backend') }}
-    runs-on: python:3.12-alpine
+    runs-on: ubuntu-latest
     steps:
+      - name: Setup Python
+        uses: actions/setup-python@v5.2.0
+        with: 
+          python-version: '3.12.1'
       - run: python -m venv .venv
       - run: . .venv/bin/activate
       - run: cd porogo
