@@ -8,16 +8,29 @@ jobs:
 
   run-jest-tests:
     if: ${{ startsWith(github.ref, 'refs/heads/frontend') }}
-    runs-on: node:20.17.0
+    runs-on: ubuntu-latest
     steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.4
+        with: 
+          node-version: '20.17.0'
       - run: cd porogo/frontend
       - run: npm install
       - run: npm run test
+      - name: Test Reporter
+        uses: dorny/test-reporter@v1.9.1
+        if: success() || failure()    # run this step even if previous step failed
+        with: 
+          name: JEST Tests
+          
       
   run-js-lint:
     if: ${{ startsWith(github.ref, 'refs/heads/frontend') }}
-    runs-on: node:20.17.0
+    runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v4.0.4
+        with: 
+          node-version: '20.17.0'
       - run: cd porogo/frontend
       - run: npm install
       - run: npm run lint  
