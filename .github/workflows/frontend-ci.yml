@@ -29,7 +29,7 @@ jobs:
         if: success() || failure()    # run this step even if previous step failed
         with: 
           name: JEST Tests
-          path: reports/jest-*.xml
+          path: porogo/frontend/reports/jest-*.xml
           reporter: jest-junit
           
   run-js-lint:
