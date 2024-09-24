@@ -1,15 +1,14 @@
 name: Frontend Test, Coverage and Lint
 on:
   pull_request:
-    types: [synchronize, edited, open]
-    branches:
-      - 'frontend/**'
+    types: [synchronize, open]
 permissions:
   contents: read
   actions: read
   checks: write
 jobs:
   run-jest-tests:
+    if: ${{ startsWith(github.head_ref, 'frontend/**') || (github.base_ref == 'main') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -39,6 +38,7 @@ jobs:
           lcov-file: porogo/frontend/coverage/lcov.info
           
   run-js-lint:
+    if: ${{ startsWith(github.head_ref, 'frontend/**') || (github.base_ref == 'main') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
