@@ -1,11 +1,8 @@
 name: Frontend Test, Coverage and Lint
 on:
-  push:
-    branches:
-      - 'frontend/**'
   pull_request:
     branches:
-      - 'frontend**'
+      - 'frontend/**'
 permissions:
   contents: read
   actions: read
