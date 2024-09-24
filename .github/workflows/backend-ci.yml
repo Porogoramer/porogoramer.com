@@ -1,0 +1,43 @@
+name: Backend Test and Lint
+on:
+  push:
+    branches:
+      - 'backend/**'
+permissions:
+  contents: read
+  actions: read
+  checks: write
+jobs:
+  run-django-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+      - name: Setup Python
+        uses: actions/setup-python@v5.2.0
+        with: 
+          python-version: '3.12.1'
+      - name: Create environment, install dependencies, and run tests
+        run: | 
+          python -m venv .venv
+          . .venv/bin/activate
+          cd porogo
+          python manage.py test
+      
+  run-py-lint:
+    if: ${{ startsWith(github.ref, 'refs/heads/backend') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+      - name: Setup Python
+        uses: actions/setup-python@v5.2.0
+        with: 
+          python-version: '3.12.1'
+      - name: Create environment, install dependencies, and run tests
+        run: | 
+          python -m venv .venv
+          . .venv/bin/activate
+          cd porogo
+          pylint .
+          djlint . --lint

@@ -1,0 +1,55 @@
+name: Frontend Test, Coverage and Lint
+on:
+  pull_request:
+    types: [synchronize, open]
+permissions:
+  pull-requests: write
+  contents: read
+  actions: read
+  checks: write
+jobs:
+  run-jest-tests:
+    if: ${{ startsWith(github.head_ref, 'frontend/') || (github.base_ref == 'main') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.0.4
+        with: 
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: 'porogo/frontend/package-lock.json'
+      - name: Install dependencies and run tests
+        run: | 
+          cd porogo/frontend
+          npm install
+          npm run test
+      - name: Test Reporter
+        uses: dorny/test-reporter@v1.9.1
+        if: success() || failure()    # run this step even if previous step failed
+        with: 
+          name: JEST Tests
+          path: porogo/frontend/reports/jest-*.xml
+          reporter: jest-junit
+      - name: Coverage Report
+        uses: romeovs/lcov-reporter-action@v0.3.1
+        with:
+          lcov-file: porogo/frontend/coverage/lcov.info
+          
+  run-js-lint:
+    if: ${{ startsWith(github.head_ref, 'frontend/') || (github.base_ref == 'main') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+      - uses: actions/setup-node@v4.0.4
+        with: 
+          node-version: '20.x'
+          cache: 'npm'
+          cache-dependency-path: 'porogo/frontend/package-lock.json'
+      - name: Install dependencies and run lint
+        run: | 
+          cd porogo/frontend
+          npm install
+          npm run lint

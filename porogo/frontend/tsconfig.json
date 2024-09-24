@@ -26,6 +26,7 @@
     "**/main.js",
     "eslint.config.mjs",
     "src/setupTests.ts",
+    "coverage/",
     "webpack.config.cjs",      // Exclude webpack.config.js
     "src/index.js"            // Exclude non-existent index.js
   ],
