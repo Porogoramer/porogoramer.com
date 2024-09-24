@@ -8,7 +8,7 @@ permissions:
   checks: write
 jobs:
   run-jest-tests:
-    if: ${{ startsWith(github.head_ref, 'frontend/**') || (github.base_ref == 'main') }}
+    if: ${{ startsWith(github.head_ref, 'frontend/') || (github.base_ref == 'main') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -32,13 +32,12 @@ jobs:
           path: porogo/frontend/reports/jest-*.xml
           reporter: jest-junit
       - name: Coverage Report
-        if: ${{ github.event.name == 'pull_request' }}
         uses: romeovs/lcov-reporter-action@v0.3.1
         with:
           lcov-file: porogo/frontend/coverage/lcov.info
           
   run-js-lint:
-    if: ${{ startsWith(github.head_ref, 'frontend/**') || (github.base_ref == 'main') }}
+    if: ${{ startsWith(github.head_ref, 'frontend/') || (github.base_ref == 'main') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
