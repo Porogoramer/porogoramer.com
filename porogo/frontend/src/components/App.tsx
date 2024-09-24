@@ -15,7 +15,7 @@ class App extends Component<AppProps, AppState> {
     constructor(props: AppProps) {
         super(props);
         // Initialize state if you have any
-        // this.state = {};
+        // this.state = {}
     }
 
     render() {
