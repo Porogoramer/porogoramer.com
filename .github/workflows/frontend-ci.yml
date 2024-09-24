@@ -1,6 +1,7 @@
-name: Frontend Test and Lint
+name: Frontend Test, Coverage and Lint
 on:
-  push:
+  pull_request:
+    types: [synchronize, edited, open]
     branches:
       - 'frontend/**'
 permissions:
@@ -32,6 +33,7 @@ jobs:
           path: porogo/frontend/reports/jest-*.xml
           reporter: jest-junit
       - name: Coverage Report
+        if: ${{ github.event.name == 'pull_request' }}
         uses: romeovs/lcov-reporter-action@v0.3.1
         with:
           lcov-file: porogo/frontend/coverage/lcov.info
