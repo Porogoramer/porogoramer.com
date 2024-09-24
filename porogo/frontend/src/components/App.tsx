@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TodoExample from './sample/TodoExample';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface AppProps {
@@ -18,7 +19,7 @@ class App extends Component<AppProps, AppState> {
     }
 
     render() {
-        return <h1>REACTING</h1>;
+        return (<TodoExample todo={{ name:'wash clothes', completed: false }}/>);
     }
 }
 
