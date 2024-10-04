@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import TodoExample from './sample/TodoExample';
+//import TodoExample from './sample/TodoExample';
+import Header from './common/Header';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface AppProps {
@@ -19,7 +20,12 @@ class App extends Component<AppProps, AppState> {
     }
 
     render() {
-        return (<TodoExample todo={{ name:'wash clothes', completed: false }}/>);
+        return (
+        //<TodoExample todo={{ name:'wash clothes', completed: false }}/>
+            <div className='App'>
+                <Header/>
+            </div>
+        );
     }
 }
 
