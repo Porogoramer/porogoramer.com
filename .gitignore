@@ -343,3 +343,9 @@ sketch
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,django,react,node
+
+
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
