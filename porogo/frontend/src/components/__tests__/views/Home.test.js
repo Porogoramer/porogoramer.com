@@ -5,16 +5,16 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen, cleanup } from '@testing-library/react';
-import Header from '../Header.tsx';
+import Home from '../../views/Home.js';
 
 afterEach(cleanup)
 
-describe('Rendering header', () => {
+describe('Rendering home', () => {
 	it('Renders header text', () => {
-		render(<Header />);
+		render(<Home />);
 		
-		const header = screen.findByRole('heading', { name: /header/i });
+		const home = screen.findByRole('heading', { name: /home/i });
 		
-		expect(header).toBeInTheDocument();
+		expect(home).toBeInTheDocument();
 	});
 });

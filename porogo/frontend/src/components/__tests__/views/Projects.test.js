@@ -5,16 +5,16 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen, cleanup } from '@testing-library/react';
-import Logs from '../Logs.tsx';
+import Projects from '../../views/Projects.js';
 
 afterEach(cleanup)
 
-describe('Rendering logs', () => {
+describe('Rendering projects', () => {
 	it('Renders header text', () => {
-		render(<Logs />);
+		render(<Projects />);
 		
-		const logs = screen.findByRole('heading', { name: /logs/i });
+		const projects = screen.findByRole('heading', { name: /projects/i });
 		
-		expect(logs).toBeInTheDocument();
+		expect(projects).toBeInTheDocument();
 	});
 });

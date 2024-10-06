@@ -5,15 +5,15 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { render, screen, cleanup } from '@testing-library/react';
-import Home from '../Home.tsx';
+import Players from '../../views/Players.js';
 
 afterEach(cleanup)
 
-describe('Rendering home', () => {
+describe('Rendering players', () => {
 	it('Renders header text', () => {
-		render(<Home />);
+		render(<Players />);
 		
-		const home = screen.findByRole('heading', { name: /home/i });
+		const home = screen.findByRole('heading', { name: /players/i });
 		
 		expect(home).toBeInTheDocument();
 	});
