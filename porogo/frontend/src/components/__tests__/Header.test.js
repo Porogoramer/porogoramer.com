@@ -13,7 +13,7 @@ describe('Rendering header', () => {
 	it('Renders header text', () => {
 		render(<Header />);
 		
-		const header = screen.findByRole('heading', { name: /header/ });
+		const header = screen.findByRole('heading', { name: /header/i });
 		
 		expect(header).toBeInTheDocument();
 	});

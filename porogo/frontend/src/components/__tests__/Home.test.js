@@ -13,7 +13,7 @@ describe('Rendering home', () => {
 	it('Renders header text', () => {
 		render(<Home />);
 		
-		const home = screen.findByRole('heading', { name: /home/ });
+		const home = screen.findByRole('heading', { name: /home/i });
 		
 		expect(home).toBeInTheDocument();
 	});
