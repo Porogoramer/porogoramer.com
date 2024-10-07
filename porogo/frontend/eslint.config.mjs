@@ -26,8 +26,7 @@ export default [
 			'**/tsconfig.json',
 			'*.config*',
 			'**/__tests__',
-			'**/main.js',
-			'**/coverage'
+			'**/main.js'
 		]
 	},
 
