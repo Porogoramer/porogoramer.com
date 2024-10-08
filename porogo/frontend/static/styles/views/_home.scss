@@ -3,7 +3,6 @@
 
 .content {
     height: $body-height;
-    border: 1px solid red;
     font-family: $font-family;
 }
 
@@ -12,23 +11,23 @@
     align-items: center;
     justify-content: space-evenly;
 
+    background: linear-gradient(rgba(0,0,0,0) 0%, rgba(0,0,0,0) 80%, rgba(162, 193, 224, 0.5) 100%);
+
     .welcome {
-        height: 50%;
-        width: 50%;
+        height: 55%;
+        width: 40%;
 
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        
+
         h1 {
             justify-self: flex-start;
         }
 
-        // div {
-        //     display: flex;
-        //     flex-direction: column;
-        //     justify-content: space-evenly;
-        // }
+        p {
+            color: $dark-blue;
+        }
     }
 
     img {
