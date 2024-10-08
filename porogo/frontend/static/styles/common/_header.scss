@@ -1,0 +1,80 @@
+$gap-width:1.875rem;
+$gap-logo:1.4rem;
+$height-gap-bar:2rem;
+$header-height:3.75rem;
+$button-height:2.5rem;
+$button-width:5.625rem;
+$border-radius:1.25rem;
+
+@import "./variables";
+
+header{
+    height: $header-height;
+    font-family: $font-family;
+    background-color: $background-color;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap:$gap-width;
+        margin-left:$header-height;
+
+        span{
+            width: 2px; 
+            height: $height-gap-bar;
+            background-color: $text-color-white;
+        }
+    
+        a{
+            color: $text-color-white;
+            text-decoration: none;
+        }
+
+        .porogo-text{
+            display: flex;
+            align-items: center;
+            gap: $gap-logo;
+        }
+
+        li img {
+            border: none;
+            vertical-align: bottom;
+        }
+    }
+
+    .right-part{
+        margin-right: $header-height;
+
+        .language{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: $button-width;
+            height: $button-height;
+        }
+    }
+
+    .option {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $text-color-white;
+        height: 100%;
+        width: 50%;
+
+        &:first-child{
+            border-right: none;
+            border-radius: $border-radius 0 0 $border-radius;
+        }
+
+        &:last-child{
+            border-radius: 0 $border-radius $border-radius 0;
+        }
+    }
+}
