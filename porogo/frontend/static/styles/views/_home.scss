@@ -1,5 +1,7 @@
-$home-main-height:6.25rem;
+
+@import '../common/variables';
 
 .content {
-    height: $home-main-height;
+    height: $body-height;
+    border: 1px solid red;
 }

@@ -11,6 +11,7 @@ import Console from './components/views/Console';
 import Logs from './components/views/Logs';
 import Players from './components/views/Players';
 import Settings from './components/views/Settings';
+import '../static/styles/main.scss';
 
 const appDiv = document.getElementById('app')!;
 const root = createRoot(appDiv);
