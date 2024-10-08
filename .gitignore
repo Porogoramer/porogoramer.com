@@ -304,6 +304,7 @@ dist
 # Serverless Webpack directories
 .webpack/
 main.js*
+main.css
 
 # Optional stylelint cache
 
