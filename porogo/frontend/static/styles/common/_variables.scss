@@ -1,3 +1,7 @@
 $font-family: 'Inter', 'Courier';
-$text-color-white:white;
-$background-color:#0A2E36;
+$text-color-white: white;
+$header-height: 3.75rem;
+$body-height: calc(100vh - $header-height);
+$link-hover-color: #27A6C3;
+$background-color: #0A2E36;
+$link-click-color: #4DCFED;

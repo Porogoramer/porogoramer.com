@@ -1,11 +1,5 @@
-* {
-  padding: 0;
-  margin: 0;
-}
-
 header {
   height: 3.75rem;
-  font-family: "Inter", "Courier";
   background-color: #0A2E36;
   display: flex;
   justify-content: space-between;
@@ -18,21 +12,27 @@ header ul {
   gap: 1.875rem;
   margin-left: 3.75rem;
 }
-header ul span {
+header span {
   width: 2px;
   height: 2rem;
   background-color: white;
 }
-header ul a {
+header a {
   color: white;
   text-decoration: none;
 }
-header ul .porogo-text {
+header .link:hover {
+  color: #27A6C3;
+}
+header .link:active {
+  color: #4DCFED;
+}
+header .porogo-text {
   display: flex;
   align-items: center;
   gap: 1.4rem;
 }
-header ul li img {
+header li img {
   border: none;
   vertical-align: bottom;
 }
@@ -60,4 +60,59 @@ header .option:first-child {
 }
 header .option:last-child {
   border-radius: 0 1.25rem 1.25rem 0;
+}
+
+footer {
+  height: 10rem;
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  background-color: #0A2E36;
+  color: white;
+}
+footer .row-1 {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+footer ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 1.875rem;
+  margin-left: 3.75rem;
+}
+footer ul span {
+  width: 2px;
+  height: 2rem;
+  background-color: white;
+}
+footer ul a {
+  color: white;
+  text-decoration: none;
+}
+footer .link:hover {
+  color: #27A6C3;
+}
+footer .link:active {
+  color: #4DCFED;
+}
+footer li img {
+  border: none;
+  vertical-align: bottom;
+}
+footer .row-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer .icons {
+  display: flex;
+  gap: 1rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", "Courier";
 }/*# sourceMappingURL=main.css.map */

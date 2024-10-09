@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Header(){
     return(
@@ -6,27 +7,32 @@ function Header(){
             <header>
                 <ul>
                     <li>
-                        <a href="#" className="porogo-text">
-                            <img src="../../../static/assets/logos/porogoIcon.svg" alt="porogo icon"/>
-                            <p>Porogo</p>
-                        </a>
+                        <Link to={'Home'} className="porogo-text">
+                            <img src="/static/assets/icons/porogoIcon.svg" alt="porogo icon"/>
+                            <p className='link'>Porogo</p>
+                        </Link>
                     </li>
-                    <span></span>
+                    <span/>
                     <li>
-                        <a href="#">Our projects</a>
+                        <Link to={'about'} className='link'> About us </Link>
                     </li>
-                    <span></span>
+                    <span/>
                     <li>
-                        <a href="#">Important Dog</a>
+                        <Link to={'projects'} className='link'> Our projects </Link>
                     </li>
-                    <span></span>
+                    <span/>
                     <li>
-                        <a href="#">Contact us</a>
+                        {/* Change link to individual project. project/:name ? */}
+                        <Link to={'projects'} className='link'> Porobot </Link>
+                    </li>
+                    <span/>
+                    <li>
+                        <Link to={'contact'} className='link'> Contact us </Link>
                     </li>
                 </ul>
                 <ul className='right-part'>
                     <li>
-                        <img src="../../../static/assets/logos/sun-logo.svg" alt="light mode"/>
+                        <img src="/static/assets/icons/sun-logo.svg" alt="light mode"/>
                     </li>
                     <li>
                         <div className='language'>
