@@ -343,3 +343,8 @@ sketch
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,django,react,node
+porogo/frontend/static/styles/main.css.map
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
