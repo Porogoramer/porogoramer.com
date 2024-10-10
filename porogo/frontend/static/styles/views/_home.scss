@@ -50,6 +50,12 @@
     justify-content: space-evenly;
     align-items: center;
 
+    background-color: $blue-gray;
+
+    & > h1 {
+        color: $cloudy-blue;
+    }
+
     .project-card-info {
         width: 60%;
 
@@ -70,13 +76,24 @@
         background-color: $teal;
         box-shadow: 1rem 1rem $blue-purple;
 
+        & > img {
+            border: 0.2rem solid $sandy-brown;
+            border-radius: 1rem;
+        }
+
         button {
             height: 100%;
+            width: 100%;
             padding: 0.5rem;
 
             border-radius: 0.5rem;
             border: none;
             background-color: $sandy-brown;
+        }
+
+        button:hover {
+            text-shadow: 0.05rem 0.05rem $teal;
+            box-shadow: 0.2rem 0.2rem $dark-blue;
         }
 
         .options {
@@ -88,7 +105,12 @@
         }
 
         a {
+            width: 50%;
             height: 100%;
+        }
+
+        .github {
+            width: auto;
         }
 
         img {
