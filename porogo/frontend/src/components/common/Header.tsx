@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function Header(){
+    const location = useLocation();
+
     return(
         <React.Fragment>
             <header>
@@ -14,20 +16,20 @@ function Header(){
                     </li>
                     <span/>
                     <li>
-                        <Link to={'about'} className='link'> About us </Link>
+                        <Link to={'about'} className={`link${location.pathname === '/about' ? ' curr-page' : ''}`}> About us </Link>
                     </li>
                     <span/>
                     <li>
-                        <Link to={'projects'} className='link'> Our projects </Link>
+                        <Link to={'projects'} className={`link${location.pathname === '/projects' ? ' curr-page' : ''}`}> Our projects </Link>
                     </li>
                     <span/>
                     <li>
                         {/* Change link to individual project. project/:name ? */}
-                        <Link to={'projects'} className='link'> Porobot </Link>
+                        <Link to={'projects'} className={`link${location.pathname === '/project/porobot' ? ' curr-page' : ''}`}> Porobot </Link>
                     </li>
                     <span/>
                     <li>
-                        <Link to={'contact'} className='link'> Contact us </Link>
+                        <Link to={'contact'} className={`link${location.pathname === '/contact' ? ' curr-page' : ''}`}> Contact us </Link>
                     </li>
                 </ul>
                 <ul className='right-part'>
