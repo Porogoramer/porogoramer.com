@@ -9,7 +9,7 @@ function Header(){
             <header>
                 <ul>
                     <li>
-                        <Link to={'Home'} className="porogo-text">
+                        <Link to={''} className="porogo-text">
                             <img src="/static/assets/icons/porogoIcon.svg" alt="porogo icon"/>
                             <p className={`link${location.pathname === '/' ? ' curr-page' : ''}`}> Porogo </p>
                         </Link>

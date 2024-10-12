@@ -8,7 +8,7 @@ export default function Footer() {
                 <div className='row-1'>
                     <ul>
                         <li>
-                            <Link to={'Home'} className='link'> Porogo </Link>
+                            <Link to={''} className='link'> Porogo </Link>
                         </li>
                         <span/>
                         <li>
@@ -22,10 +22,10 @@ export default function Footer() {
                         <li>
                             <div className='icons'>
                                 <a className='icon' href='https://github.com/Porogoramer' target='__blank'>
-                                    <img className='balls' src='/static/assets/icons/github-logo.svg'></img>
+                                    <img className='balls' src='/static/assets/icons/github-logo.svg' alt='Github Logo'></img>
                                 </a>
                                 <a className='icon' href='https://www.instagram.com/porogoramers/' target='__blank'>
-                                    <img src='/static/assets/icons/instagram-logo.svg'></img>
+                                    <img src='/static/assets/icons/instagram-logo.svg' alt='Instagram Logo'></img>
                                 </a>   
                             </div>
                         </li>
