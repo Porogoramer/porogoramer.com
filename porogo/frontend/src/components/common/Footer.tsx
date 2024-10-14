@@ -22,10 +22,10 @@ export default function Footer() {
                         <li>
                             <div className='icons'>
                                 <a className='icon' href='https://github.com/Porogoramer' target='__blank'>
-                                    <img className='balls' src='/static/assets/icons/github-logo.svg' alt='Github Logo'></img>
+                                    <img className='balls' src='/static/assets/icons/github-icon.svg' alt='Github Logo'></img>
                                 </a>
                                 <a className='icon' href='https://www.instagram.com/porogoramers/' target='__blank'>
-                                    <img src='/static/assets/icons/instagram-logo.svg' alt='Instagram Logo'></img>
+                                    <img src='/static/assets/icons/instagram-icon.svg' alt='Instagram Logo'></img>
                                 </a>   
                             </div>
                         </li>
