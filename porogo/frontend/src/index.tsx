@@ -13,6 +13,7 @@ import Settings from './components/views/Settings';
 import Footer from './components/common/Footer';
 import Home from './components/views/Home';
 import Header from './components/common/Header';
+import Project from './components/views/Project';
 
 const appDiv = document.getElementById('app')!;
 const root = createRoot(appDiv);
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
             {
                 path: 'projects',
                 element: <Projects />,
+            },
+            {
+                path: 'project',
+                element: <Project />
             },
             {
                 path: 'contact',

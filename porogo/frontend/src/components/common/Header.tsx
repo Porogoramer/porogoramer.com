@@ -25,7 +25,7 @@ function Header(){
                     <span/>
                     <li>
                         {/* Change link to individual project. project/:name ? */}
-                        <Link to={'projects'} className={`link${location.pathname === '/project/porobot' ? ' curr-page' : ''}`}> Porobot </Link>
+                        <Link to={'project'} className={`link${location.pathname === '/project/porobot' ? ' curr-page' : ''}`}> Porobot </Link>
                     </li>
                     <span/>
                     <li>
