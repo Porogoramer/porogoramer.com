@@ -6,7 +6,7 @@ export default function ProjectCard({ name, desc }: { name: string, desc: string
         <img src="/static/assets/icons/porogoIcon.svg" alt="placeholder" />
         <div className='project-card-info'>
             <h2>{name}</h2>
-            <p>{desc} Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero voluptatibus harum velit facilis eligendi. Iusto delectus incidunt quae rem, voluptatum corrupti at autem molestiae, assumenda unde doloribus id totam mollitia.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero voluptatibus harum velit facilis eligendi. Iusto delectus incidunt quae rem, voluptatum corrupti at autem molestiae, assumenda unde doloribus id totam mollitia.</p>
             <div className='options'>
                 <Link to={`projects/${name}`}>
                     <button>Learn more!</button>

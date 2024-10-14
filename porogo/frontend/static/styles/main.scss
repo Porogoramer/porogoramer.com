@@ -10,7 +10,7 @@
     font-family: $font-family;
 }
 
-html, body, #app {
+html, body, #app, #app > div {
     height: 100%;
     width: 100%;
 }

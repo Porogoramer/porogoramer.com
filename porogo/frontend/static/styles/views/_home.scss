@@ -1,13 +1,18 @@
 
 @import '../common/variables';
 
-.content {
+.top-content {
     height: $body-height;
-    font-family: $font-family;
+}
 
+.top-content, .full-content {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.full-content {
+    height: 100%;
 }
 
 #landing {
@@ -34,6 +39,7 @@
 
         p {
             color: $dark-blue;
+            text-align: justify;
         }
     }
 
@@ -43,8 +49,9 @@
 }
 
 #home-projects {
-    height: 80%;
+    height: 90%;
     width: 30vw;
+    padding-bottom: 1em;
 
     display: flex;
     flex-direction: column;
@@ -55,27 +62,56 @@
 
     & > h1 {
         color: $cloudy-blue;
+        -webkit-text-stroke: 1px $cloudy-blue;
+    }
+
+    h1, h2 {
+        font-weight: 900;
+    }
+
+    h2 {
+        -webkit-text-stroke: 1px;
+        letter-spacing: 1px;
+    }
+
+    & > div {
+        height: 80%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     .project-card-info {
-        width: 60%;
+        width: 72%;
 
         display: flex;
         flex-direction: column;
         justify-content: space-between;
 
+        p {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-align: justify;
+
+            line-height: 1.5rem;
+        }
     }
 
     .project-card {
-        height: 35%;
-        width: 50vw;
+        height: 47%;
+        width: 54vw;
         padding: 1rem;
 
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
 
         background-color: $teal;
-        box-shadow: 1rem 1rem $blue-purple;
+        box-shadow: 0.5rem 0.5rem $blue-purple;
 
         & > img {
             border: 0.2rem solid $sandy-brown;
@@ -85,7 +121,10 @@
         button {
             height: 100%;
             width: 100%;
-            padding: 0.5rem;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             border-radius: 0.5rem;
             border: none;
@@ -108,6 +147,8 @@
         a {
             width: 50%;
             height: 100%;
+
+            text-decoration: none;
         }
 
         .github {

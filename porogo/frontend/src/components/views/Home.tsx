@@ -3,7 +3,7 @@ import ProjectCard from '../common/ProjectCard';
 
 export default function Home() {
     return <>
-        <section className='content'>
+        <section className='top-content'>
             <div id='landing'>
                 <div className='welcome'>
                     <h1>Welcome to Porogo</h1>
@@ -17,11 +17,13 @@ export default function Home() {
                 <img src="/static/assets/icons/porogoIcon.svg" alt="Porogo Logo" />
             </div>
         </section>
-        <section className='content'>
+        <section className='full-content'>
             <div id='home-projects'>
-                <h1>Projects</h1>
-                <ProjectCard name='Important Dog' desc='A discord bot that exists I guess' />
-                <ProjectCard name='Portfolio Site' desc='A site to showcase some projects and skills' />
+                <h1>PROJECTS</h1>
+                <div>
+                    <ProjectCard name='Important Dog' desc='A discord bot that exists I guess' />
+                    <ProjectCard name='Portfolio Site' desc='A site to showcase some projects' />
+                </div>
             </div>
         </section>
     </>;
