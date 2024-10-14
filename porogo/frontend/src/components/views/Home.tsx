@@ -1,11 +1,8 @@
 import React from 'react';
-import Header from '../common/Header';
-import Footer from '../common/Footer';
 import ProjectCard from '../common/ProjectCard';
 
 export default function Home() {
     return <>
-        <Header />
         <section className='content'>
             <div id='landing'>
                 <div className='welcome'>
@@ -17,7 +14,7 @@ export default function Home() {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.
                     </p>
                 </div>
-                <img src="/static/assets/logos/porogoIcon.svg" alt="Porogo Logo" />
+                <img src="/static/assets/icons/porogoIcon.svg" alt="Porogo Logo" />
             </div>
         </section>
         <section className='content'>
@@ -27,6 +24,5 @@ export default function Home() {
                 <ProjectCard name='Portfolio Site' desc='A site to showcase some projects and skills' />
             </div>
         </section>
-        <Footer />
     </>;
 }

@@ -9,13 +9,10 @@ $border-radius:1.25rem;
 
 header{
     height: $header-height;
-    font-family: $font-family;
     background-color: $background-color;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 
     ul {
         display: flex;
@@ -23,28 +20,36 @@ header{
         list-style: none;
         gap:$gap-width;
         margin-left:$header-height;
+    }
 
-        span{
-            width: 2px; 
-            height: $height-gap-bar;
-            background-color: $text-color-white;
-        }
-    
-        a{
-            color: $text-color-white;
-            text-decoration: none;
-        }
+    span{
+        width: 2px; 
+        height: $height-gap-bar;
+        background-color: $text-color-white;
+    }
 
-        .porogo-text{
-            display: flex;
-            align-items: center;
-            gap: $gap-logo;
-        }
+    a{
+        color: $text-color-white;
+        text-decoration: none;
+    }
 
-        li img {
-            border: none;
-            vertical-align: bottom;
-        }
+    .link:hover{
+        color: $link-hover-color;
+    }
+
+    .link:active{
+        color: $link-click-color;
+    }
+
+    .porogo-text{
+        display: flex;
+        align-items: center;
+        gap: $gap-logo;
+    }
+
+    li img {
+        border: none;
+        vertical-align: bottom;
     }
 
     .right-part{
