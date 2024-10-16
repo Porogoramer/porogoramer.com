@@ -1,7 +1,20 @@
 $font-family: 'Inter', 'Courier';
 $text-color-white: white;
+$color-black: black;
+$color-gray: #DCD8D8;
 $header-height: 3.75rem;
 $body-height: calc(100vh - $header-height);
 $link-hover-color: #27A6C3;
 $background-color: #0A2E36;
 $link-click-color: #4DCFED;
+
+//TitleText class
+$titleText-size: 2.5rem;
+$titleText-weight: 900;
+
+//UnderTitle class
+$underTitleText-size: 1.5rem;
+$underTitleText-weight: normal;
+
+//mediumText class
+$mediumTitle-size: 1rem;

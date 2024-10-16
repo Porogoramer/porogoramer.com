@@ -1,6 +1,4 @@
 @import "./common/variables";
-@import "./common/header";
-@import "./common/footer";
 
 
 *{
@@ -10,3 +8,6 @@
     //outline: 1px dotted red;
 }
 
+@import "./common/header";
+@import "./views/project";
+@import "./common/footer";
