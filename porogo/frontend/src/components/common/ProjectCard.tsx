@@ -8,10 +8,10 @@ export default function ProjectCard({ name, desc }: { name: string, desc: string
             <h2>{name}</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero voluptatibus harum velit facilis eligendi. Iusto delectus incidunt quae rem, voluptatum corrupti at autem molestiae, assumenda unde doloribus id totam mollitia.</p>
             <div className='options'>
-                <Link to={`projects/${name}`}>
+                <Link to={`project/${name}`}>
                     <button>Learn more!</button>
                 </Link>
-                <a className='github' href="github.com"><img src="/static/assets/icons/github-logo-black.svg" alt="Github Logo" /></a>
+                <a className='github' href="https://github.com"><img src="/static/assets/icons/github-logo-black.svg" alt="Github Logo" /></a>
             </div>
         </div>
     </article>;
