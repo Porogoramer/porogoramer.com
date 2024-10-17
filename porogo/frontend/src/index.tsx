@@ -13,6 +13,7 @@ import Settings from './components/views/Settings';
 import Footer from './components/common/Footer';
 import Home from './components/views/Home';
 import Header from './components/common/Header';
+import '../static/styles/main.scss';
 
 const appDiv = document.getElementById('app')!;
 const root = createRoot(appDiv);
