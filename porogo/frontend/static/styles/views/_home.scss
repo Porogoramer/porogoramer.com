@@ -2,10 +2,17 @@
 @import '../common/variables';
 
 
+.top-content{
+    height: $body-height;
+}
+
 .top-content, .full-content {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.full-content{
     height: 100%;
 }
 
@@ -65,7 +72,6 @@
     }
 
     h2 {
-        -webkit-text-stroke: 1px;
         font-size: 1.8rem;
         letter-spacing: 1px;
     }
