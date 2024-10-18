@@ -11,7 +11,7 @@ export default function ProjectCard({ name, desc }: { name: string, desc: string
                 <Link to={`project/${name}`}>
                     <button>Learn more!</button>
                 </Link>
-                <a className='github' href="https://github.com"><img src="/static/assets/icons/github-logo-black.svg" alt="Github Logo" /></a>
+                <a className='github' target='__blank' href="https://github.com"><img src="/static/assets/icons/github-logo-black.svg" alt="Github Logo"/></a>
             </div>
         </div>
     </article>;
