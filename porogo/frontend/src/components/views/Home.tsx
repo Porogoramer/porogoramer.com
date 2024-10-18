@@ -14,7 +14,7 @@ export default function Home() {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.
                     </p>
                 </div>
-                <img src="/static/assets/icons/porogoIcon.svg" alt="Porogo Logo" />
+                <img src="/static/assets/icons/porogo-logo.svg" alt="Porogo Logo" />
             </div>
         </section>
         <section className='full-content'>
