@@ -13,6 +13,7 @@ import Settings from './components/views/Settings';
 import Footer from './components/common/Footer';
 import Home from './components/views/Home';
 import Header from './components/common/Header';
+import '../static/styles/main.scss';
 import Project from './components/views/Project';
 
 const appDiv = document.getElementById('app')!;

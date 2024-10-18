@@ -1,13 +1,17 @@
 @import "./common/variables";
+@import "./common/header";
+@import "./common/footer";
+@import "./views/project"
+@import "./views/home";
 
-
-*{
+* {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
     font-family: $font-family;
-    //outline: 1px dotted red;
 }
 
-@import "./common/header";
-@import "./views/project";
-@import "./common/footer";
+html, body, #app, #app > div {
+    height: 100%;
+    width: 100%;
+}
