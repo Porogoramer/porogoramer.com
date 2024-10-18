@@ -1,0 +1,112 @@
+@import '../common/variables';
+
+section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5rem;
+
+    h1{
+        font-size: $titleText-size;
+        font-weight: $titleText-weight;
+    }
+
+    h2{
+        font-size: $underTitleText-size;
+        font-weight: $underTitleText-weight;        
+    }
+
+    .intro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 100px;
+        width: 50%;
+        gap: 40px;
+        position: relative;
+
+        .text{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .video-container{
+            position: relative;
+            max-width: 500px;
+            height: 350px;
+        }
+
+        .sidebar{
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            right: -70px;
+            top: 0;
+            padding: 8px 5px 8px 5px;
+            border-radius: 15px;
+            gap: 10px;
+            background-color: $color-gray;
+        }
+    }
+
+    span{
+        width: 45%;
+        height: 2px;
+        background-color: $color-black;
+    }
+
+    .lang-section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 50%;
+        gap: 2.5rem;
+    }
+
+    .languages{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+
+        .language{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $color-gray;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        img{
+            width: 60px;
+            height: 85px;
+            max-width: 60px;
+            max-height: 85px;
+        }
+    }
+
+    .about{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 50%;
+        gap: 40px;
+        text-align: justify;
+        padding-bottom: 100px;
+
+        
+        p{
+            font-size: $mediumTitle-size;
+            line-height: 2rem;
+        }
+    }
+}
