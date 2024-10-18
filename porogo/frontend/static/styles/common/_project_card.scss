@@ -1,0 +1,87 @@
+.project-card-info {
+    h2 {
+        font-weight: 900;
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+
+    height: 100%;
+    max-width: 70%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        line-clamp: 3;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: justify;
+        line-height: 2.5;
+    }
+
+    img {
+        height: 100%;
+    }
+}
+
+.project-card {
+    height: 47%;
+    width: 54vw;
+    padding: 1rem 0;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-color: $teal;
+    box-shadow: 0.5rem 0.5rem $blue-purple;
+
+    & > img {
+        height: fit-content;
+        width: 25%;
+
+        border: 0.2rem solid $sandy-brown;
+        border-radius: 1rem;
+    }
+
+    button {
+        height: 100%;
+        width: 100%;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 0.5rem;
+        border: none;
+        background-color: $sandy-brown;
+    }
+
+    button:hover {
+        text-shadow: 0.05rem 0.05rem $teal;
+        box-shadow: 0.2rem 0.2rem $dark-blue;
+    }
+
+    .options {
+        height: 20%;
+
+        display: flex;
+        align-items: center;
+        gap: 2em;
+    }
+
+    a {
+        width: 50%;
+        height: 100%;
+
+        text-decoration: none;
+    }
+
+    .github {
+        width: auto;
+    }
+}
