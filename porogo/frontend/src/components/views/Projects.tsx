@@ -26,8 +26,13 @@ export default function Projects() {
                 </Swiper>
             </section>
         </section>
-        <section className='full-content'>
-
+        <section className='bottom-content'>
+            <div id='filter'>
+                <h2>Filter</h2>
+            </div>
+            <div id='projects'>
+                <h1>PROJECTS</h1>
+            </div>           
         </section>
     </>;
 }

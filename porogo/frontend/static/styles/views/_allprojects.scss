@@ -6,3 +6,18 @@
         width: 100%;
     }
 }
+
+.bottom-content {
+    height: $body-height;
+    display: flex;
+}
+
+#filter {
+    width: 20%;
+    background-color: lightgray;
+}
+
+#projects {
+    width: 80%;
+    background-color: lightblue;
+}
