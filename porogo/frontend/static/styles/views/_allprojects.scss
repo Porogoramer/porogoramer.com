@@ -27,6 +27,13 @@
 #filter {
     width: 20%;
     background-color: lightgray;
+
+    h2 {
+        text-align: center;
+    }
+
+    display: flex;
+    flex-direction: column;
 }
 
 #projects {
