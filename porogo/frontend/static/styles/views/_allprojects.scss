@@ -5,6 +5,18 @@
         height: 100%;
         width: 100%;
     }
+
+    .project-card button, .project-card img {
+        height: 50%;
+    }
+
+    .project-card-info h2 {
+        text-align: center;
+    }
+
+    .project-card-info .options {
+        justify-content: center;
+    }
 }
 
 .bottom-content {
