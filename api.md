@@ -92,7 +92,7 @@ All endpoints will start at /api so this part will be omitted from the following
 [Back to Top](#table-of-contents)
 
 Returns a list of all projects. In a similar format to the following:
-```json
+```js
 [
 	{
 		id: 1,
@@ -142,7 +142,7 @@ max=4
 
 Returns all info about a specific project.
 
-```json
+```js
 {
     id: 1,
     name: "porobot",
@@ -171,7 +171,7 @@ Returns all info about a specific project.
 
 Returns list of all developers
 
-```json
+```js
 [
 	{
 		id: 5,
@@ -204,7 +204,7 @@ max=4
 
 Returns information about a specific developer.
 
-```json
+```js
 {
     id: 5,
     first_name: "Rida",
