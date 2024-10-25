@@ -173,13 +173,13 @@ Returns list of all developers
 
 ```js
 [
-	{
-		id: 5,
+    {
+        id: 5,
         first_name: "Rida",
         last_name: "C",
         github_name: "Reeda",
         picture: byte[],
-	}
+    }
 ]
 ```
 
