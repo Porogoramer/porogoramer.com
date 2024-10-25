@@ -71,13 +71,16 @@ Implementation pending
 ### Developer
 [Back to Top](#table-of-contents)
 
-Developer is a model storing information about developers on the website. It has first_name, last_name and github_name. Full names must be unique and github_name must be unique.
+Developer is a model storing information about developers on the website. It has first_name, last_name and github_name. Full names must be unique and github_name must be unique. Devs can have a linkedin url. Devs can have another url of a certain type. The type is used by the frontend to show an icon.
 
 ```py
 id: Implicitely created by django PK
 first_name = models.CharField(max_length=20)
 last_name = models.CharField(max_length=20)
 github_name = models.CharField(max_length=20, unique=True)
+linkedin_url = models.URLField(max_length=200, null=True)
+other_url = models.URLField(max_length=200, null=True)
+other_url_type = models.CharField(max_length=20, null=True)
 picture = models.ForeignKey(Image, on_delete=models.CASCADE)
 UniqueConstraint(fields=["first_name", "last_name"], name="unique_full_name")
 ```
