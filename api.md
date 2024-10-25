@@ -43,6 +43,7 @@ end_year = models.DateField(null=True)
 PROJECT STATUSES = {
 	"U": "Upcoming",
 	"O": "Ongoing",
+    "H": "On Hold",
 	"C": "Completed",
 }
 ```
