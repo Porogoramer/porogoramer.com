@@ -8,7 +8,7 @@
     - [Endpoints](#endpoints)
         - [/projects](#get-projects)
         - [/project/id](#get-projectintid)
-        - [/developers](#get-developpers)
+        - [/developers](#get-developers)
         - [/developer/id](#get-developerintid)
 
 # API
