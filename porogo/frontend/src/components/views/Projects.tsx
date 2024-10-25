@@ -1,4 +1,5 @@
 import React from 'react';
+import Collapsible from 'react-collapsible';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import { Navigation, Pagination, A11y, Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
@@ -28,19 +29,20 @@ export default function Projects() {
         </section>
         <section className='bottom-content'>
             <div id='filter'>
-                <h2>Filter</h2>
-                <label htmlFor="name">Name: </label>
-                <select name="name">
-                    <option value={"example"}>Example</option>
-                </select>
-                <label htmlFor="language">Language: </label>
-                <select name="language">
-                    <option value={"example"}>Example</option>
-                </select>
-                <label htmlFor="other">Other: </label>
-                <select name="other">
-                    <option value={"example"}>Example</option>
-                </select>
+                <Collapsible trigger={"Filter"}>
+                    <label htmlFor="name">Name: </label>
+                    <select name="name">
+                        <option value={"example"}>Example</option>
+                    </select>
+                    <label htmlFor="language">Language: </label>
+                    <select name="language">
+                        <option value={"example"}>Example</option>
+                    </select>
+                    <label htmlFor="other">Other: </label>
+                    <select name="other">
+                        <option value={"example"}>Example</option>
+                    </select>
+                </Collapsible>
             </div>
             <div id='projects'>
                 <h1>PROJECTS</h1>
