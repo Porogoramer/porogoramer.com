@@ -17,22 +17,25 @@ export default function Project() {
                         </div>   
                     </div>           
                 </div>
-                <span/>
+                <span className='bar'/>
                 <div className='lang-section'>
                     <h1>Languages</h1>
                     <div className='languages'>
                         <div className='language'>
                             <img src='/static/assets/icons/javascript-icon.svg'></img>
+                            <span className='lang-name'>JavaScript</span>
                         </div>
                         <div className='language'>
                             <img src='/static/assets/icons/html-icon.svg'></img>
+                            <span className='lang-name'>HTML</span>
                         </div>
                         <div className='language'>
                             <img src='/static/assets/icons/mysql-icon.svg'></img>
+                            <span className='lang-name'>MYSQL</span>
                         </div>
                     </div>
                 </div>
-                <span/>
+                <span className='bar'/>
                 <div className='about'>
                     <h1>About the project</h1>
                     <p>

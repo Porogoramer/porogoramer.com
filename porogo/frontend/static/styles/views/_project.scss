@@ -55,7 +55,7 @@ section{
         }
     }
 
-    span{
+    .bar{
         width: 45%;
         height: 2px;
         background-color: $color-black;
@@ -78,8 +78,10 @@ section{
 
         .language{
             display: flex;
+            position: relative;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             background-color: $color-gray;
             border-radius: 10px;
             padding: 10px;
@@ -91,6 +93,27 @@ section{
             max-width: 60px;
             max-height: 85px;
         }
+    }
+
+    .lang-name {
+        position: absolute;
+        top: -20%;
+        left: 50%;
+        visibility: hidden;
+        width: 100px;
+        background-color: #2C2C2C;
+        color: white;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+
+    .language:hover .lang-name {
+        visibility: visible; /* Show tooltip on hover */
+        opacity: 1; /* Fade in */
     }
 
     .about{
