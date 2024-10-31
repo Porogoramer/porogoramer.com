@@ -27,3 +27,4 @@ class Project(models.Model):
     project_status = models.CharField(max_length=1, choices=PROJECT_STATUSES)
     start_year = models.DateField()
     end_year = models.DateField(null=True)
+
