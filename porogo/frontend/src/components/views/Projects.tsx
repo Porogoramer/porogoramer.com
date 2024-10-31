@@ -4,7 +4,7 @@ import {Swiper, SwiperSlide} from 'swiper/react';
 import { Navigation, Pagination, A11y, Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/bundle';
-import ProjectCard from '../common/ProjectCard';
+import ProjectShowcase from '../common/ProjectShowcase';
 
 
 export default function Projects() {
@@ -22,25 +22,25 @@ export default function Projects() {
                     }}
                     pagination = {true}
                     effect='fade'>
-                    <SwiperSlide className='card'><ProjectCard name='Important Dog' desc='A discord bot that exists I guess' /></SwiperSlide>
-                    <SwiperSlide className='card'><ProjectCard name='Portfolio Site' desc='A site to showcase some projects' /></SwiperSlide>
+                    <SwiperSlide className='card'><ProjectShowcase name='Important Dog' desc='A discord bot that exists I guess' date='2004-2255' backgroundImage='placeholder'/></SwiperSlide>
+                    <SwiperSlide className='card'><ProjectShowcase name='Portfolio Site' desc='A site to showcase some projects' date='2999-0999' backgroundImage='placeholder'/></SwiperSlide>
                 </Swiper>
             </section>
         </section>
         <section className='bottom-content'>
             <div id='filter'>
-                <Collapsible trigger={"Filter"}>
+                <Collapsible trigger={'Filter'}>
                     <label htmlFor="name">Name: </label>
                     <select name="name">
-                        <option value={"example"}>Example</option>
+                        <option value={'example'}>Example</option>
                     </select>
                     <label htmlFor="language">Language: </label>
                     <select name="language">
-                        <option value={"example"}>Example</option>
+                        <option value={'example'}>Example</option>
                     </select>
                     <label htmlFor="other">Other: </label>
                     <select name="other">
-                        <option value={"example"}>Example</option>
+                        <option value={'example'}>Example</option>
                     </select>
                 </Collapsible>
             </div>
