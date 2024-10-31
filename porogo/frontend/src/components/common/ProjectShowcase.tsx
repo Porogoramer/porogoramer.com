@@ -1,5 +1,5 @@
 import React from 'react';
-function ProjectShowcase( { name, desc, date, backgroundImage}) {
+function ProjectShowcase( { name, desc, date, backgroundImage}: { name: string, desc: string, date: string, backgroundImage: string }) {
     return (
         <div
             style={{backgroundImage: `url(${backgroundImage})`}} 
