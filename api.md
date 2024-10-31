@@ -80,6 +80,7 @@ Developer is a model storing information about developers on the website. It has
 id: Implicitely created by django PK
 first_name = models.CharField(max_length=20)
 last_name = models.CharField(max_length=20)
+email = models.EmailField()
 short_description = models.TextField(max_length=512)
 description_experience = models.TextField(max_length=1024)
 description_personal = models.TextField(max_length=1024)
@@ -242,6 +243,7 @@ Returns information about a specific developer.
     id: 5,
     first_name: "Rida",
     last_name: "C",
+    email: "abc@def.com",
     github_name: "Reeda",
     short_description: "I do stuff",
     description_experience: "I like C",
