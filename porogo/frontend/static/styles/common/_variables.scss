@@ -5,6 +5,8 @@ $body-height: calc(100vh - $header-height);
 // Colors
 $text-color-white:white;
 $background-color:#0A2E36;
+$color-black: black;
+$color-gray: #DCD8D8;
 $dark-blue: #001F3F;
 $off-black: #2C2C2C;
 $sandy-brown: #FCAB64;
@@ -14,3 +16,15 @@ $cloudy-blue: #E0FBFC;
 $blue-gray: #405A60;
 $link-hover-color: #27A6C3;
 $link-click-color: #4DCFED;
+
+
+//TitleText class
+$titleText-size: 2.5rem;
+$titleText-weight: 900;
+
+//UnderTitle class
+$underTitleText-size: 1.5rem;
+$underTitleText-weight: normal;
+
+//mediumText class
+$mediumTitle-size: 1rem;
