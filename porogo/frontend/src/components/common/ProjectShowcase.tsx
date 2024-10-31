@@ -1,7 +1,9 @@
 import React from 'react';
 function ProjectShowcase( { name, desc, date, backgroundImage}) {
     return (
-        <div className='project-showcase'>
+        <div
+            style={{backgroundImage: `url(${backgroundImage})`}} 
+            className='project-showcase'>
             <div className="project-info">
                 <h1 className="project-title">{name}</h1>
                 <p className="project-date">{date}</p>

@@ -22,8 +22,8 @@ export default function Projects() {
                     }}
                     pagination = {true}
                     effect='fade'>
-                    <SwiperSlide className='card'><ProjectShowcase name='Important Dog' desc='A discord bot that exists I guess' date='2004-2255' backgroundImage='placeholder'/></SwiperSlide>
-                    <SwiperSlide className='card'><ProjectShowcase name='Portfolio Site' desc='A site to showcase some projects' date='2999-0999' backgroundImage='placeholder'/></SwiperSlide>
+                    <SwiperSlide className='card'><ProjectShowcase name='Important Dog' desc='A discord bot that exists I guess' date='2004-2255' backgroundImage='/static/assets/images/placeholder1.jpg'/></SwiperSlide>
+                    <SwiperSlide className='card'><ProjectShowcase name='Portfolio Site' desc='A site to showcase some projects' date='2999-0999' backgroundImage='/static/assets/images/placeholder2.jpg'/></SwiperSlide>
                 </Swiper>
             </section>
         </section>
