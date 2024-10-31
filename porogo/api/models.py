@@ -1,6 +1,12 @@
 from django.db import models
 
 # Create your models here.
+class URL(models.Model):
+    url = models.URLField(max_length=200)
+
+class Image(models.Model):
+    img = models.FileField()
+
 class Project(models.Model):
     PROJECT_STATUSES = {
         "O": "Ongoing",
@@ -21,3 +27,4 @@ class Project(models.Model):
     project_status = models.CharField(max_length=1, choices=PROJECT_STATUSES)
     start_year = models.DateField()
     end_year = models.DateField(null=True)
+
