@@ -1,0 +1,38 @@
+@import '../common/variables';
+
+#top-content{
+  display: flex;
+  justify-content: space-evenly;
+  height: $body-height;
+  align-items: center;
+}
+
+.about {
+  display: flex;
+  flex:1;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#github{
+  height:30px;
+  width: 30px;
+}
+
+#linkedin{
+  height:30px;
+  width: 30px;
+}
+
+#email{
+  height:30px;
+  width: 30px;
+}
+
+#icons-div{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
