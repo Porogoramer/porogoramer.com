@@ -8,12 +8,17 @@
 }
 
 .about {
+  padding-left: 15vh;
   display: flex;
   flex:1;
   height: 100%;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.icons{
+  margin-right: 17px;
 }
 
 #github{
@@ -22,17 +27,21 @@
 }
 
 #linkedin{
-  height:30px;
-  width: 30px;
+  height:31px;
+  width: 31px;
 }
 
 #email{
-  height:30px;
-  width: 30px;
+  height:31px;
+  width: 39px;
 }
 
 #icons-div{
-  display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: space-evenly;
+  padding-bottom: 30px;
+}
+
+#dev-name{
+  padding-bottom: 6px;
 }

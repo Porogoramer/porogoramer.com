@@ -1,22 +1,21 @@
 import React from 'react';
 import '../../../static/styles/views/_about-dev.scss';
-import { Link } from 'react-router-dom';
 
 export default function AboutDev() {
     return <>
         <div id='top-content'>
             <div className='about'>
-                <h1>Noah Gelinas</h1>
+                <h1 id="dev-name">Noah Gelinas</h1>
                 <div id="icons-div">
                     <a href="">
-                        <img id="github" src="/static/assets/icons/github-logo-black.svg" alt="Github Logo" />
+                        <img className="icons" id="github" src="/static/assets/icons/github-logo-black.svg" alt="Github Logo" />
                     </a>
                     <a href="">
-                        <img id="linkedin" src="/static/assets/icons/linkedin.svg" alt="LinkedIn Logo" />
+                        <img className="icons" id="linkedin" src="/static/assets/icons/linkedin.svg" alt="LinkedIn Logo" />
                         
                     </a>
                     <a href="">
-                        <img id="email" src="/static/assets/icons/email.svg" alt="Email Logo" />
+                        <img className="icons" id="email" src="/static/assets/icons/email.svg" alt="Email Logo" />
                     </a>
                 </div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
