@@ -21,7 +21,7 @@ export default function AboutDev() {
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
             </div> 
             <div className='about'>
-                <h1>Image</h1>
+                <img src="/static/assets/images/placeholder-dev.webp"  alt="Profile Picture" />
             </div>
         </div> 
         <div id='full-content'>
