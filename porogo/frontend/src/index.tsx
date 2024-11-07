@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom';
 import About from './components/views/About';
+import AboutDev from './components/views/AboutDev';
 import Contact from './components/views/Contact';
 import Dashboard from './components/views/Dashboard';
 import Projects from './components/views/Projects';
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             {
                 path: 'about',
                 element: <About />,
+            },
+            {
+                path: 'about-dev',
+                element: <AboutDev />,
             },
             {
                 path: 'projects',
