@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "build/dist",
-    "module": "ES6",
+    "module": "ES2022",
     "strict": true,
     "target": "es6",
     "lib": ["es6", "dom"],

@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "test": "jest --ci --reporters=default --reporters=jest-junit --coverage",
     "dev": "webpack --mode development --watch",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "analyze": "webpack --mode production --profile --json > ./static/frontend/stats.json && webpack-bundle-analyzer ./static/frontend/stats.json"
   },
   "keywords": [],
   "author": "",
@@ -45,6 +46,7 @@
     "ts-loader": "^9.5.1",
     "typescript": "^5.6.2",
     "webpack": "^5.95.0",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4"
   },
   "dependencies": {

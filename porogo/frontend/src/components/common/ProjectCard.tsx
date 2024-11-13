@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../../static/styles/common/_project_card.scss';
 
 export default function ProjectCard({ name, desc }: { name: string, desc: string, }) {
     return <article className='project-card'>
