@@ -1,4 +1,5 @@
-import React from 'react'; 
+import React from 'react';
+import '../../../static/styles/views/_project.scss';
 
 export default function Project() {
     return (
