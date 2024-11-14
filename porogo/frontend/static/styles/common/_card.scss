@@ -1,0 +1,49 @@
+.card {
+  display: flex;
+  background-color: #e0f7fa;
+  border-radius: 8px;
+  align-items: center;
+  width: 300px;
+
+  .image-section img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid orange;
+  }
+
+  .content-section h2 {
+    font-size: 1.2em;
+    margin: 0;
+  }
+
+  .content-section p {
+  color: #555;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+}
+
+.tag {
+  background-color: #555;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.icons {
+  display: flex;
+  gap: 8px;
+}
+
+.icons a {
+  color: #000;
+  font-size: 1.5em;
+}
+
+}
+
+
+
