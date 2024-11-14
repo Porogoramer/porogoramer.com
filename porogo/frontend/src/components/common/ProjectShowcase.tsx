@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../../static/styles/common/_project_showcase.scss';
+
 function ProjectShowcase( { name, desc, date, backgroundImage}: { name: string, desc: string, date: string, backgroundImage: string }) {
     return (
         <div

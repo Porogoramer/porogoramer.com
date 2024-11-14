@@ -4,6 +4,8 @@ import { Navigation, Pagination, A11y, Autoplay, EffectFade } from 'swiper/modul
 import 'swiper/css';
 import 'swiper/css/bundle';
 import ProjectShowcase from '../common/ProjectShowcase';
+import '../../../static/styles/views/_allprojects.scss';
+
 
 
 export default function Projects() {
