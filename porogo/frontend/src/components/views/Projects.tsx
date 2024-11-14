@@ -4,6 +4,7 @@ import { Navigation, Pagination, A11y, Autoplay, EffectFade } from 'swiper/modul
 import 'swiper/css';
 import 'swiper/css/bundle';
 import ProjectShowcase from '../common/ProjectShowcase';
+import Card from '../common/Card';
 import '../../../static/styles/views/_allprojects.scss';
 
 
@@ -45,6 +46,7 @@ export default function Projects() {
             </div>
             <div id='projects'>
                 <h1>PROJECTS</h1>
+                <Card/>
             </div>           
         </section>
     </>;
