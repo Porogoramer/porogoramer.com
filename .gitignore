@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,django,react,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,django,react,node
 
+stats.json
+
 ### Django ###
 *.log
 *.pot
@@ -305,6 +307,7 @@ dist
 .webpack/
 main.js*
 main.css
+**/static/frontend/*
 
 # Optional stylelint cache
 
