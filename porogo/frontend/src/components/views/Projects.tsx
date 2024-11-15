@@ -54,6 +54,11 @@ export default function Projects() {
                     <Card languages={languages2}/>
                     <Card languages={languages2}/>
                     <Card languages={languages2}/>
+                    <Card languages={languages2}/>
+                    <Card languages={languages2}/>
+                    <Card languages={languages2}/>
+                    <Card languages={languages2}/>
+                    <Card languages={languages2}/>
                 </div>
             </div>           
         </section>

@@ -22,11 +22,17 @@
 .bottom-content {
     min-height: 100vh;
     display: flex;
+    background-color: $color-gray;
 }
 
 #filter {
     width: 20%;
+    height: 20%;
     background-color: lightgray;
+    position: sticky;
+    top: 0;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     h2 {
         text-align: center;
@@ -38,7 +44,7 @@
 
 #projects {
     width: 80%;
-    background-color: lightblue;
+    background-color: $color-gray;
     text-align: center;
     
     h1 {
