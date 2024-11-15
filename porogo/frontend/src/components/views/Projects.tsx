@@ -12,6 +12,7 @@ import '../../../static/styles/views/_allprojects.scss';
 export default function Projects() {
     const languages = ["JS", "JAVA", "PYTHON", "C++", "C#", "HTML", "CSS", "Kotlin"];
     const languages2 = ["JS", "JAVA", "PYTHON"];
+    const names = ["Rida", "Axel", "Noah", "Spryte", "Soup"]
     return <>
         <section className='test'>
             <section className='top-content'>
@@ -49,16 +50,19 @@ export default function Projects() {
             <div id='projects'>
                 <h1>PROJECTS</h1>
                 <div className='allCards'>
-                    <Card languages={languages}/>
-                    <Card languages={languages2}/>
-                    <Card languages={languages2}/>
-                    <Card languages={languages2}/>
-                    <Card languages={languages2}/>
-                    <Card languages={languages2}/>
-                    <Card languages={languages2}/>
-                    <Card languages={languages2}/>
-                    <Card languages={languages2}/>
-                    <Card languages={languages2}/>
+                    <Card languages={languages} authors={names}/>
+                    <Card languages={languages} authors={names}/>
+                    <Card languages={languages} authors={names}/>
+                    <Card languages={languages} authors={names}/>
+                    <Card languages={languages} authors={names}/>
+                    <Card languages={languages} authors={names}/>
+                    <Card languages={languages} authors={names}/>
+                    <Card languages={languages} authors={names}/>
+                    <Card languages={languages} authors={names}/>
+                    <Card languages={languages} authors={names}/>
+                    <Card languages={languages} authors={names}/>
+                    <Card languages={languages} authors={names}/>
+
                 </div>
             </div>           
         </section>

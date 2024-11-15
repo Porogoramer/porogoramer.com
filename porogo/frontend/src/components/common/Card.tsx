@@ -2,7 +2,7 @@ import '../../../static/styles/common/_card.scss';
 import React from 'react';
 
 // { src, alt, name, date, authors, tags, github }
-function Card( { languages } : {languages: string[]}) {
+function Card( { languages, authors } : {languages: string[], authors: string[]}) {
     const displayedLanguages = languages.slice(0, 6);
     const hasMoreLanguages = languages.length > 6;
     return <>
@@ -13,7 +13,13 @@ function Card( { languages } : {languages: string[]}) {
             <div className='content-section'>
                 <h2>Porogo</h2>
                 <p>2020-2024</p>
-                <p>By: Listnames</p>
+                <div className='authors'>
+                    {authors.map((author) => (
+                            <span className='tag'>
+                                {author}
+                            </span>
+                        ))}
+                </div>
                 <div className='tags'>
                     {displayedLanguages.map((language) => (
                         <span className='tag'>
