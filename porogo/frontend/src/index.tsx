@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom';
 const About = lazy(() => import('./components/views/About'));
@@ -10,9 +10,9 @@ const Console = lazy(() => import('./components/views/Console'));
 const Logs = lazy(() => import('./components/views/Logs'));
 const Players = lazy(() => import('./components/views/Players'));
 const Settings = lazy(() => import('./components/views/Settings'));
-const Footer = lazy(() => import('./components/common/Footer'));
 const Home = lazy(() => import('./components/views/Home'));
-const Header = lazy(() => import('./components/common/Header'));
+import Footer from './components/common/Footer';
+import Header from './components/common/Header';
 const Project = lazy(() => import('./components/views/Project'));
 import '../static/styles/main.scss';
 
@@ -37,7 +37,9 @@ const router = createBrowserRouter([
         children: [
             {
                 path:'',
-                element: <Home/>,
+                element: <Suspense>
+                    <Home/>
+                </Suspense>,
             },
             {
                 path: 'home',
@@ -45,39 +47,57 @@ const router = createBrowserRouter([
             },
             {
                 path: 'about',
-                element: <About />,
+                element: <Suspense>
+                    <About />
+                </Suspense>,
             },
             {
                 path: 'projects',
-                element: <Projects />,
+                element: <Suspense>
+                    <Projects />
+                </Suspense>,
             },
             {
                 path: 'project',
-                element: <Project />
+                element: <Suspense>
+                    <Project />
+                </Suspense>,
             },
             {
                 path: 'contact',
-                element: <Contact />,
+                element: <Suspense>
+                    <Contact />
+                </Suspense>,
             },
             {
                 path: 'dashboard',
-                element: <Dashboard/>,
+                element: <Suspense>
+                    <Dashboard/>
+                </Suspense>,
                 children: [
                     {
                         path: 'console',
-                        element: <Console />
+                        element: <Suspense>
+                            <Console />
+                        </Suspense>,
                     },
                     {
                         path: 'logs',
-                        element: <Logs />
+                        element: <Suspense>
+                            <Logs />
+                        </Suspense>,
                     },
                     {
                         path: 'players',
-                        element: <Players />
+                        element: <Suspense>
+                            <Players />
+                        </Suspense>,
                     },
                     {
                         path: 'settings',
-                        element: <Settings />
+                        element: <Suspense>
+                            <Settings />
+                        </Suspense>
                     },            
                 ]
             },

@@ -3,7 +3,7 @@ $button-height:2.5rem;
 $button-width:5.625rem;
 $border-radius:1.25rem;
 
-@import "./variables";
+@use "./variables" as *;
 
 header{
     height: $header-height;
