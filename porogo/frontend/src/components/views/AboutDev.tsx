@@ -5,7 +5,7 @@ export default function AboutDev() {
     return <>
         <div id='top-content'>
             <div className='about-content'>
-                <h1 id="dev-name">Noah Gelinas</h1>
+                <h1 className="dev-header">Noah Gelinas</h1>
                 <div id="icons-div">
                     <a href="">
                         <img className="icons" id="github" src="/static/assets/icons/github-logo-black.svg" alt="Github Logo" />
@@ -26,10 +26,16 @@ export default function AboutDev() {
         </div> 
         <div id='full-content'>
             <div className='about-content'>
-                <h1>About Me</h1> 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
-                <h1>More About Me</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
+                <div>
+                    <h1 className="dev-header">About Me</h1> 
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
+                </div>
+                <div id="bottom-about-me">
+                    <h1 className="dev-header">More About Me</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
+                </div>
+                
+                
             </div>
             <div className='about-side'>
                 <img src="/static/assets/images/placeholder-dev.webp"  alt="Profile Picture" />

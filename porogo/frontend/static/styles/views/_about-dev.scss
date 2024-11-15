@@ -25,6 +25,10 @@
   align-items: flex-start;
 }
 
+#bottom-about-me{
+  padding-top: 10%;
+}
+
 .about-side{
   display: flex;
   flex:1;
@@ -59,6 +63,6 @@
   padding-bottom: 30px;
 }
 
-#dev-name{
-  padding-bottom: 6px;
+.dev-header{
+  padding-bottom: 2%;
 }
