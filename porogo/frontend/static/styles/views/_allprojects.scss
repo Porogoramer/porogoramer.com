@@ -20,7 +20,7 @@
 }
 
 .bottom-content {
-    height: $body-height;
+    min-height: 100vh;
     display: flex;
 }
 
@@ -39,4 +39,16 @@
 #projects {
     width: 80%;
     background-color: lightblue;
+    text-align: center;
+    
+    h1 {
+        padding: 8px;
+    }
+
+    .allCards {
+        display: flex;
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
