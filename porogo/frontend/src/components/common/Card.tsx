@@ -2,7 +2,7 @@ import '../../../static/styles/common/_card.scss';
 import React from 'react';
 
 // { src, alt, name, date, authors, tags, github }
-function Card() {
+function Card( { languages } : {languages: string[]}) {
     return <>
         <div className='card'>
             <div className='image-section'>
@@ -13,8 +13,11 @@ function Card() {
                 <p>2020-2024</p>
                 <p>By: Listnames</p>
                 <div className='tags'>
-                    <span className='tag'>JS</span>
-                    <span className='tag'>Python</span>
+                    {languages.map((language) => (
+                        <span className='tag'>
+                            {language}
+                        </span>
+                    ))}
                 </div>
                 <div className='icons'>
                     <a className='github' target='__blank' href="https://github.com"><img src="/static/assets/icons/github-logo-black.svg" alt="Github Logo"/></a>
