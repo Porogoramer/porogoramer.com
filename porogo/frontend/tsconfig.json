@@ -24,7 +24,7 @@
     "acceptance-tests",
     "webpack",
     "jest.config.cjs",
-    "**/main.js",
+    "static/frontend/*",
     "eslint.config.mjs",
     "src/setupTests.ts",
     "coverage/",
