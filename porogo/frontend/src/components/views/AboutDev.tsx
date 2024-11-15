@@ -4,7 +4,7 @@ import '../../../static/styles/views/_about-dev.scss';
 export default function AboutDev() {
     return <>
         <div id='top-content'>
-            <div className='about'>
+            <div className='about-content'>
                 <h1 id="dev-name">Noah Gelinas</h1>
                 <div id="icons-div">
                     <a href="">
@@ -20,15 +20,20 @@ export default function AboutDev() {
                 </div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
             </div> 
-            <div className='about'>
+            <div className='about-side'>
                 <img src="/static/assets/images/placeholder-dev.webp"  alt="Profile Picture" />
             </div>
         </div> 
         <div id='full-content'>
-            <h1>About Me</h1> 
-            <p>parkour</p>
-            <h1>More About Me</h1>
-            <p>me</p>
+            <div className='about-content'>
+                <h1>About Me</h1> 
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
+                <h1>More About Me</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
+            </div>
+            <div className='about-side'>
+                <img src="/static/assets/images/placeholder-dev.webp"  alt="Profile Picture" />
+            </div>
         </div> 
     </>;
 }
