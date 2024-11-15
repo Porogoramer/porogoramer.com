@@ -1,4 +1,4 @@
-@import '../common/variables';
+@use '../common/variables' as *;
 
 .test {
     .carousel, .card, .project-card  {
@@ -42,6 +42,8 @@
     text-align: center;
     
     h1 {
+        font-size: $underTitleText-size;
+        font-weight: $underTitleText-weight;
         padding: 8px;
     }
 
