@@ -25,7 +25,10 @@ export default function AboutDev() {
             </div>
         </div> 
         <div id='full-content'>
-            <h1>About Dev</h1>  
+            <h1>About Me</h1> 
+            <p>parkour</p>
+            <h1>More About Me</h1>
+            <p>me</p>
         </div> 
     </>;
 }
