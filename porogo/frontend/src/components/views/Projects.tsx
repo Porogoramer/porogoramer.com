@@ -11,6 +11,7 @@ import '../../../static/styles/views/_allprojects.scss';
 
 export default function Projects() {
     const languages = ["JS", "JAVA", "PYTHON", "C++", "C#", "HTML", "CSS", "Kotlin"];
+    const languages2 = ["JS", "JAVA", "PYTHON"];
     return <>
         <section className='test'>
             <section className='top-content'>
@@ -47,7 +48,10 @@ export default function Projects() {
             </div>
             <div id='projects'>
                 <h1>PROJECTS</h1>
-                <Card languages={languages}/>
+                <div className='allCards'>
+                    <Card languages={languages}/>
+                    <Card languages={languages2}/>
+                </div>
             </div>           
         </section>
     </>;
