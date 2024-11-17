@@ -15,7 +15,7 @@ function Card( { languages, authors } : {languages: string[], authors: string[]}
                 <p>2020-2024</p>
                 <div className='authors'>
                     {authors.map((author, index) => (
-                        <span className='tag' key={`author-${index}`}>
+                        <span className='author' key={`author-${index}`}>
                             {author}
                         </span>
                     ))}

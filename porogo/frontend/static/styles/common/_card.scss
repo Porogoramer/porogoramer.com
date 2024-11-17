@@ -61,6 +61,24 @@
     }
   }
 
+  .authors {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 12px;
+
+    .author {
+      background-color: #eb4e1e;
+      color: #fff;
+      border-radius: 20px; 
+      font-size: 0.85em;
+      padding: 6px 12px;
+      white-space: nowrap;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  }
+
   .icons {
     display: flex;
     justify-content: center;

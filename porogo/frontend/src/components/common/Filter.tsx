@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import { useMultipleSelection, useSelect } from 'downshift';
 import '../../../static/styles/common/_filter.scss';
 
