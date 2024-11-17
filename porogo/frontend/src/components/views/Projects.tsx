@@ -5,14 +5,15 @@ import 'swiper/css';
 import 'swiper/css/bundle';
 import ProjectShowcase from '../common/ProjectShowcase';
 import Card from '../common/Card';
+import Filter from '../common/Filter';
 import '../../../static/styles/views/_allprojects.scss';
 
 
 
 export default function Projects() {
-    const languages = ["JS", "JAVA", "PYTHON", "C++", "C#", "HTML", "CSS", "Kotlin"];
-    const languages2 = ["JS", "JAVA", "PYTHON"];
-    const names = ["Rida", "Axel", "Noah", "Spryte", "Soup"]
+    const languages = ['JS', 'JAVA', 'PYTHON', 'C++', 'C#', 'HTML', 'CSS', 'Kotlin'];
+    const languages2 = ['JS', 'JAVA', 'PYTHON'];
+    const names = ['Rida', 'Axel', 'Noah', 'Spryte', 'Soup'];
     return <>
         <section className='test'>
             <section className='top-content'>
@@ -34,18 +35,8 @@ export default function Projects() {
         </section>
         <section className='bottom-content'>
             <div id='filter'>
-                <label htmlFor="name">Name: </label>
-                <select name="name">
-                    <option value={'example'}>Example</option>
-                </select>
-                <label htmlFor="language">Language: </label>
-                <select name="language">
-                    <option value={'example'}>Example</option>
-                </select>
-                <label htmlFor="other">Other: </label>
-                <select name="other">
-                    <option value={'example'}>Example</option>
-                </select>
+                <Filter elements={names} label="Authors" />
+                <Filter elements={languages} label="Languages" />
             </div>
             <div id='projects'>
                 <h1>PROJECTS</h1>
