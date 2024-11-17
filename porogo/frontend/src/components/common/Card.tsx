@@ -14,15 +14,15 @@ function Card( { languages, authors } : {languages: string[], authors: string[]}
                 <h2>Porogo</h2>
                 <p>2020-2024</p>
                 <div className='authors'>
-                    {authors.map((author) => (
-                            <span className='tag'>
-                                {author}
-                            </span>
-                        ))}
+                    {authors.map((author, index) => (
+                        <span className='tag' key={`author-${index}`}>
+                            {author}
+                        </span>
+                    ))}
                 </div>
                 <div className='tags'>
-                    {displayedLanguages.map((language) => (
-                        <span className='tag'>
+                    {displayedLanguages.map((language, index) => (
+                        <span className='tag' key={`language-${index}`}>
                             {language}
                         </span>
                     ))}
