@@ -89,7 +89,10 @@ DATABASES = {
         'HOST': f'{os.getenv('PORTFOLIO_DB_HOST')}',
         'PORT': f'{os.getenv('PORTFOLIO_DB_PORT')}',
         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'ssl': {
+                'ca': './porogo/porogo/cert.pem'
+            }
         }
     }
 }
