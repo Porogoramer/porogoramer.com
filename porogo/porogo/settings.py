@@ -91,7 +91,7 @@ DATABASES = {
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             'ssl': {
-                'ca': './porogo/porogo/cert.pem'
+                'ca': './porogo/cert.pem'
             }
         }
     }

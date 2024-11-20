@@ -13,15 +13,20 @@ class Language(models.Model):
 class Developer(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
+    email = models.EmailField()
     short_description = models.TextField(max_length=512)
-    description_intro = models.TextField(max_length=512)
-    description_body = models.TextField(max_length=1024)
+    description_experience = models.TextField(max_length=1024)
+    description_personal = models.TextField(max_length=1024)
     github_name = models.CharField(max_length=20, unique=True)
     linkedin_url = models.URLField(max_length=200, null=True)
     other_url = models.URLField(max_length=200, null=True)
     other_url_type = models.CharField(max_length=20, null=True)
     picture = models.ForeignKey(Image, on_delete=models.CASCADE)
+    featured_project = models.ForeignKey("Project", on_delete=models.CASCADE)
     models.UniqueConstraint(fields=["first_name", "last_name"], name="unique_full_name")
+
+class Tag(models.Model):
+    tag = models.CharField(max_length=16, unique=True)
 
 class Project(models.Model):
     PROJECT_STATUSES = {
@@ -31,7 +36,7 @@ class Project(models.Model):
         "H": "On Hold",
     }
 
-    name = models.CharField(max_length=32, unique=True)
+    name = models.CharField(max_length=31, unique=True)
     short_description = models.TextField(max_length=255)
     description_intro = models.TextField(max_length=512)
     description_body = models.TextField(max_length=1024)
@@ -39,8 +44,8 @@ class Project(models.Model):
     github_link = models.ForeignKey(URL, on_delete=models.CASCADE)
     youtube_url = models.URLField(max_length=200, null=True)
     languages = models.ManyToManyField(Language)
+    tags = models.ManyToManyField(Tag)
     contributors = models.ManyToManyField(Developer)
     project_status = models.CharField(max_length=1, choices=PROJECT_STATUSES)
     start_year = models.DateField()
     end_year = models.DateField(null=True)
-
