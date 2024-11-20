@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../../static/styles/views/_about-dev.scss';
+import ProjectCard from '../common/ProjectCard';
 
 export default function AboutDev() {
     return <>
@@ -33,12 +34,10 @@ export default function AboutDev() {
                 <div id="bottom-about-me">
                     <h1 className="dev-header">More About Me</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
-                </div>
-                
-                
+                </div> 
             </div>
             <div className='about-side'>
-                <img src="/static/assets/images/placeholder-dev.webp"  alt="Profile Picture" />
+                <ProjectCard name="Important Dog" desc="Dog"/>
             </div>
         </div> 
     </>;
