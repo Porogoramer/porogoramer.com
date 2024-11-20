@@ -88,7 +88,7 @@ DATABASES = {
         'PASSWORD': f'{os.getenv('PORTFOLIO_DB_PASSWD')}',  
         'HOST': f'{os.getenv('PORTFOLIO_DB_HOST')}',
         'PORT': f'{os.getenv('PORTFOLIO_DB_PORT')}',
-        'OPTIONS': {  
+        'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
         }
     }
