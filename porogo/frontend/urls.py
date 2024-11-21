@@ -1,3 +1,4 @@
+'''Register the urls for the frontend'''
 from django.urls import path, re_path
 from .views import index
 

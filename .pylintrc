@@ -72,8 +72,6 @@ fail-under=10.0
 fail-on=
 
 
-
-
 [MESSAGES CONTROL]
 
 # Only show warnings with the listed confidence levels. Leave empty to show
@@ -100,7 +98,6 @@ enable=
 
 disable=
     attribute-defined-outside-init,
-    missing-docstring,
     protected-access,
     too-few-public-methods,
     # handled by black

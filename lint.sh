@@ -11,4 +11,8 @@ cd porogo
 
 export PYTHONPATH="$(pwd)"
 
+touch __init__.py
+
 pylint .
+
+rm __init__.py

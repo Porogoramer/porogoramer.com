@@ -40,5 +40,6 @@ jobs:
           python -m venv .venv
           . .venv/bin/activate
           pip install -r requirements.txt
-          ./lint.sh
           djlint . --lint
+          chmod +x lint.sh
+          ./lint.sh

@@ -1,9 +1,11 @@
+'''Unit tests'''
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase
 from .models import Developer, Image
 
 # Create your tests here.
 class DeveloperTest(TestCase):
+    '''Test for Developer Model'''
     def setUp(self):
         Image.objects.create(
             img=SimpleUploadedFile(
@@ -26,3 +28,4 @@ class DeveloperTest(TestCase):
             other_url_type="gitlab",
             picture=Image.objects.get(desc="A picture of a cat"),
         )
+        

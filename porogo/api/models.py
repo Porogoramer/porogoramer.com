@@ -1,3 +1,4 @@
+'''Define modules used by the backend'''
 from django.db import models
 
 class URL(models.Model):
@@ -10,6 +11,9 @@ class URL(models.Model):
     url = models.URLField(max_length=200)
 
 def get_dest_path(_, filename):
+    """
+    Get path for a given file based on its filename
+    """
     filename = filename.replace(" ", "")
     index_of_dash = filename.find('-')
 
@@ -28,9 +32,32 @@ class Image(models.Model):
     desc = models.CharField(max_length=32)
 
 class Language(models.Model):
+    """
+    Stores Languages for many to many relationships
+    
+    Attributes:
+        name (string): language name to store
+    """
     name = models.CharField(max_length=16, unique=True)
 
 class Developer(models.Model):
+    """
+    Stores Developers on the site
+
+    Attributes:
+        first_name (str): First name of dev
+        last_name (str): Last name of dev
+        email (str): Email of dev
+        short_description (str): Description of the dev
+        description_experience (str): Description of the dev's experience
+        description_personal (str): Description of the dev's personal interests
+        github_name (str): Github username of dev
+        linkedin_url (str): Linkedin url for the dev
+        other_url (str): Url to another site
+        other_url_type (str): Type of the other url
+        picture (File): Profile picture of the dev
+        featured_project (Project): Project that the user wants to display
+    """
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     email = models.EmailField()
@@ -46,9 +73,33 @@ class Developer(models.Model):
     models.UniqueConstraint(fields=["first_name", "last_name"], name="unique_full_name")
 
 class Tag(models.Model):
+    """
+    Stores Tags for many to many relationships
+
+    Attributes:
+        tag (str): name of the tag
+    """
     tag = models.CharField(max_length=16, unique=True)
 
 class Project(models.Model):
+    """
+    Stores Projects on the site
+
+    Attributes:
+        name (str): Name of the project
+        short_description (str): Short description of the project
+        description_intro (str): Introduction of the project
+        description_body (str): Description body of the project
+        icon (File): Icon of the project
+        github_link (str): github url for the repo
+        youtube_url (str): Youtube Url for showcase video
+        languages (Language[]): List of languages used in the project
+        tags (Tag[]): List of Tags for the project
+        contributors (Developer[]): List of contributors to the project
+        project_status (str): Current status of the project
+        start_year (int): Year the project was started
+        end_year (int): Year the project ended
+    """
     PROJECT_STATUSES = {
         "O": "Ongoing",
         "U": "Upcoming",
