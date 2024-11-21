@@ -2,6 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../../static/styles/common/_project_card.scss';
 
+/**
+ * A card to display short information about a project.
+ * @param props React props
+ * @param props.name Name of the project
+ * @param props.desc Short description of project
+ * @returns An article with information about a project with a link to the project page
+ */
 export default function ProjectCard({ name, desc }: { name: string, desc: string, }) {
     return <article className='project-card'>
         <img src="/static/assets/icons/porogo-logo.svg" alt="placeholder" />
