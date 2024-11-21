@@ -40,6 +40,5 @@ jobs:
           python -m venv .venv
           . .venv/bin/activate
           pip install -r requirements.txt
-          cd porogo
-          pylint .
+          ./lint.sh
           djlint . --lint
