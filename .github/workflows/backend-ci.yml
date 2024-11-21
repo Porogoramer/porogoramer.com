@@ -1,14 +1,14 @@
 name: Backend Test and Lint
 on:
-  push:
-    branches:
-      - 'backend/**'
+  pull_request:
+    types: [synchronize, opened]
 permissions:
   contents: read
   actions: read
   checks: write
 jobs:
   run-django-tests:
+    if: ${{ startsWith(github.head_ref, 'backend/') || (github.base_ref == 'main') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,7 +26,7 @@ jobs:
           python manage.py test
       
   run-py-lint:
-    if: ${{ startsWith(github.ref, 'refs/heads/backend') }}
+    if: ${{ startsWith(github.head_ref, 'frontend/') || (github.base_ref == 'main') }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
