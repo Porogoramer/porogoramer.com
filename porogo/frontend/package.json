@@ -9,7 +9,8 @@
     "test": "jest --ci --reporters=default --reporters=jest-junit --coverage",
     "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
-    "analyze": "webpack --mode production --profile --json > ./static/frontend/stats.json && webpack-bundle-analyzer ./static/frontend/stats.json"
+    "analyze": "webpack --mode production --profile --json > ./static/frontend/stats.json && webpack-bundle-analyzer ./static/frontend/stats.json",
+    "pre-analysis": "webpack --mode production --profile --json > ./static/frontend/stats.json"
   },
   "keywords": [],
   "author": "",
