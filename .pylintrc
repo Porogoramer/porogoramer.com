@@ -13,7 +13,7 @@ ignore=CVS
 
 # Add files or directories matching the regex patterns to the ignore-list. The
 # regex matches against paths and can be in Posix or Windows format.
-ignore-paths=
+ignore-paths=.*migrations.*
 
 # Files or directories matching the regex patterns are skipped. The regex
 # matches against base names, not paths.
@@ -36,6 +36,7 @@ load-plugins=
     pylint.extensions.redefined_variable_type,
     pylint.extensions.comparison_placement,
     pylint.extensions.mccabe,
+    pylint_django
 
 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
 # number of processors available to use.
@@ -69,6 +70,8 @@ fail-under=10.0
 # even if score is above --fail-under value. Syntax same as enable. Messages
 # specified are enabled, while categories only check already-enabled messages.
 fail-on=
+
+
 
 
 [MESSAGES CONTROL]
@@ -243,11 +246,11 @@ good-names=i,j,k,ex,Run,_
 good-names-rgxs=
 
 # Bad variable names which should always be refused, separated by a comma
-bad-names=foo,bar,baz,toto,tutu,tata
+bad-names=foo,bar,baz,toto,tutu,tata,balls
 
 # Bad variable names regexes, separated by a comma. If names match any regex,
 # they will always be refused
-bad-names-rgxs=balls
+bad-names-rgxs=
 
 # Colon-delimited sets of names that determine each other's naming style when
 # the name regexes allow several styles.
@@ -517,7 +520,7 @@ preferred-modules=
 
 # Exceptions that will emit a warning when being caught. Defaults to
 # "Exception"
-overgeneral-exceptions=Exception
+overgeneral-exceptions=builtins.Exception
 
 
 [TYPING]

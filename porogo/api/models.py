@@ -1,11 +1,31 @@
 from django.db import models
 
-# Create your models here.
 class URL(models.Model):
+    """
+    Stores URLs for many to many relationships
+    
+    Attributes:
+        url (string): URL to store
+    """
     url = models.URLField(max_length=200)
 
+def get_dest_path(_, filename):
+    filename = filename.replace(" ", "")
+    index_of_dash = filename.find('-')
+
+    if index_of_dash == -1:
+        return f'media/other/{filename}' 
+    return f'media/{filename[None:index_of_dash]}/{filename}'
+
 class Image(models.Model):
-    img = models.FileField()
+    """
+    Stores URLs for many to many relationships
+    
+    Attributes:
+        url (string): URL to store
+    """
+    img = models.FileField(upload_to=get_dest_path)
+    desc = models.CharField(max_length=32)
 
 class Language(models.Model):
     name = models.CharField(max_length=16, unique=True)
@@ -22,7 +42,7 @@ class Developer(models.Model):
     other_url = models.URLField(max_length=200, null=True)
     other_url_type = models.CharField(max_length=20, null=True)
     picture = models.ForeignKey(Image, on_delete=models.CASCADE)
-    featured_project = models.ForeignKey("Project", on_delete=models.CASCADE)
+    featured_project = models.ForeignKey("Project", null=True, on_delete=models.CASCADE)
     models.UniqueConstraint(fields=["first_name", "last_name"], name="unique_full_name")
 
 class Tag(models.Model):
