@@ -21,6 +21,7 @@ jobs:
         run: | 
           python -m venv .venv
           . .venv/bin/activate
+          pip install -r requirements.txt
           cd porogo
           python manage.py test
       
@@ -38,6 +39,7 @@ jobs:
         run: | 
           python -m venv .venv
           . .venv/bin/activate
+          pip install -r requirements.txt
           cd porogo
           pylint .
           djlint . --lint
