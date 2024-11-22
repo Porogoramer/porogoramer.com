@@ -1,5 +1,24 @@
 '''Define modules used by the backend'''
+from datetime import date
 from django.db import models
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
+
+def project_date_validator(value):
+    """
+    Checks if a project year is between 2020 and the
+    current year.
+
+    Params:
+        value (int): Year to check
+    """
+    if value < 2020 or value > date.now().year:
+        raise ValidationError(
+            _("%(value)s must be between 2020 and the current year"),
+            params={"value": value},
+        )
+
+
 
 class URL(models.Model):
     """
@@ -23,13 +42,16 @@ def get_dest_path(_, filename):
 
 class Image(models.Model):
     """
-    Stores URLs for many to many relationships
+    Stores Images for many to many relationships
     
     Attributes:
-        url (string): URL to store
+        img (File): Image file
+        desc (str): alt text for the img
+        hover (str): hover text to display for the img
     """
     img = models.FileField(upload_to=get_dest_path)
-    desc = models.CharField(max_length=32)
+    desc = models.CharField(max_length=64)
+    hover = models.CharField(max_length=64, null=True)
 
 class Language(models.Model):
     """
@@ -91,7 +113,7 @@ class Project(models.Model):
         description_intro (str): Introduction of the project
         description_body (str): Description body of the project
         icon (File): Icon of the project
-        github_link (str): github url for the repo
+        github_link (URL[]): github url for the repo
         youtube_url (str): Youtube Url for showcase video
         languages (Language[]): List of languages used in the project
         tags (Tag[]): List of Tags for the project
@@ -100,23 +122,23 @@ class Project(models.Model):
         start_year (int): Year the project was started
         end_year (int): Year the project ended
     """
-    PROJECT_STATUSES = {
-        "O": "Ongoing",
-        "U": "Upcoming",
-        "C": "Completed",
-        "H": "On Hold",
-    }
+    PROJECT_STATUSES = (
+        ("O", "Ongoing"),
+        ("U", "Upcoming"),
+        ("C", "Completed"),
+        ("H", "On Hold"),
+    )
 
     name = models.CharField(max_length=31, unique=True)
     short_description = models.TextField(max_length=255)
     description_intro = models.TextField(max_length=512)
     description_body = models.TextField(max_length=1024)
     icon = models.ForeignKey(Image, on_delete=models.CASCADE)
-    github_link = models.ForeignKey(URL, on_delete=models.CASCADE)
+    github_link = models.ManyToManyField(URL)
     youtube_url = models.URLField(max_length=200, null=True)
     languages = models.ManyToManyField(Language)
     tags = models.ManyToManyField(Tag)
     contributors = models.ManyToManyField(Developer)
     project_status = models.CharField(max_length=1, choices=PROJECT_STATUSES)
-    start_year = models.DateField()
-    end_year = models.DateField(null=True)
+    start_year = models.IntegerField(validators=[project_date_validator])
+    end_year = models.IntegerField(validators=[project_date_validator], null=True)
