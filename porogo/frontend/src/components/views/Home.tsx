@@ -1,5 +1,6 @@
 import React from 'react';
 import ProjectCard from '../common/ProjectCard';
+import '../../../static/styles/views/_home.scss';
 
 export default function Home() {
     return <>

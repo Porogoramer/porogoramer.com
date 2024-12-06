@@ -1,25 +1,30 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, Navigate, Outlet, RouterProvider } from 'react-router-dom';
-import About from './components/views/About';
-import AboutDev from './components/views/AboutDev';
-import Contact from './components/views/Contact';
-import Dashboard from './components/views/Dashboard';
-import Projects from './components/views/Projects';
-import ErrorPage from './components/views/ErrorPage';
-import Console from './components/views/Console';
-import Logs from './components/views/Logs';
-import Players from './components/views/Players';
-import Settings from './components/views/Settings';
+const About = lazy(() => import('./components/views/About'));
+const Contact = lazy(() => import('./components/views/Contact'));
+const Dashboard = lazy(() => import('./components/views/Dashboard'));
+const Projects = lazy(() => import('./components/views/Projects'));
+const ErrorPage = lazy(() => import('./components/views/ErrorPage'));
+const Console = lazy(() => import('./components/views/Console'));
+const Logs = lazy(() => import('./components/views/Logs'));
+const Players = lazy(() => import('./components/views/Players'));
+const Settings = lazy(() => import('./components/views/Settings'));
+const Home = lazy(() => import('./components/views/Home'));
+const AboutDev = lazy (()=> import('./components/views/AboutDev'))
 import Footer from './components/common/Footer';
-import Home from './components/views/Home';
 import Header from './components/common/Header';
+const Project = lazy(() => import('./components/views/Project'));
 import '../static/styles/main.scss';
-import Project from './components/views/Project';
 
 const appDiv = document.getElementById('app')!;
 const root = createRoot(appDiv);
 
+/**
+ * Component with Header, Footer that displays
+ * another component within itself
+ * @returns A div containing Header, Footer and an outlet for another component
+ */
 function Main() {
     return(
         <div>
@@ -38,7 +43,9 @@ const router = createBrowserRouter([
         children: [
             {
                 path:'',
-                element: <Home/>,
+                element: <Suspense>
+                    <Home/>
+                </Suspense>,
             },
             {
                 path: 'home',
@@ -46,7 +53,9 @@ const router = createBrowserRouter([
             },
             {
                 path: 'about',
-                element: <About />,
+                element: <Suspense>
+                    <About />
+                </Suspense>,
             },
             {
                 path: 'about-dev',
@@ -54,35 +63,51 @@ const router = createBrowserRouter([
             },
             {
                 path: 'projects',
-                element: <Projects />,
+                element: <Suspense>
+                    <Projects />
+                </Suspense>,
             },
             {
                 path: 'project',
-                element: <Project />
+                element: <Suspense>
+                    <Project />
+                </Suspense>,
             },
             {
                 path: 'contact',
-                element: <Contact />,
+                element: <Suspense>
+                    <Contact />
+                </Suspense>,
             },
             {
                 path: 'dashboard',
-                element: <Dashboard/>,
+                element: <Suspense>
+                    <Dashboard/>
+                </Suspense>,
                 children: [
                     {
                         path: 'console',
-                        element: <Console />
+                        element: <Suspense>
+                            <Console />
+                        </Suspense>,
                     },
                     {
                         path: 'logs',
-                        element: <Logs />
+                        element: <Suspense>
+                            <Logs />
+                        </Suspense>,
                     },
                     {
                         path: 'players',
-                        element: <Players />
+                        element: <Suspense>
+                            <Players />
+                        </Suspense>,
                     },
                     {
                         path: 'settings',
-                        element: <Settings />
+                        element: <Suspense>
+                            <Settings />
+                        </Suspense>
                     },            
                 ]
             },
