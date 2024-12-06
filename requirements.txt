@@ -14,9 +14,13 @@ isort==5.13.2
 jsbeautifier==1.15.1
 json5==0.9.25
 mccabe==0.7.0
+mysqlclient==2.2.5
 pathspec==0.12.1
 platformdirs==4.3.3
 pylint==3.2.7
+pylint-django==2.6.1
+pylint-plugin-utils==0.8.2
+python-dotenv==1.0.1
 PyYAML==6.0.2
 regex==2024.9.11
 six==1.16.0
