@@ -10,11 +10,7 @@
     "dev": "webpack --mode development --watch",
     "build": "webpack --mode production",
     "analyze": "webpack --mode production --profile --json > ./static/frontend/stats.json && webpack-bundle-analyzer ./static/frontend/stats.json",
-<<<<<<< HEAD
-    "pre-analysis": "webpack --mode production --profile --json > ./static/frontend/stats.json"
-=======
     "bundlesize": "bundlesize"
->>>>>>> 2ffb019 (Feat: Add bundlesize CI job)
   },
   "keywords": [],
   "author": "",
