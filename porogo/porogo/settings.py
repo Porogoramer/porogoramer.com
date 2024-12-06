@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7s*3u35x=6gq3z%q8+#k1@a$g(90w=_1_32q*l8p41)f(fmghq'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = not bool(os.getenv("PORTFOLIO_PRODUCTION"))
 
 ALLOWED_HOSTS = []
 
@@ -78,8 +82,18 @@ WSGI_APPLICATION = 'porogo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': f'{os.getenv('PORTFOLIO_DB_NAME')}',  
+        'USER': f'{os.getenv('PORTFOLIO_DB_USER')}',  
+        'PASSWORD': f'{os.getenv('PORTFOLIO_DB_PASSWD')}',  
+        'HOST': f'{os.getenv('PORTFOLIO_DB_HOST')}',
+        'PORT': f'{os.getenv('PORTFOLIO_DB_PORT')}',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'ssl': {
+                'ca': './porogo/cert.pem'
+            }
+        }
     }
 }
 
