@@ -19,6 +19,11 @@ import '../static/styles/main.scss';
 const appDiv = document.getElementById('app')!;
 const root = createRoot(appDiv);
 
+/**
+ * Component with Header, Footer that displays
+ * another component within itself
+ * @returns A div containing Header, Footer and an outlet for another component
+ */
 function Main() {
     return(
         <div>
