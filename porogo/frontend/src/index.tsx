@@ -11,7 +11,7 @@ const Logs = lazy(() => import('./components/views/Logs'));
 const Players = lazy(() => import('./components/views/Players'));
 const Settings = lazy(() => import('./components/views/Settings'));
 const Home = lazy(() => import('./components/views/Home'));
-const AboutDev = lazy (()=> import('./components/views/AboutDev'))
+const AboutDev = lazy (()=> import('./components/views/AboutDev'));
 import Footer from './components/common/Footer';
 import Header from './components/common/Header';
 const Project = lazy(() => import('./components/views/Project'));
@@ -59,7 +59,9 @@ const router = createBrowserRouter([
             },
             {
                 path: 'about-dev',
-                element: <AboutDev />,
+                element: <Suspense>
+                    <AboutDev />
+                </Suspense>,
             },
             {
                 path: 'projects',

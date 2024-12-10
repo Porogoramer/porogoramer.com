@@ -2,6 +2,10 @@ import React from 'react';
 import '../../../static/styles/views/_about-dev.scss';
 import ProjectCard from '../common/ProjectCard';
 
+/**
+ * page about a specific developer
+ * @returns Info about a specific developer
+ */
 export default function AboutDev() {
     return <>
         <div id='top-content'>
