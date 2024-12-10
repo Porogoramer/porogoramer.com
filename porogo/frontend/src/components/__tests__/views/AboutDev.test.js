@@ -47,5 +47,11 @@ describe('Rendering AboutDev', () => {
 		})
 	})
 
-
+	it('Renders pfp', ()=>{
+		render(<BrowserRouter>
+			<AboutDev />
+		</BrowserRouter>)
+		const pfp = screen.getByRole('img', {name: /Profile Picture/i});
+		expect(pfp).toBeInTheDocument();
+	})
 });
