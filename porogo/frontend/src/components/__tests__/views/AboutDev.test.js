@@ -36,4 +36,16 @@ describe('Rendering AboutDev', () => {
 		expect(LinkedInLink).toBeInTheDocument(); 
 		expect(EmailLink).toBeInTheDocument(); 
 	})
+
+	it('Renders paragraphs', () => {
+		render(<BrowserRouter>
+			<AboutDev />
+		</BrowserRouter>)
+		const Paragraphs = screen.getAllByText('Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.');
+		Paragraphs.forEach((p)=>{
+			expect(p).toBeInTheDocument();
+		})
+	})
+
+
 });
