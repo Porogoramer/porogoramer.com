@@ -5,7 +5,7 @@ import ProjectCard from '../common/ProjectCard';
 export default function AboutDev() {
     return <>
         <div id='top-content'>
-            <div className='about-content'>
+            <section className='about-content'>
                 <h1 className="dev-header">Noah Gelinas</h1>
                 <div id="icons-div">
                     <a href="">
@@ -20,12 +20,12 @@ export default function AboutDev() {
                     </a>
                 </div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
-            </div> 
-            <div className='about-side'>
+            </section> 
+            <aside className='about-side'>
                 <img src="/static/assets/images/placeholder-dev.webp"  alt="Profile Picture" />
-            </div>
+            </aside>
         </div> 
-        <div id='full-content'>
+        <section id='full-content'>
             <div className='about-content'>
                 <div>
                     <h1 className="dev-header">About Me</h1> 
@@ -36,9 +36,9 @@ export default function AboutDev() {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
                 </div> 
             </div>
-            <div className='about-side'>
+            <aside className='about-side'>
                 <ProjectCard name="Important Dog" desc="Dog"/>
-            </div>
-        </div> 
+            </aside>
+        </section> 
     </>;
 }

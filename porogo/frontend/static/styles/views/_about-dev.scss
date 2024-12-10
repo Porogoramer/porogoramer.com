@@ -5,19 +5,31 @@
   justify-content: space-evenly;
   height: $body-height;
   align-items: center;
+  padding: 3em 1em 3em 5em;
+}
+
+.about-content p {
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.about-side .project-card{
+  width: 34vw;
 }
 
 #full-content{
   display: flex;
+  padding: 3em 1em 3em 5em;
   justify-content: space-evenly;
   align-items: center;
   background-color: $color-gray;
 }
 
 .about-content {
-  padding: 5vh 15vh 5vh 25vh;
+  width: 100%;
   display: flex;
   flex:1;
+  padding-right: 2em;
   height: 100%;
   flex-direction: column;
   justify-content: center;
@@ -32,10 +44,9 @@
   display: flex;
   flex:1;
   height: 100%;
-  padding-right: 3%;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .icons{
