@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'porogo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  
-        'NAME': f'{os.getenv('PORTFOLIO_DB_NAME')}',  
-        'USER': f'{os.getenv('PORTFOLIO_DB_USER')}',  
-        'PASSWORD': f'{os.getenv('PORTFOLIO_DB_PASSWD')}',  
-        'HOST': f'{os.getenv('PORTFOLIO_DB_HOST')}',
-        'PORT': f'{os.getenv('PORTFOLIO_DB_PORT')}',
+        'NAME': f'{os.getenv("PORTFOLIO_DB_NAME")}',  
+        'USER': f'{os.getenv("PORTFOLIO_DB_USER")}',  
+        'PASSWORD': f'{os.getenv("PORTFOLIO_DB_PASSWD")}',  
+        'HOST': f'{os.getenv("PORTFOLIO_DB_HOST")}',
+        'PORT': f'{os.getenv("PORTFOLIO_DB_PORT")}',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             'ssl': {
