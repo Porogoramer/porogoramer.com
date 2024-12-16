@@ -16,6 +16,7 @@ json5==0.9.25
 mccabe==0.7.0
 mysqlclient==2.2.5
 pathspec==0.12.1
+pillow==11.0.0
 platformdirs==4.3.3
 pylint==3.2.7
 pylint-django==2.6.1
