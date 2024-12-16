@@ -22,4 +22,4 @@ class DeveloperSerializer(serializers.ModelSerializer):
 
     def get_featured_project(self, obj):
         print(obj)
-        return obj.featured_project.name if obj.featured_project else None
+        return obj.featured_project.name.lower() if obj.featured_project else None
