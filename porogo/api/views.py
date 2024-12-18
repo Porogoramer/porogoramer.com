@@ -30,7 +30,7 @@ class DeveloperView(RetrieveAPIView):
     """
     View to get specific developer on site
     """
-    lookup_field = 'first_name'
+    lookup_field = 'first_name__iexact'
     lookup_url_kwarg = 'name'
     serializer_class = DeveloperSerializer
     queryset = Developer.objects.all()
