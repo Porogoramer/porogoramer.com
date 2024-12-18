@@ -3,6 +3,7 @@
 
 cert.pem
 stats.json
+**/test_data
 
 ### Django ###
 *.log

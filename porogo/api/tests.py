@@ -11,7 +11,7 @@ TEST_DATA = 'test_data'
 @override_settings(MEDIA_ROOT=(TEST_DATA + '/media'))
 class DeveloperEndpointTest(TestCase):
     client = APIRequestFactory()
-    expected = [
+    expected_developers = [
         {
             "id":1,
             "first_name":"Axel",
@@ -41,6 +41,68 @@ class DeveloperEndpointTest(TestCase):
             "first_name":"Noah",
             "last_name":"Gelinas",
             "github_name":"noahgelinas",
+            "picture":{
+                "id":1,
+                "img":"http://testserver/media/other/cat.png",
+                "desc":"A picture of a cat",
+                "hover":"Cat!"
+            }
+        }
+    ]
+    expected_developer = [
+        {
+            "id":1,
+            "featured_project":None,
+            "first_name":"Axel",
+            "last_name":"Brochu",
+            "email":"axel@porogoramer.com",
+            "short_description":"I am a porogoramer",
+            "description_experience":"I studied at Dawson",
+            "description_personal":"I love cats",
+            "github_name":"Brochua",
+            "linkedin_url":"linkedin.com/brochua",
+            "other_url":"gitlab.com/brochua1",
+            "other_url_type":"gitlab",
+            "picture":{
+                "id":1,
+                "img":"http://testserver/media/other/cat.png",
+                "desc":"A picture of a cat",
+                "hover":"Cat!"
+            }
+        },
+        {
+            "id":2,
+            "featured_project":"dnd app backend",
+            "first_name":"Yaneric",
+            "last_name":"Roussy",
+            "email":"yaneric@porogoramer.com",
+            "short_description":"I am also porogoramer",
+            "description_experience":"I studied at Edouard",
+            "description_personal":"I love asp.NET core",
+            "github_name":"yan2arb4",
+            "linkedin_url":"linkedin.com/yan",
+            "other_url":"gitkraken.com/yanou",
+            "other_url_type":"gitkraken",
+            "picture":{
+                "id":2,
+                "img":"http://testserver/media/other/dog.png",
+                "desc":"A picture of a dog",
+                "hover":"Important dog!"
+            }
+        },
+        {
+            "id":3,
+            "featured_project":None,
+            "first_name":"Noah",
+            "last_name":"Gelinas",
+            "email":"noahg@porogoramer.com",
+            "short_description":"I am also also porogoramer",
+            "description_experience":"I studied at Dawson",
+            "description_personal":"I love React core",
+            "github_name":"noahgelinas",
+            "linkedin_url":"linkedin.com/noah",
+            "other_url":"gitlab.com/noahg",
+            "other_url_type":"gitlab",
             "picture":{
                 "id":1,
                 "img":"http://testserver/media/other/cat.png",
@@ -204,17 +266,18 @@ class DeveloperEndpointTest(TestCase):
         except OSError:
             pass
 
+    # /api/developers
     def test_get_developers(self):
         response = self.client.get('http://testserver/api/developers', follow=True, format='json')
-
+        
         self.assertEqual(response.status_code, 200, "/api/developers not 200")
-        self.assertListEqual(response.json(), self.expected, 'Unexpected body for /api/developers')
+        self.assertListEqual(response.json(), self.expected_developers, 'Unexpected body for /api/developers')
     
     def test_get_2_developers(self):
         response = self.client.get('http://testserver/api/developers/?max=2', format='json')
 
         self.assertEqual(response.status_code, 200, "/api/developers?max=2 not 200")
-        self.assertListEqual(response.json(), self.expected[:2], 'Unexpected body for /api/developers?max=2')
+        self.assertListEqual(response.json(), self.expected_developers[:2], 'Unexpected body for /api/developers?max=2')
 
     def test_get_max_developers_with_string_fails(self):
         response = self.client.get('http://testserver/api/developers/?max=abc', format='json')
@@ -222,8 +285,22 @@ class DeveloperEndpointTest(TestCase):
         self.assertEqual(response.status_code, 400, "/api/developers?max=abc not 400")
         self.assertEqual(response.json(), {'detail': 'Expected integer>0 as value for query param max, got abc'}, 'Unexpected body for /api/developers?max=abc')
 
-    def test_get_max_developers_with_string_fails(self):
+    def test_get_max_developers_with_0(self):
         response = self.client.get('http://testserver/api/developers/?max=0', format='json')
 
         self.assertEqual(response.status_code, 400, "/api/developers?max=0 not 400")
         self.assertEqual(response.json(), {'detail': 'Expected integer>0 as value for query param max, got 0'}, 'Unexpected body for /api/developers?max=0')
+
+
+    # /api/developer
+    def test_get_developer_axel(self):
+        response = self.client.get('http://testserver/api/developer/axel', follow=True, format='json')
+
+        self.assertEqual(response.status_code, 200, "/api/developer not 200")
+        self.assertEqual(response.json(), self.expected_developer[0], 'Unexpected body for /api/developer')
+
+    def test_get_developer_not_found(self):
+        response = self.client.get('http://testserver/api/developer/john', follow=True, format='json')
+
+        self.assertEqual(response.status_code, 404, "/api/developer not 404")
+        self.assertEqual(response.json(), {'detail': 'No Developer matches the given query.'}, 'Unexpected body for /api/developer')
