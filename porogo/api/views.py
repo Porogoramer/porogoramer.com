@@ -1,5 +1,6 @@
+"""Views defining API endpoints"""
 from rest_framework.generics import ListAPIView, RetrieveAPIView
-from .exceptions import BadRequestException
+from .exceptions import APIRequestException
 from .models import Developer
 from .serializers import DeveloperSerializer, DevelopersSerializer
 
@@ -13,17 +14,17 @@ class DevelopersView(ListAPIView):
         query_set = Developer.objects.all()
 
         try:
-            max = self.request.query_params.get('max') or 10
-            max = int(max)
-            if max <= 0:
+            max_param = self.request.query_params.get('max') or 10
+            max_param = int(max_param)
+            if max_param <= 0:
                 raise ValueError("Max can't be <= 0")
-        except ValueError:
-            raise BadRequestException(
+        except ValueError as e:
+            raise APIRequestException(
                 status_code=400,
-                message=f"Expected integer>0 as value for query param max, got {max}",
+                message=f"Expected integer>0 as value for query param max, got {max_param}",
                 error='bad_request'
-            )
-        return query_set[:max]
+            ) from e
+        return query_set[:max_param]
     
 class DeveloperView(RetrieveAPIView):
     """

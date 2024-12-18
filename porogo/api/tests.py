@@ -1,15 +1,16 @@
-'''Unit tests'''
-from django.core.files.uploadedfile import SimpleUploadedFile
+"""Unit tests"""
+import shutil
 from rest_framework.test import APIRequestFactory
+from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase, override_settings
 from django.db.models import Q
 from .models import Developer, Image, Project, URL, Tag, Language
-import shutil
 
 TEST_DATA = 'test_data'
 
 @override_settings(MEDIA_ROOT=(TEST_DATA + '/media'))
 class DeveloperEndpointTest(TestCase):
+    """Tests for the /developer and /developers endpoints"""
     client = APIRequestFactory()
     expected_developers = [
         {
@@ -112,10 +113,10 @@ class DeveloperEndpointTest(TestCase):
         }
     ]
 
-    '''Test for Developer Model'''
     @classmethod
     @override_settings(MEDIA_ROOT=(TEST_DATA + '/media'))
-    def setUpClass(self):
+    def setUpClass(cls):
+        """Create database objects to be used in the test in this class"""
         cat = Image.objects.create(
             img=SimpleUploadedFile(
                 name='cat.png',
@@ -259,7 +260,8 @@ class DeveloperEndpointTest(TestCase):
         yaneric.save()
 
     @classmethod
-    def tearDownClass(self):
+    def tearDownClass(cls):
+        """Clean up leftover files from testing done in this class"""
         print("\nCleaning up temporary files...\n")
         try:
             shutil.rmtree(TEST_DATA)
@@ -268,24 +270,28 @@ class DeveloperEndpointTest(TestCase):
 
     # /api/developers
     def test_get_developers(self):
+        """Test that /api/developers returns a 200 and correct json"""
         response = self.client.get('http://testserver/api/developers', follow=True, format='json')
         
         self.assertEqual(response.status_code, 200, "/api/developers not 200")
         self.assertListEqual(response.json(), self.expected_developers, 'Unexpected body for /api/developers')
     
     def test_get_2_developers(self):
+        """Test that /api/developers returns a 200 and correct json with ?max=2"""
         response = self.client.get('http://testserver/api/developers/?max=2', format='json')
 
         self.assertEqual(response.status_code, 200, "/api/developers?max=2 not 200")
         self.assertListEqual(response.json(), self.expected_developers[:2], 'Unexpected body for /api/developers?max=2')
 
     def test_get_max_developers_with_string_fails(self):
+        """Test that /api/developers returns a 400 and correct json with ?max=abc"""
         response = self.client.get('http://testserver/api/developers/?max=abc', format='json')
 
         self.assertEqual(response.status_code, 400, "/api/developers?max=abc not 400")
         self.assertEqual(response.json(), {'detail': 'Expected integer>0 as value for query param max, got abc'}, 'Unexpected body for /api/developers?max=abc')
 
     def test_get_max_developers_with_0(self):
+        """Test that /api/developers returns a 400 and correct json with ?max=0"""
         response = self.client.get('http://testserver/api/developers/?max=0', format='json')
 
         self.assertEqual(response.status_code, 400, "/api/developers?max=0 not 400")
@@ -294,12 +300,14 @@ class DeveloperEndpointTest(TestCase):
 
     # /api/developer
     def test_get_developer_axel(self):
+        """Test that /api/developer returns a 200 and correct json"""
         response = self.client.get('http://testserver/api/developer/axel', follow=True, format='json')
 
         self.assertEqual(response.status_code, 200, "/api/developer not 200")
         self.assertEqual(response.json(), self.expected_developer[0], 'Unexpected body for /api/developer')
 
     def test_get_developer_not_found(self):
+        """Test that /api/developers returns a 404 and correct json"""
         response = self.client.get('http://testserver/api/developer/john', follow=True, format='json')
 
         self.assertEqual(response.status_code, 404, "/api/developer not 404")
