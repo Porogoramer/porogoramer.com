@@ -8,7 +8,7 @@ import ProjectCard from '../common/ProjectCard';
  */
 export default function AboutDev() {
     return <>
-        <div id='top-content'>
+        <div className='top-content' id='about-dev-top'>
             <section className='about-content'>
                 <h1 className="dev-header">Noah Gelinas</h1>
                 <div id="icons-div">
@@ -29,7 +29,7 @@ export default function AboutDev() {
                 <img src="/static/assets/images/placeholder-dev.webp"  alt="Profile Picture" />
             </aside>
         </div> 
-        <section id='full-content'>
+        <section className='full-content' id='about-dev-full'>
             <div className='about-content'>
                 <div>
                     <h1 className="dev-header">About Me</h1> 

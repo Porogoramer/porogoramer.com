@@ -1,21 +1,5 @@
 @use "../common/variables" as *;
 
-
-.top-content{
-    height: $body-height;
-}
-
-.top-content, .full-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.full-content{
-    height: 100%;
-}
-
-
 #landing {
     height: 100%;
     display: flex;
