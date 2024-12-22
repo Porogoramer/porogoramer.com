@@ -1,5 +1,35 @@
 @use "../common/variables" as *;
 
-.team{
+.intro{
     height: $body-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0;
+
+    .text{
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+        width: 50%;
+    }
+}
+
+.subtitle{
+    font-size: $newsubTitleText-size;
+    font-weight: $newsubTitleText-weight;
+    letter-spacing: $newsubTitleText-spacing;
+}
+
+.title{
+    font-size: $newtitleText-size;
+    font-weight: $newtitleText-weight;
+    letter-spacing: $newtitleText-spacing;
+}
+
+.description{
+    font-size: $descriptionText-size;
+    font-weight: $descriptionText-weight;
+    letter-spacing: $descriptionText-spacing;
 }
