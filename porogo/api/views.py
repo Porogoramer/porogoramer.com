@@ -2,7 +2,7 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from .exceptions import APIRequestException
 from .models import Developer, Project
-from .serializers import DeveloperSerializer, DevelopersSerializer, ProjectsSerializer
+from .serializers import DeveloperSerializer, DevelopersSerializer, ProjectsSerializer, ProjectSerializer
 
 def get_max(view):
     try:
@@ -50,6 +50,7 @@ class ProjectsView(ListAPIView):
     serializer_class = ProjectsSerializer
 
     def get_queryset(self):
+        """Gets a custom queryset based on query parameters provided"""
         query_set = Project.objects.all()
         lang: str = self.request.query_params.get('lang')
         if lang:
@@ -86,3 +87,11 @@ class ProjectsView(ListAPIView):
         max_param = get_max(self)
         return query_set[:max_param]
     
+class ProjectView(RetrieveAPIView):
+    """
+    View to retrieve a specific project on the website by its name
+    """
+    lookup_field = 'name__iexact'
+    lookup_url_kwarg = 'name'
+    serializer_class = ProjectSerializer
+    queryset = Project.objects.all()
