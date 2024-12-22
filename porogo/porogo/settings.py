@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import sys
 import os
 from pathlib import Path
 from dotenv import load_dotenv
@@ -87,7 +88,7 @@ DATABASES = {
         'USER': f'{os.getenv("PORTFOLIO_DB_USER")}',  
         'PASSWORD': f'{os.getenv("PORTFOLIO_DB_PASSWD")}',  
         'HOST': f'{os.getenv("PORTFOLIO_DB_HOST")}',
-        'PORT': f'{os.getenv("PORTFOLIO_DB_PORT")}',
+        'PORT': f'{os.getenv("PORTFOLIO_DB_PORT") or 3306}',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             'ssl': {
@@ -96,6 +97,13 @@ DATABASES = {
         }
     }
 }
+
+# Use in-memory SQLite for testing
+if 'test' in sys.argv:
+    DATABASES['default'] = {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ':memory:'
+    }
 
 
 # Password validation
@@ -133,6 +141,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'porogo', 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
