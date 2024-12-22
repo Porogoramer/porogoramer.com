@@ -221,15 +221,6 @@ Returns list of all developers
 ```
 
 ***Query Params***
-List developers who contributed to a specific project. (default all developers)
-```
-project=2
-```
-
-Whether to include the icon image or not. Allows for faster large queries. (default true)
-```
-icon=false
-```
 
 Specify maximum number of items. (default 10)
 ```
