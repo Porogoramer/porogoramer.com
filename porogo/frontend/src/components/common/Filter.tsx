@@ -2,6 +2,15 @@ import React from 'react';
 import Select from 'react-select';
 import '../../../static/styles/common/_filter.scss';
 
+/**
+ * A multi select filter to filter through items
+ * @param props React props
+ * @param props.elements The elements for the options
+ * @param props.label Label of the Filter
+ * @param props.selectedItems The already selected items
+ * @param props.onChangeHandler Function that gets called when a selection is made 
+ * @returns A filter component that allows the selection of multiple options
+ */
 function Filter({ elements, label, selectedItems, onChangeHandler }: {elements: string[], label : string, selectedItems : string[], onChangeHandler: (updatedItems: string[]) => void;}) {
 
 

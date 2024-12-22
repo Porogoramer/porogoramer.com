@@ -8,6 +8,10 @@ import Card from '../common/Card';
 import Filter from '../common/Filter';
 import '../../../static/styles/views/_allprojects.scss';
 
+/**
+ * The page containing all projects
+ * @returns A page with a cool carousel, cool filters and all projects displayed
+ */
 export default function Projects() {
     const allCards = [
         { id: 1, languages: ['JS'], authors: ['Axel', 'Soup'] },
