@@ -20,8 +20,8 @@ export default function Projects() {
     const languages = ['JS', 'JAVA', 'PYTHON', 'C++', 'C#', 'HTML', 'CSS', 'Kotlin', 'F#'];
     const names = ['Axel', 'Noah', 'Spryte', 'Soup', 'Rida'];
 
-    const [selectedAuthors, setSelectedAuthors] = useState([]);
-    const [selectedLanguages, setSelectedLanguages] = useState([]);
+    const [selectedAuthors, setSelectedAuthors] = useState<string[]>([]);
+    const [selectedLanguages, setSelectedLanguages] = useState<string[]>([]);
 
     const filteredCards = allCards.filter(
         (card) =>

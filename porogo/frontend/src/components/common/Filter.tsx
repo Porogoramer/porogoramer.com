@@ -2,15 +2,19 @@ import React from 'react';
 import Select from 'react-select';
 import '../../../static/styles/common/_filter.scss';
 
-function Filter({ elements, label, selectedItems, onChangeHandler }) {
+function Filter({ elements, label, selectedItems, onChangeHandler }: {elements: string[], label : string, selectedItems : string[], onChangeHandler: (updatedItems: string[]) => void;}) {
+
+
     const options = elements.map((element) => ({
         value: element.toLowerCase(),
         label: element,
     }));
 
-    const handleChange = (selectedOptions) => {
-        const selectedValues = selectedOptions ? selectedOptions.map((option) => option.value) : [];
-        onChangeHandler(selectedValues);
+    const handleChange = (
+        selectedOptions: readonly { value: string; label: string }[]
+    ) => {
+        const selectedValues = selectedOptions.map((option) => option.value);
+        onChangeHandler(selectedValues); 
     };
 
     const selectedOptions = selectedItems.map((item) => ({
@@ -26,9 +30,7 @@ function Filter({ elements, label, selectedItems, onChangeHandler }) {
                 name="filters"
                 options={options}
                 value={selectedOptions}
-                onChange={(e) => {
-                    handleChange(e);
-                }}
+                onChange={handleChange}
                 className="basic-multi-select"
                 classNamePrefix="select"
             />
