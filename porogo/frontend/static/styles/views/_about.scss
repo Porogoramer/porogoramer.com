@@ -4,17 +4,92 @@
     height: $body-height;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: row;
-    gap: 0;
 
     .text{
         display: flex;
         align-items: left;
+        justify-content: center;
         flex-direction: column;
-        width: 50%;
+        width: 35%;
+        margin-left: 8%;
+
+        .btn-projects{
+            margin-top: 15px;
+            width: 50%;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+
+            font-size: $descriptionText-size;
+            font-weight: 400;
+            color: white;
+            background-color: $background-color;
+            letter-spacing: $descriptionText-spacing;
+        }
+    }
+
+    .images{
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        margin-right: 8%;
+    }
+
+    .container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .picture-us{
+        position: relative;
+        width: 75%;
+        z-index: 1;
+    }
+
+    .under-shape{
+        position: absolute;
+        width: 75%;
+        z-index: 0;
+        fill: $bright-light-blue;
+        top: 10%;
+        left: 18%;
+        filter: drop-shadow(10px 10px 10px $bright-light-blue);
+    }
+
+}
+
+.team{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: $light-gray;
+
+    .text{
+        display: flex;
+        align-items: left;
+        justify-content: center;
+        flex-direction: column;
+        width: 35%;
+        margin-left: 8%;
+    }
+
+    .carousel-part{
+        display: flex;
+        width: 45%;
+        align-items: center;
+        justify-self: center;
+        margin-right: 8%;
     }
 }
+
+
 
 .subtitle{
     font-size: $newsubTitleText-size;
@@ -29,7 +104,11 @@
 }
 
 .description{
+    padding-top: 20px;
     font-size: $descriptionText-size;
     font-weight: $descriptionText-weight;
     letter-spacing: $descriptionText-spacing;
+    line-height: $descriptionText-line-height;
+    text-align: justify;
+    text-justify: inter-word;
 }

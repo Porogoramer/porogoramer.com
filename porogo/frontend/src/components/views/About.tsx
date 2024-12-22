@@ -7,6 +7,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
+/**
+ *
+ */
 export default function About() {
     const people = ['Yaneric', 'Axel', 'Rida', 'Emilie', 'Noah'];
     return <>
@@ -20,10 +23,15 @@ export default function About() {
                         channel that enthusiasm into crafting innovative and meaningful projects. At Porogo, we 
                         turn our passions into projects, creating with joy and purpose.
                 </p>
-                <button>Checkout our projects !</button>
+                <button className='btn-projects'>Checkout our projects !</button>
             </div>
             <div className='images'>
-                <img src='/static/assets/images/fake-meeting.png' alt='Image of us'></img>
+                <div className='container'>
+                    <img className='picture-us' src='/static/assets/images/fake-meeting.png' alt='Image of us'></img>
+                    <svg className='under-shape' viewBox="0 0 795 511" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.2315 198.113C14.1356 110.085 81.1916 37.824 168.683 27.3619L387.313 1.21815C394.082 0.408671 400.922 0.370986 407.7 1.10582L621.872 24.3256C697.508 32.5258 759.821 87.3932 777.528 161.383L789.47 211.283C812.854 308.997 751.718 406.938 653.662 428.846L418 481.5L98.4343 509.897C44.2025 514.717 -1.85587 470.655 0.556444 416.263L10.2315 198.113Z"/>
+                    </svg>
+                </div>
             </div>
         </section>
         <section className='team'>
@@ -41,14 +49,14 @@ export default function About() {
             <div className='carousel-part'>
                 <Swiper
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
-                    spaceBetween={50}
+                    spaceBetween={30}
                     slidesPerView={3}
                     loop
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}>        
                     {people.map(person => (
                         <div className='person' key={person}>
-                            <SwiperSlide><img src='/static/assets/images/axel.png'></img></SwiperSlide>
+                            <SwiperSlide><img src='/static/assets/images/yaneric.png'></img></SwiperSlide>
                         </div>
                     ))}     
                 </Swiper>
@@ -70,7 +78,7 @@ export default function About() {
         </section>
         <section className='projects'>
             <h4 className='subtitle'>PROJECTS</h4>
-            <h1>Things we&apos;ve made</h1>
+            <h1 className='title'>Things we&apos;ve made</h1>
             {/*API get Github projects with most stars from organization (only need 2)*/}
             <div className='star-projects'>
                 <p>card project</p>
