@@ -32,10 +32,11 @@ class ProjectsSerializer(serializers.ModelSerializer):
     """Serializer for Projects Model for the /projects endpoint"""
     languages = serializers.SerializerMethodField()
     github_link = serializers.SerializerMethodField()
+    contributors = serializers.SerializerMethodField()
 
     class Meta:
         model = Project
-        fields = ('id', 'name', 'short_description', 'icon', 'github_link', 'languages')
+        fields = ('id', 'name', 'short_description', 'icon', 'github_link', 'contributors', 'languages')
         depth = 1
 
     def get_languages(self, obj):
@@ -55,3 +56,12 @@ class ProjectsSerializer(serializers.ModelSerializer):
                 git_links.append(link.url)
 
         return git_links
+    
+    def get_contributors(self, obj):
+        """Replaces list of contributors with array of names"""
+        names = []
+        if obj.contributors.exists():
+            for contrib in obj.contributors.all():
+                names.append(contrib.first_name)
+
+        return names

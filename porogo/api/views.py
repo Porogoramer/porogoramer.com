@@ -51,6 +51,38 @@ class ProjectsView(ListAPIView):
 
     def get_queryset(self):
         query_set = Project.objects.all()
+        lang: str = self.request.query_params.get('lang')
+        if lang:
+            all_lang: bool = (self.request.query_params.get('langall') or '').lower() == 'true'
+            lang_arr = lang.split(',')
+            lang_set = query_set.filter(languages__name = lang_arr[0])
 
+            if len(lang_arr) > 1:
+                if all_lang:
+                    for l in lang_arr[1:]:
+                        lang_set = lang_set & query_set.filter(languages__name__iexact = l)
+                else:
+                    for l in lang_arr[1:]:
+                        lang_set = lang_set | query_set.filter(languages__name__iexact = l)
+
+            query_set = lang_set.distinct()
+        
+        contrib: str = self.request.query_params.get('contrib')
+        if contrib:
+            all_contrib: bool = (self.request.query_params.get('contriball') or '').lower() == 'true'
+            contrib_arr = contrib.split(',')
+            contrib_set = query_set.filter(contributors__first_name = contrib_arr[0])
+
+            if len(contrib_arr) > 1:
+                if all_contrib:
+                    for c in contrib_arr[1:]:
+                        contrib_set = contrib_set & query_set.filter(contributors__first_name = c)
+                else:
+                    for c in contrib_arr[1:]:
+                        contrib_set = contrib_set | query_set.filter(contributors__first_name = c)
+
+            query_set = contrib_set.distinct()
+                
         max_param = get_max(self)
         return query_set[:max_param]
+    
