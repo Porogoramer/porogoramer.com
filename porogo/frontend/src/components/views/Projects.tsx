@@ -10,14 +10,14 @@ import '../../../static/styles/views/_allprojects.scss';
 
 export default function Projects() {
     const allCards = [
-        { id: 1, languages: ['JS'], authors: ['Axel'] },
+        { id: 1, languages: ['JS'], authors: ['Axel', 'Soup'] },
         { id: 2, languages: ['JAVA'], authors: ['Noah'] },
         { id: 3, languages: ['PYTHON'], authors: ['Spryte'] },
         { id: 4, languages: ['C++'], authors: ['Soup'] },
         { id: 5, languages: ['F#', 'JS'], authors: ['Rida'] },
     ];
 
-    const languages = ['JS', 'JAVA', 'PYTHON', 'C++', 'C#', 'HTML', 'CSS', 'Kotlin'];
+    const languages = ['JS', 'JAVA', 'PYTHON', 'C++', 'C#', 'HTML', 'CSS', 'Kotlin', 'F#'];
     const names = ['Axel', 'Noah', 'Spryte', 'Soup', 'Rida'];
 
     const [selectedAuthors, setSelectedAuthors] = useState([]);
@@ -25,17 +25,9 @@ export default function Projects() {
 
     const filteredCards = allCards.filter(
         (card) =>
-            (selectedAuthors.length === 0 || selectedAuthors.includes(card.authors[0].toLowerCase())) &&
+            (selectedAuthors.length === 0 || card.authors.some((author) => selectedAuthors.includes(author.toLowerCase()))) &&
             (selectedLanguages.length === 0 || card.languages.some((lang) => selectedLanguages.includes(lang.toLowerCase())))
     );
-
-    function changeAuthorHandler(authors) {
-        setSelectedAuthors(authors);
-    }
-
-    function changeLanguageHandler(langs) {
-        setSelectedLanguages(langs);
-    }
 
 
     return (
@@ -80,13 +72,13 @@ export default function Projects() {
                         elements={names}
                         label="Authors"
                         selectedItems={selectedAuthors}
-                        onChangeHandler={changeAuthorHandler}
+                        onChangeHandler={setSelectedAuthors}
                     />
                     <Filter
                         elements={languages}
                         label="Languages"
                         selectedItems={selectedLanguages}
-                        onChangeHandler={changeLanguageHandler}
+                        onChangeHandler={setSelectedLanguages}
                     />
 
                 </div>
