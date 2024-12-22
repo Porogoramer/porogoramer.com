@@ -1,18 +1,6 @@
 """Define Serializers to be used in different views"""
 from rest_framework import serializers
-from .models import Developer, Image, Project, Language, URL
-
-class LanguageSerializer(serializers.ModelSerializer):
-    """Serializer for Language Model"""
-    class Meta:
-        model = Language
-        fields = ('name', )
-
-class URLSerializer(serializers.ModelSerializer):
-    """Serializer for URL Model"""
-    class Meta:
-        model = URL
-        fields = ('url', )
+from .models import Developer, Image, Project
 
 class ImageSerializer(serializers.ModelSerializer):
     """Serializer for Image Model"""
@@ -42,10 +30,28 @@ class DeveloperSerializer(serializers.ModelSerializer):
     
 class ProjectsSerializer(serializers.ModelSerializer):
     """Serializer for Projects Model for the /projects endpoint"""
-    languages = LanguageSerializer(many=True)
-    github_link = URLSerializer(many=True)
+    languages = serializers.SerializerMethodField()
+    github_link = serializers.SerializerMethodField()
 
     class Meta:
         model = Project
         fields = ('id', 'name', 'short_description', 'icon', 'github_link', 'languages')
         depth = 1
+
+    def get_languages(self, obj):
+        """Replaces list of languages with array of language names"""
+        languages_names = []
+        if obj.languages.exists():
+            for lang in obj.languages.all():
+                languages_names.append(lang.name)
+
+        return languages_names
+    
+    def get_github_link(self, obj):
+        """Replaces list of github links with array of links"""
+        git_links = []
+        if obj.github_link.exists():
+            for link in obj.github_link.all():
+                git_links.append(link.url)
+
+        return git_links
