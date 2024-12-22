@@ -1,5 +1,87 @@
 import React from 'react';
+import '../../../static/styles/views/_about.scss';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
+/**
+ *
+ */
 export default function About() {
-    return <h1>About</h1>;
+    const people = ['Yaneric', 'Axel', 'Rida', 'Emilie', 'Noah'];
+    return <>
+        <section className='intro'>
+            <div className='text'>
+                <p>ABOUT US</p>
+                <p>Porogo crafts innovative and meaningful and fun projects.</p>
+                <p>
+                        We came up with Porogo as a way to bring a team of passionate creators together to build
+                        projects we truly enjoy. We believe the best work comes from loving what we do, and we 
+                        channel that enthusiasm into crafting innovative and meaningful projects. At Porogo, we 
+                        turn our passions into projects, creating with joy and purpose.
+                </p>
+                <button>Checkout our projects !</button>
+            </div>
+            <div className='images'>
+                <img src='/static/assets/images/fake-meeting.png' alt='Image of us'></img>
+            </div>
+        </section>
+        <section className='team'>
+            <div className='text'>
+                <p>OUR TEAM</p>
+                <p>Our team is a passionate group dedicated to bringing ideas to life.</p>
+                <p>
+                        At Porogo, we&apos;re a team of &apos;Porogoramers&apos; who turn our passions into impactful projects. Whether 
+                        we&apos;re playing Minecraft and building a server hosting platform to share with others, or diving into 
+                        D&D and creating apps that enhance the player experience, we&apos;re all about crafting tools that make 
+                        the things we love even better. We believe that by working on what excites us, we can create 
+                        innovative solutions that inspire and bring joy to others.
+                </p>
+            </div>
+            <div className='carousel-part'>
+                <Swiper
+                    modules={[Navigation, Pagination, Scrollbar, A11y]}
+                    spaceBetween={50}
+                    slidesPerView={3}
+                    loop
+                    onSlideChange={() => console.log('slide change')}
+                    onSwiper={(swiper) => console.log(swiper)}>        
+                    {people.map(person => (
+                        <div className='person' key={person}>
+                            <SwiperSlide><img src='/static/assets/images/axel.png'></img></SwiperSlide>
+                        </div>
+                    ))}     
+                </Swiper>
+            </div>
+        </section>
+        <section className='people'>
+            <p>THE PEOPLE</p>
+            <p>Here is everyone part of the team</p>
+            {/*API get porogoramers and fetch github pfp*/}
+            <div className='people-list'>
+                {people.map(person => (
+                    <div className='person' key={person}>
+                        <p>{person}</p>
+                        <img src='/static/assets/images/github-pfp.png'></img>
+                    </div>
+                ))}
+            </div>
+        </section>
+        <section className='projects'>
+            <p>PROJECTS</p>
+            <p>Things we&apos;ve made</p>
+            {/*API get Github projects with most stars from organization (only need 2)*/}
+            <div className='star-projects'>
+
+                <div className='more'>
+                    <p>Checkout the rest !</p>
+                    <img src='/static/assets/icons/three-circles.svg'></img>
+                </div>
+            </div>
+
+        </section>
+    </>;
 }

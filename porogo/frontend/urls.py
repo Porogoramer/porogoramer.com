@@ -6,5 +6,5 @@ APP_NAME = 'frontend'
 
 urlpatterns = [
     path('', index, name=''),
-    re_path(r'^[^(/api|/media)]*$', index, name=''),
+    re_path(r'.*', index, name=''),
 ]
