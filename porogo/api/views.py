@@ -1,8 +1,8 @@
 """Views defining API endpoints"""
 from rest_framework.generics import ListAPIView, RetrieveAPIView
 from .exceptions import APIRequestException
-from .models import Developer
-from .serializers import DeveloperSerializer, DevelopersSerializer
+from .models import Developer, Project
+from .serializers import DeveloperSerializer, DevelopersSerializer, ProjectsSerializer
 
 class DevelopersView(ListAPIView):
     """
@@ -34,3 +34,11 @@ class DeveloperView(RetrieveAPIView):
     lookup_url_kwarg = 'name'
     serializer_class = DeveloperSerializer
     queryset = Developer.objects.all()
+
+
+class ProjectsView(ListAPIView):
+    """
+    View to list all projects available on the website
+    """
+    serializer_class = ProjectsSerializer
+    queryset = Project.objects.all()
