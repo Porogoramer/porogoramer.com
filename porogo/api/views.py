@@ -5,6 +5,7 @@ from .models import Developer, Project
 from .serializers import DeveloperSerializer, DevelopersSerializer, ProjectsSerializer, ProjectSerializer
 
 def get_max(view):
+    """Function checking the maximum query param, returning it or throwing an API exception"""
     try:
         max_param = view.request.query_params.get('max') or 10
         max_param = int(max_param)
@@ -43,6 +44,38 @@ class DeveloperView(RetrieveAPIView):
     queryset = Developer.objects.all()
 
 
+def get_lang_query_set(query_set, lang, lang_all):
+    """Returns given queryset filtered by languages provided"""
+    all_lang: bool = (lang_all or '').lower() == 'true'
+    lang_arr = lang.split(',')
+    lang_set = query_set.filter(languages__name = lang_arr[0])
+
+    if len(lang_arr) > 1:
+        if all_lang:
+            for language in lang_arr[1:]:
+                lang_set = lang_set & query_set.filter(languages__name__iexact = language)
+        else:
+            for language in lang_arr[1:]:
+                lang_set = lang_set | query_set.filter(languages__name__iexact = language)
+    
+    return lang_set.distinct()
+
+def get_contrib_query_set(query_set, contrib, contriball):
+    """Returns given queryset filtered by contributors provided"""
+    all_contrib: bool = (contriball or '').lower() == 'true'
+    contrib_arr = contrib.split(',')
+    contrib_set = query_set.filter(contributors__first_name = contrib_arr[0])
+
+    if len(contrib_arr) > 1:
+        if all_contrib:
+            for contributor in contrib_arr[1:]:
+                contrib_set = contrib_set & query_set.filter(contributors__first_name = contributor)
+        else:
+            for contributor in contrib_arr[1:]:
+                contrib_set = contrib_set | query_set.filter(contributors__first_name = contributor)
+
+    return contrib_set.distinct()
+
 class ProjectsView(ListAPIView):
     """
     View to list all projects available on the website
@@ -54,35 +87,11 @@ class ProjectsView(ListAPIView):
         query_set = Project.objects.all()
         lang: str = self.request.query_params.get('lang')
         if lang:
-            all_lang: bool = (self.request.query_params.get('langall') or '').lower() == 'true'
-            lang_arr = lang.split(',')
-            lang_set = query_set.filter(languages__name = lang_arr[0])
-
-            if len(lang_arr) > 1:
-                if all_lang:
-                    for l in lang_arr[1:]:
-                        lang_set = lang_set & query_set.filter(languages__name__iexact = l)
-                else:
-                    for l in lang_arr[1:]:
-                        lang_set = lang_set | query_set.filter(languages__name__iexact = l)
-
-            query_set = lang_set.distinct()
+            query_set = get_lang_query_set(query_set, lang, self.request.query_params.get('langall'))
         
         contrib: str = self.request.query_params.get('contrib')
         if contrib:
-            all_contrib: bool = (self.request.query_params.get('contriball') or '').lower() == 'true'
-            contrib_arr = contrib.split(',')
-            contrib_set = query_set.filter(contributors__first_name = contrib_arr[0])
-
-            if len(contrib_arr) > 1:
-                if all_contrib:
-                    for c in contrib_arr[1:]:
-                        contrib_set = contrib_set & query_set.filter(contributors__first_name = c)
-                else:
-                    for c in contrib_arr[1:]:
-                        contrib_set = contrib_set | query_set.filter(contributors__first_name = c)
-
-            query_set = contrib_set.distinct()
+            query_set = get_contrib_query_set(query_set, contrib, self.request.query_params.get('contriball'))
                 
         max_param = get_max(self)
         return query_set[:max_param]
