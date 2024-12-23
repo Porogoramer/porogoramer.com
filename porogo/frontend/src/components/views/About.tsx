@@ -6,6 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import 'swiper/css/a11y';
 
 /**
  *
@@ -13,6 +14,8 @@ import 'swiper/css/scrollbar';
 export default function About() {
     const people = ['Yaneric', 'Axel', 'Rida', 'Emilie', 'Noah'];
     return <>
+        {
+            /*}
         <section className='intro'>
             <div className='text'>
                 <h4 className='subtitle'>ABOUT US</h4>
@@ -34,6 +37,7 @@ export default function About() {
                 </div>
             </div>
         </section>
+            */}
         <section className='team'>
             <div className='text'>
                 <h4 className='subtitle'>OUR TEAM</h4>
@@ -49,15 +53,18 @@ export default function About() {
             <div className='carousel-part'>
                 <Swiper
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
-                    spaceBetween={30}
+                    spaceBetween={-30}
                     slidesPerView={3}
-                    loop
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}>        
+                    loop={true}
+                    centeredSlides={true}
+                    grabCursor={true}
+                    navigation={true}
+                    className='carousel-container'
+                >      
                     {people.map(person => (
-                        <div className='person' key={person}>
-                            <SwiperSlide><img src='/static/assets/images/yaneric.png'></img></SwiperSlide>
-                        </div>
+                        <SwiperSlide className='image' key={person}>
+                            <img src='/static/assets/images/yaneric.png'></img>
+                        </SwiperSlide>
                     ))}     
                 </Swiper>
             </div>

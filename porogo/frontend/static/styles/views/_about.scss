@@ -1,5 +1,5 @@
 @use "../common/variables" as *;
-
+/*
 .intro{
     height: $body-height;
     display: flex;
@@ -62,8 +62,9 @@
     }
 
 }
+*/
 
-.team{
+.team {
     height: 100vh;
     display: flex;
     align-items: center;
@@ -71,23 +72,28 @@
     flex-direction: row;
     background-color: $light-gray;
 
-    .text{
+    .text {
         display: flex;
-        align-items: left;
+        align-items: flex-start;
         justify-content: center;
         flex-direction: column;
         width: 35%;
         margin-left: 8%;
     }
 
-    .carousel-part{
+    .carousel-part {
         display: flex;
-        width: 45%;
+        width: 40%;
         align-items: center;
-        justify-self: center;
+        justify-content: center;
         margin-right: 8%;
+        overflow: hidden;
+    }
+
+    .carousel-container{
     }
 }
+
 
 
 
