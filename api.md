@@ -158,14 +158,9 @@ Filter projects by contributor using comma separated list (default no filter)
 contrib=axel
 ```
 
-Whether to require that all contributors listed in contrib have participated in the project. If contrib iisnt specified, this option is ignored. (default false)
+Whether to require that all contributors listed in contrib have participated in the project. If contrib isnt specified, this option is ignored. (default false)
 ```
 contriball=true
-```
-
-Whether to include the icon image or not. Allows for faster large queries. (default true)
-```
-icon=false
 ```
 
 Specify maximum number of items. (default 10)
