@@ -7,9 +7,11 @@ import React from 'react';
  * @param props React props
  * @param props.languages Array of languages for the project
  * @param props.authors Array of authors that made the project
+ * @param props.title Title of the project
+ * @param props.date Date of the project
  * @returns Project card with little information of the project
  */
-function Card( { languages, authors } : {languages: string[], authors: string[]}) {
+function Card( { languages, authors, title, date } : {languages: string[], authors: string[], title: string, date: string}) {
     const displayedLanguages = languages.slice(0, 6);
     const hasMoreLanguages = languages.length > 6;
     return <>
@@ -18,8 +20,8 @@ function Card( { languages, authors } : {languages: string[], authors: string[]}
                 <img src='/static/assets/icons/porogo-logo.svg' alt='porogo'/>
             </div>
             <div className='content-section'>
-                <h2>Porogo</h2>
-                <p>2020-2024</p>
+                <h2>{title}</h2>
+                <p>{date}</p>
                 <div className='authors'>
                     {authors.map((author, index) => (
                         <span className='author' key={`author-${index}`}>

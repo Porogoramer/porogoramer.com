@@ -90,7 +90,7 @@ export default function Projects() {
                     <h1>PROJECTS</h1>
                     <div className="allCards">
                         {filteredCards.map((card) => (
-                            <Card key={card.id} languages={card.languages} authors={card.authors} />
+                            <Card key={card.id} languages={card.languages} authors={card.authors} title="Porogo" date="2024-Today"/>
                         ))}
                     </div>
                 </div>
