@@ -43,7 +43,7 @@ export default function AboutDev() {
             </div>
             <aside className='about-side'>
                 <ProjectCard name="Important Dog" desc="Dog"/>
-                <Link to={'project'}>
+                <Link to={'/project'}>
                     <button>Click to see more projects!</button>
                 </Link>
                 
