@@ -42,6 +42,7 @@ export default function AboutDev() {
             </div>
             <aside className='about-side'>
                 <ProjectCard name="Important Dog" desc="Dog"/>
+                <button>Click to see more projects!</button>
             </aside>
         </section> 
     </>;
