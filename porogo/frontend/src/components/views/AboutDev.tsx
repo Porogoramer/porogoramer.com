@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../../static/styles/views/_about-dev.scss';
 import ProjectCard from '../common/ProjectCard';
+import { Link } from 'react-router-dom';
 
 /**
  * page about a specific developer
@@ -42,7 +43,10 @@ export default function AboutDev() {
             </div>
             <aside className='about-side'>
                 <ProjectCard name="Important Dog" desc="Dog"/>
-                <button>Click to see more projects!</button>
+                <Link to={'project'}>
+                    <button>Click to see more projects!</button>
+                </Link>
+                
             </aside>
         </section> 
     </>;
