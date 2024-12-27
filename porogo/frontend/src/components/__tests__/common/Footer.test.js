@@ -4,9 +4,8 @@
 
 import React from 'react';
 import '@testing-library/jest-dom';
-import userEvent from '@testing-library/user-event';
-import { render, cleanup, getByText } from '@testing-library/react';
-import { MemoryRouter, useLocation } from 'react-router-dom';
+import { render, cleanup } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import Footer from '../../common/Footer.tsx';
 
 afterEach(cleanup)

@@ -1,5 +1,8 @@
+'''Create views for the frontend'''
 from django.shortcuts import render
 
-# Create your views here.
-def index(request, *args, **kwargs):
-    return render(request, 'frontend/index.html')
+def index(request):
+    '''View that renders the react app through the index.html file'''
+    response = render(request, 'frontend/index.html')
+    response.headers['Cache-Control'] = 'no-store'
+    return response
