@@ -58,7 +58,7 @@ const router = createBrowserRouter([
                 </Suspense>,
             },
             {
-                path: 'about-dev',
+                path: 'about-dev/:name',
                 element: <Suspense>
                     <AboutDev />
                 </Suspense>,
