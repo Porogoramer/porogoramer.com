@@ -1,0 +1,44 @@
+/**
+ * @jest-environment jsdom
+ */
+
+import React from 'react';
+import '@testing-library/jest-dom';
+import { render, cleanup } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import Card from '../../common/Card.tsx';
+
+afterEach(cleanup)
+
+describe('Rendering Card', () => {
+  const setup = ({ languages = [], authors = [], title = '', date = '' } = {}) => {
+    const { getByRole, getByText, queryByText, getAllByText } = render(<MemoryRouter>
+            <Card languages={languages} authors={authors} title={title} date={date}/>
+    </MemoryRouter>);
+
+    return {
+      title: getAllByText(title)[0],
+      date: getAllByText(date)[0],
+      authors: authors.map((author) => getAllByText(author)[0]),
+      tags: languages.map((language) => getAllByText(language)[0]),
+      extraLanguages: queryByText('...'),
+      githubLink: getByRole('link', { name: /github/i }),
+    };
+  };
+
+  it('renders the card title and date', () => {
+    const { title, date } = setup({ title: 'My Project', date: '2022-2023' });
+
+    expect(title).toBeInTheDocument();
+    expect(date).toBeInTheDocument();
+  });
+
+  it('renders provided authors', () => {
+    const { authors } = setup({ authors: ['Rida', 'Axel'] });
+
+    expect(authors).toHaveLength(2);
+    expect(authors[0]).toHaveTextContent('Rida');
+    expect(authors[1]).toHaveTextContent('Axel');
+  });
+
+});

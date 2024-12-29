@@ -18,7 +18,7 @@ export default function Projects() {
         { id: 2, languages: ['JAVA'], authors: ['Noah'] },
         { id: 3, languages: ['PYTHON'], authors: ['Spryte'] },
         { id: 4, languages: ['C++'], authors: ['Soup'] },
-        { id: 5, languages: ['F#', 'JS'], authors: ['Rida'] },
+        { id: 5, languages: ['F#', 'JS', 'JAVA', 'PYTHON', 'C++', 'C#', 'HTML', 'CSS', 'Kotlin'], authors: ['Rida'] },
     ];
 
     const languages = ['JS', 'JAVA', 'PYTHON', 'C++', 'C#', 'HTML', 'CSS', 'Kotlin', 'F#'];
