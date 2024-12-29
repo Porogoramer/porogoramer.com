@@ -14,8 +14,6 @@ import 'swiper/css/a11y';
 export default function About() {
     const people = ['Yaneric', 'Axel', 'Rida', 'Emilie', 'Noah'];
     return <>
-        {
-            /*}
         <section className='intro'>
             <div className='text'>
                 <h4 className='subtitle'>ABOUT US</h4>
@@ -37,7 +35,8 @@ export default function About() {
                 </div>
             </div>
         </section>
-            */}
+            
+        {/*
         <section className='team'>
             <div className='text'>
                 <h4 className='subtitle'>OUR TEAM</h4>
@@ -69,16 +68,17 @@ export default function About() {
                 </Swiper>
             </div>
         </section>
+        */}
         <section className='people'>
             <h4 className='subtitle'>THE PEOPLE</h4>
-            <h1>Here is everyone part of the team</h1>
+            <h1 className='title'>Here is everyone part of the team</h1>
             {/*API get porogoramers and fetch github pfp*/}
             <div className='people-list'>
                 {people.map(person => (
                     <div className='person' key={person}>
-                        <p>{person}</p>
+                        <p className='description name'>{person}</p>
                         <img src='/static/assets/images/github-pfp.png'></img>
-                        <p>developer</p>
+                        <p className='description'>Developer / social media mod</p>
                     </div>
                 ))}
             </div>

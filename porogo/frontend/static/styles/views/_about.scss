@@ -1,5 +1,4 @@
 @use "../common/variables" as *;
-/*
 .intro{
     height: $body-height;
     display: flex;
@@ -9,7 +8,6 @@
 
     .text{
         display: flex;
-        align-items: left;
         justify-content: center;
         flex-direction: column;
         width: 35%;
@@ -62,7 +60,7 @@
     }
 
 }
-*/
+
 
 .team {
     height: 100vh;
@@ -89,8 +87,52 @@
         margin-right: 8%;
         overflow: hidden;
     }
+}
 
-    .carousel-container{
+.people{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    height: 60vh;
+    padding-left: 8%;
+    color: white;
+    background-color: $background-color;
+
+    .people-list{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: row;
+        gap: 100px;
+        margin-top: 15px;
+    }
+
+    .person{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        gap: 10px;
+    }
+
+    .description{
+        padding: 0px;
+        width: 144px;
+        text-align: center;
+        line-height: 25px;
+        font-weight: 400;
+    }
+
+    .name{
+        position: relative;
+        top: 25px;
+        padding: 10px;
+        background-color: black;
+        opacity: 80%;
+        border-radius: 10px;
+        width: fit-content;
     }
 }
 
