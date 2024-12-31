@@ -54,7 +54,11 @@ export default function Projects() {
                         <SwiperSlide className="card">
                             <ProjectShowcase
                                 name="Important Dog"
-                                desc="A discord bot that exists I guess"
+                                desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                                 date="2004-2255"
                                 backgroundImage="/static/assets/images/placeholder1.jpg"
                             />
@@ -62,7 +66,11 @@ export default function Projects() {
                         <SwiperSlide className="card">
                             <ProjectShowcase
                                 name="Portfolio Site"
-                                desc="A site to showcase some projects"
+                                desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
                                 date="2999-0999"
                                 backgroundImage="/static/assets/images/placeholder2.jpg"
                             />
