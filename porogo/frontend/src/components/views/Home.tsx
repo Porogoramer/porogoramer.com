@@ -22,8 +22,8 @@ export default function Home() {
             <div id='home-projects'>
                 <h1>PROJECTS</h1>
                 <div>
-                    <ProjectCard name='Important Dog' desc='A discord bot that exists I guess' />
-                    <ProjectCard name='Portfolio Site' desc='A site to showcase some projects' />
+                    <ProjectCard name='porobot' />
+                    <ProjectCard name='portfolio' />
                 </div>
             </div>
         </section>
