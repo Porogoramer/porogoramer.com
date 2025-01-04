@@ -12,7 +12,7 @@ afterEach(cleanup)
 
 describe('Rendering Card', () => {
   const setup = ({ languages = [], authors = [], title = '', date = '' } = {}) => {
-    const { getByRole, getByText, queryByText, getAllByText, queryAllByText } = render(<MemoryRouter>
+    const { getByRole, queryByText, getAllByText, queryAllByText } = render(<MemoryRouter>
             <Card languages={languages} authors={authors} title={title} date={date}/>
     </MemoryRouter>);
 

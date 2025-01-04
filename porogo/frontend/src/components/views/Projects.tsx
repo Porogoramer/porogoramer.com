@@ -39,6 +39,7 @@ export default function Projects() {
             <section className="test">
                 <section className="top-content">
                     <Swiper
+                        aria-label="carousel"
                         className="carousel"
                         modules={[Navigation, Pagination, A11y, Autoplay, EffectFade]}
                         spaceBetween={50}
