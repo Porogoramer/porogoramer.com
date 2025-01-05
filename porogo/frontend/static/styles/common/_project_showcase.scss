@@ -1,0 +1,56 @@
+@use './variables.scss' as *;
+
+.project-showcase {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  padding-left: 50px;
+  color: $text-color-white;
+  width: 100%;
+
+  .project-info {
+    max-width: 400px;
+    background-color: rgba($background-color, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+
+    .project-title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .project-date {
+      font-size: 1rem;
+      margin-top: 10px;
+      color: $cloudy-blue;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      margin-top: 20px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    .learn-more-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: $text-color-white;
+      background-color: #EE6C4D;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #e5533b;
+        text-shadow: 0.05rem 0.05rem $teal;
+        box-shadow: 0.2rem 0.2rem $dark-blue;
+      }
+    }
+  }
+}
