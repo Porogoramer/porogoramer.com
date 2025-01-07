@@ -31,6 +31,10 @@ header{
         text-decoration: none;
     }
 
+    .curr-page {
+        font-weight: bolder;
+    }
+
     .link:hover{
         color: $link-hover-color;
     }

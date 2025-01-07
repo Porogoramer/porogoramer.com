@@ -2,6 +2,10 @@ import React from 'react';
 import ProjectCard from '../common/ProjectCard';
 import '../../../static/styles/views/_home.scss';
 
+/**
+ * Defines a component for the home page content of the site
+ * @returns React component describing the landing page of the site
+ */
 export default function Home() {
     return <>
         <section className='top-content'>
