@@ -22,7 +22,7 @@ export default function ProjectCard({ name }: { name: string }) {
         };
         getData();
     }, []);
-    
+    console.log(cardData);
     return <article className='project-card'>
         <img src={cardData.icon.img || '/media/other/404.png'} alt={cardData.icon.desc || '404 Not Found Image'} />
         <div className='project-card-info'>
