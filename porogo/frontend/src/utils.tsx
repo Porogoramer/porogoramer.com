@@ -52,7 +52,7 @@ interface Project {
     languages: string[]
 }
 
-const emptyProject = {
+const emptyProject: Project = {
     id: 0,
     name: '',
     short_description: '',

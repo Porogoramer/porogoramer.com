@@ -11,7 +11,6 @@ import '../../../static/styles/common/_project_card.scss';
  */
 export default function ProjectCard({ name }: { name: string }) {
     const [ cardData, setCardData ] = useState<Project>(emptyProject);
-    const [ error, setError ] = useState<Error>();
 
     useEffect(() => {
         const getData = async () => {
@@ -19,23 +18,21 @@ export default function ProjectCard({ name }: { name: string }) {
                 setCardData(await fetchData(`project/${name}`));
             } catch (e) {
                 console.error(`Error loading card: ${e}`);
-                setError(e as Error);
             }
         };
         getData();
     }, []);
-    if (error) {
-        return <></>;
-    }
+    
     return <article className='project-card'>
-        <img src={cardData.icon.img} alt={cardData.icon.desc} />
+        <img src={cardData.icon.img || '/media/other/404.png'} alt={cardData.icon.desc || '404 Not Found Image'} />
         <div className='project-card-info'>
-            <h2>{cardData.name}</h2>
-            <p>{cardData.short_description}</p>
+            <h2>{cardData.name || name}</h2>
+            <p>{cardData.short_description || 'Failed to load card'}</p>
             <div className='options'>
+                {cardData.github_link.length > 0 &&
                 <Link to={`project/${name}`}>
                     <button>Learn more!</button>
-                </Link>
+                </Link>}
                 {cardData.github_link && cardData.github_link.map((link, i) => <a key={`github-${cardData.name}-${i}`} className='github' target='__blank' href={link}><img src="/static/assets/icons/github-logo-black.svg" alt="Github Logo"/></a>)}
             </div>
         </div>
