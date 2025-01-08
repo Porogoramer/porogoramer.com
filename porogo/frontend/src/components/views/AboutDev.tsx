@@ -67,7 +67,7 @@ export default function AboutDev() {
     }, []) ;
     if (loading){
         return <>
-            return <div>Loading...</div>;
+            <div>Loading...</div>
         </>;
     }
     if (!devInfo) {
