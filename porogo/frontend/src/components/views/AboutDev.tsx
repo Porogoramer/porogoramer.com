@@ -50,7 +50,7 @@ export default function AboutDev() {
             const obj = await result.json(); 
             return obj;
         }catch (error){
-            return null; 
+            return error; 
         }
     }
 
@@ -107,7 +107,7 @@ export default function AboutDev() {
                 </div> 
             </div>
             <aside className='about-side'>
-                <ProjectCard name="Important Dog" desc="Dog"/>
+                <ProjectCard name="Important Dog"/>
                 <Link to={'/project'}>
                     <button>Click to see more projects!</button>
                 </Link>

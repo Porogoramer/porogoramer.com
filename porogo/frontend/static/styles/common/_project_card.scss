@@ -43,11 +43,19 @@
     box-shadow: 0.5rem 0.5rem $blue-purple;
 
     & > img {
-        height: fit-content;
+        height: 80%;
         width: 25%;
 
         border: 0.2rem solid $sandy-brown;
         border-radius: 1rem;
+    }
+
+    .project-card-info {
+        width: 70%;
+    }
+
+    p {
+        width: 100%;
     }
 
     button {
