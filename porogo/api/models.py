@@ -51,7 +51,7 @@ class Image(models.Model):
     """
     img = models.ImageField(upload_to=get_dest_path)
     desc = models.CharField(max_length=64)
-    hover = models.CharField(max_length=64, null=True)
+    hover = models.CharField(max_length=64, null=True, blank=True)
 
 class Language(models.Model):
     """
