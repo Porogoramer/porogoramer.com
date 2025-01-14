@@ -12,13 +12,14 @@ interface Picture {
 
 interface Dev {
     id: number;
+    featured_project: string;
     first_name: string;
     last_name: string;
     picture: Picture;
-    description1: string;
-    description2: string;
-    description3: string;
-    linkedIn: string;
+    short_description: string;
+    description_experience: string;
+    description_personal: string;
+    linkedin_url: string;
     github_name: string;
     email: string;
 }
@@ -81,15 +82,14 @@ export default function AboutDev() {
                     <a href={`https://github.com/${devInfo.github_name}`}>
                         <img className="icons" id="github" src="/static/assets/icons/github-logo-black.svg" alt="Github Logo" />
                     </a>
-                    <a href={devInfo.linkedIn}>
+                    <a href={devInfo.linkedin_url}>
                         <img className="icons" id="linkedin" src="/static/assets/icons/linkedin.svg" alt="LinkedIn Logo" />
-                        
                     </a>
                     <a href={devInfo.email}>
                         <img className="icons" id="email" src="/static/assets/icons/email.svg" alt="Email Logo" />
                     </a>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
+                <p>{devInfo.short_description}</p>
             </section> 
             <aside className='about-side'>
                 <img src={devInfo.picture.img}  alt={devInfo.picture.hover} />
@@ -99,15 +99,15 @@ export default function AboutDev() {
             <div className='about-content'>
                 <div>
                     <h1 className="dev-header">About Me</h1> 
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
+                    <p>{devInfo.description_experience}</p>
                 </div>
                 <div id="bottom-about-me">
                     <h1 className="dev-header">More About Me</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam accusamus quos quidem veniam sapiente corporis? Quidem porro fuga dolor amet soluta delectus atque aliquam obcaecati, vel consequuntur reprehenderit earum neque.</p>
+                    <p>{devInfo.description_personal}</p>
                 </div> 
             </div>
             <aside className='about-side'>
-                <ProjectCard name="Important Dog"/>
+                <ProjectCard name={devInfo.featured_project}/>
                 <Link to={'/project'}>
                     <button>Click to see more projects!</button>
                 </Link>
