@@ -32,28 +32,7 @@ export default function AboutDev() {
     const { name } = useParams();
     const [devInfo, setDevInfo] = useState<Dev | null>(null);
     const [loading, setLoading] = useState(true);
-    /**
-     * finds the info about a specified developer in the database
-     * @param devName developers name
-     * @returns json object containing info about a developer
-     */
-    async function fetchDevInfo(devName: string | undefined) {
-        try {
-            const result = await fetch(`/api/developer/${devName}/`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-            if (!result.ok){
-                console.error(result.status);
-            }
-            const obj = await result.json(); 
-            return obj;
-        }catch (error){
-            return error; 
-        }
-    }
+    
 
     useEffect(()=>{
         /**
@@ -116,3 +95,28 @@ export default function AboutDev() {
         </section> 
     </>;
 }
+
+/**
+ * finds the info about a specified developer in the database
+ * @param devName developers name
+ * @returns json object containing info about a developer
+ */
+async function fetchDevInfo(devName: string | undefined) {
+    try {
+        const result = await fetch(`/api/developer/${devName}/`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if (!result.ok){
+            console.error(result.status);
+        }
+        const obj = await result.json(); 
+        return obj;
+    }catch (error){
+        return error; 
+    }
+}
+
+export {AboutDev, fetchDevInfo};
