@@ -39,8 +39,10 @@ export default function AboutDev() {
          * fetches developer info
          */
         async function fetchData(){
+            console.log(name);
             const devInfo = await fetchDevInfo(name);
             setDevInfo(devInfo);
+            console.log(devInfo);
             setLoading(false);
         }
         fetchData(); 
