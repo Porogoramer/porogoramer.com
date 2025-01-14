@@ -3,26 +3,7 @@ import {useEffect, useState } from 'react';
 import '../../../static/styles/views/_about-dev.scss';
 import ProjectCard from '../common/ProjectCard';
 import { Link, useParams } from 'react-router-dom';
-
-interface Picture {
-    img: string;
-    hover: string;
-    desc: string;
-}
-
-interface Dev {
-    id: number;
-    featured_project: string;
-    first_name: string;
-    last_name: string;
-    picture: Picture;
-    short_description: string;
-    description_experience: string;
-    description_personal: string;
-    linkedin_url: string;
-    github_name: string;
-    email: string;
-}
+import { fetchData, Dev } from '../../utils';
 
 /**
  * page about a specific developer
@@ -38,14 +19,13 @@ export default function AboutDev() {
         /**
          * fetches developer info
          */
-        async function fetchData(){
-            console.log(name);
-            const devInfo = await fetchDevInfo(name);
+        async function getData(){
+            const devInfo = await fetchData(`developer/${name}`);
             setDevInfo(devInfo);
             console.log(devInfo);
             setLoading(false);
         }
-        fetchData(); 
+        getData(); 
     }, []) ;
     if (loading){
         return <>

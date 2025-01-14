@@ -6,12 +6,34 @@ import React from 'react';
 import sinon from 'sinon';
 import '@testing-library/jest-dom';
 import { render, screen, cleanup, act } from '@testing-library/react';
-import * as AboutDevModule from '../../views/AboutDev.tsx';
+import * as utils from '../../../utils'
+import AboutDev from '../../views/AboutDev.tsx';
 import { MemoryRouter, Route, Routes} from 'react-router-dom';
+
+const MOCK_PORTFOLIO_JSON = {
+    id: 1,
+    name: 'Portfolio',
+    short_description: 'A portfolio website made by friends',
+    description_intro: 'The intro for a portfolio website',
+    description_body: 'the body for a portfolio website',
+    project_status: 'O',
+    start_year: 2024,
+    end_year: undefined,
+    icon: {
+        img: '/media/project/portfolio.png',
+        desc: 'Portfolio icon',
+        hover: '',
+    },
+    github_link: [ 'https://github.com/porogoramer/porogoramer.com' ],
+    youtube_url: 'https://youtube.com/porogoramer',
+    tags: ['Full Stack', 'Node', 'Django'],
+    contributors: ['Axel', 'Emilie', 'Noah', 'Yaneric'],
+    languages: ['TypeScript', 'Python'],
+};
 
 const MOCK_DEV_JSON = {
 	id: 1,
-	featured_project: "Portfolio",
+	featured_project: "portfolio",
 	first_name: "noah",
 	last_name: "gelinas",
 	picture: {
@@ -32,24 +54,25 @@ afterEach(cleanup)
 
 describe('Rendering AboutDev', () => {
 
-	let fetchDevInfoStub;
+	let fetchDataStub;
 	beforeAll(() => {
-		fetchDevInfoStub = sinon.stub(AboutDevModule, "fetchDevInfo");
-    fetchDevInfoStub.withArgs('noah').resolves(MOCK_DEV_JSON);
-    fetchDevInfoStub.withArgs('rida').throws(); 
+		fetchDataStub = sinon.stub(utils, "fetchData");
+		fetchDataStub.withArgs('developer/noah').resolves(MOCK_DEV_JSON);
+		fetchDataStub.withArgs('project/portfolio').resolves(MOCK_PORTFOLIO_JSON);
+		fetchDataStub.withArgs('developer/rida').throws(); 
 	});
 
 	afterAll(() => {
-    fetchDevInfoStub.restore();
-  });
+    	fetchDataStub.restore();
+  	});
 
 	it('Renders header text', async () => {
 		await act(async () => {
 			render(
 				<MemoryRouter initialEntries={['/about-dev/noah']}>
-						<Routes>
-            	<Route path="/about-dev/:name" element={<AboutDevModule.AboutDev />} />
-          	</Routes>
+					<Routes>
+						<Route path="/about-dev/:name" element={<AboutDev />} />
+					</Routes>
 				</MemoryRouter>
 			);
 		});
@@ -65,9 +88,9 @@ describe('Rendering AboutDev', () => {
 		await act(async () => {
 			render(
 				<MemoryRouter initialEntries={['/about-dev/noah']}>
-						<Routes>
-            	<Route path="/about-dev/:name" element={<AboutDevModule.AboutDev />} />
-          	</Routes>
+					<Routes>
+						<Route path="/about-dev/:name" element={<AboutDev />} />
+					</Routes>
 				</MemoryRouter>
 			);
 		});
@@ -86,7 +109,7 @@ describe('Rendering AboutDev', () => {
 			render(
 					<MemoryRouter initialEntries={['/about-dev/noah']}>
 							<Routes>
-            		<Route path="/about-dev/:name" element={<AboutDevModule.AboutDev />} />
+            		<Route path="/about-dev/:name" element={<AboutDev />} />
           		</Routes>
 					</MemoryRouter>
 			);
@@ -104,7 +127,7 @@ describe('Rendering AboutDev', () => {
 			render(
 					<MemoryRouter initialEntries={['/about-dev/noah']}>
 							<Routes>
-            		<Route path="/about-dev/:name" element={<AboutDevModule.AboutDev />} />
+            		<Route path="/about-dev/:name" element={<AboutDev />} />
           		</Routes>
 					</MemoryRouter>
 			);
