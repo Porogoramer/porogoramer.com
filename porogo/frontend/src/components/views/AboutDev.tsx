@@ -27,14 +27,24 @@ export default function AboutDev() {
         }
         getData(); 
     }, []) ;
-    if (loading){
+    if (devInfo===null) {
+        return <>
+            <div className="error">
+                <p>
+                    No developer found with that name.
+                </p>
+                <p>
+                    Please Make sure to properly type the name of the developer you are looking for!
+                </p>
+            </div>;
+        </>;
+            
+    }else if (loading){
         return <>
             <div>Loading...</div>
         </>;
     }
-    if (!devInfo) {
-        return <div>No user data found.</div>;
-    }
+    
     return <>
         <div className='top-content' id='about-dev-top'>
             <section className='about-content'>
@@ -68,7 +78,10 @@ export default function AboutDev() {
                 </div> 
             </div>
             <aside className='about-side'>
-                <ProjectCard name={devInfo.featured_project}/>
+                {
+                    devInfo.featured_project!==null &&
+                    <ProjectCard name={devInfo.featured_project}/>
+                }
                 <Link to={'/project'}>
                     <button>Click to see more projects!</button>
                 </Link>
