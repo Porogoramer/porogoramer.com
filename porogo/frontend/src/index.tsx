@@ -26,11 +26,11 @@ const root = createRoot(appDiv);
  */
 function Main() {
     return(
-        <div>
+        <>
             <Header/>
             <Outlet/>
             <Footer/>
-        </div>
+        </>
     );
 }
 
