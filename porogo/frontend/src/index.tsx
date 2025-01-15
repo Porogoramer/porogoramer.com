@@ -26,11 +26,11 @@ const root = createRoot(appDiv);
  */
 function Main() {
     return(
-        <div>
+        <React.Fragment>
             <Header/>
             <Outlet/>
             <Footer/>
-        </div>
+        </React.Fragment>
     );
 }
 
