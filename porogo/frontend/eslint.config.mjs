@@ -6,6 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
 import { FlatCompat } from '@eslint/eslintrc';
+import jsdoc from 'eslint-plugin-jsdoc';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,6 +17,7 @@ const compat = new FlatCompat({
 });
 
 export default [
+	jsdoc.configs['flat/recommended-typescript'],
 	{
 		ignores: [
 			'**/node_modules/*',
@@ -26,7 +28,8 @@ export default [
 			'**/tsconfig.json',
 			'*.config*',
 			'**/__tests__',
-			'**/main.js'
+			'**/static/frontend',
+			'**/coverage'
 		]
 	},
 
@@ -39,6 +42,7 @@ export default [
 		plugins: {
 			'@typescript-eslint': typescriptEslint,
 			react,
+			jsdoc
 		},
 
 		settings: {
@@ -69,7 +73,8 @@ export default [
 			semi: ['error', 'always'],
 			'no-unused-vars': ['warn'],
 			'prefer-const': ['warn'],
-			'@typescript-eslint/no-unused-vars': ['off']
+			'@typescript-eslint/no-unused-vars': ['off'],
+			'jsdoc/require-description': 'warn'
 		},
 	}
 ];

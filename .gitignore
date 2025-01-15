@@ -1,6 +1,10 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,django,react,node
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,django,react,node
 
+cert.pem
+stats.json
+**/test_data
+
 ### Django ###
 *.log
 *.pot
@@ -9,7 +13,6 @@ __pycache__/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-media
 
 # If your build process includes running collectstatic, then you probably don't need or want to include staticfiles/
 # in your Git repository. Update and uncomment the following line accordingly.
@@ -67,6 +70,7 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 cover/
+reports/
 
 # Translations
 *.mo
@@ -303,6 +307,9 @@ dist
 # Serverless Webpack directories
 .webpack/
 main.js*
+main.css
+**/static/frontend/*.js
+**/static/frontend/*.txt
 
 # Optional stylelint cache
 
@@ -342,3 +349,8 @@ sketch
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,django,react,node
+porogo/frontend/static/styles/main.css.map
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map

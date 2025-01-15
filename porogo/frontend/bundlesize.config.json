@@ -1,0 +1,9 @@
+{
+    "files": [
+        {
+            "path": "./static/frontend/*.js",
+            "maxSize": "200 kb",
+            "compression": "brotli"
+        }
+    ]
+}

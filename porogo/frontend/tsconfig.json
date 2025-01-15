@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "build/dist",
-    "module": "ES6",
+    "module": "ES2022",
     "strict": true,
     "target": "es6",
     "lib": ["es6", "dom"],
@@ -14,7 +14,8 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "useUnknownInCatchVariables": true,
   },
   "exclude": [
     "node_modules",
@@ -23,9 +24,10 @@
     "acceptance-tests",
     "webpack",
     "jest.config.cjs",
-    "**/main.js",
+    "static/frontend/*",
     "eslint.config.mjs",
     "src/setupTests.ts",
+    "coverage/",
     "webpack.config.cjs",      // Exclude webpack.config.js
     "src/index.js"            // Exclude non-existent index.js
   ],
