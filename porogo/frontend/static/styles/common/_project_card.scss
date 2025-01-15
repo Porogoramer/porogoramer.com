@@ -27,6 +27,8 @@
     }
 }
 
+
+
 .project-card {
     height: 47%;
     width: 54vw;
@@ -113,6 +115,8 @@
 
 @media screen and (max-width: 767px) {
     .project-card {
+        height: 48%;
+        
         padding: 0.2rem 0;
 
         flex-direction: column;
@@ -126,6 +130,10 @@
         height: 60%;
         width: 90%;
         max-width: initial;
+
+        h2 {
+            text-align: center;
+        }
 
         p {
             line-height: 1.8;
