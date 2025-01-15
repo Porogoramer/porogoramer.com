@@ -7,11 +7,19 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import 'swiper/css/a11y';
+import ProjectShowcase from '../common/ProjectShowcase';
+import Card from '../common/Card';
 
 /**
- *
+ * About page with description of the team and projects
+ *@returns page with three sections: intro, team, and projects
  */
 export default function About() {
+    const allCards = [
+        { id: 1, languages: ['JS'], authors: ['Axel', 'Soup'] },
+        { id: 2, languages: ['JAVA'], authors: ['Noah'] },
+    ];
+
     const people = ['Yaneric', 'Axel', 'Rida', 'Emilie', 'Noah'];
     return <>
         <section className='intro'>
@@ -35,8 +43,6 @@ export default function About() {
                 </div>
             </div>
         </section>
-            
-        {/*
         <section className='team'>
             <div className='text'>
                 <h4 className='subtitle'>OUR TEAM</h4>
@@ -68,7 +74,6 @@ export default function About() {
                 </Swiper>
             </div>
         </section>
-        */}
         <section className='people'>
             <h4 className='subtitle'>THE PEOPLE</h4>
             <h1 className='title'>Here is everyone part of the team</h1>
@@ -88,10 +93,10 @@ export default function About() {
             <h1 className='title'>Things we&apos;ve made</h1>
             {/*API get Github projects with most stars from organization (only need 2)*/}
             <div className='star-projects'>
-                <p>card project</p>
-                <p>card project</p>
+                <Card key={allCards[0].id} languages={allCards[0].languages} authors={allCards[0].authors} title="Porogo" date="2024-Today"/>
+                <Card key={allCards[1].id} languages={allCards[1].languages} authors={allCards[1].authors} title="Porogo" date="2024-Today"/>
                 <div className='more'>
-                    <p>Checkout the rest !</p>
+                    <p className='medium-text'>Checkout the rest !</p>
                     <img src='/static/assets/icons/three-circles.svg'></img>
                 </div>
             </div>

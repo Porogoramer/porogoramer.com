@@ -136,6 +136,36 @@
     }
 }
 
+.projects{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 96px;
+    padding-bottom: 96px;
+
+    .star-projects{
+        padding-top: 69px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 90px;
+
+        .more{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 320px;
+        }
+
+        .medium-text{
+            font-size: 2rem;
+        }
+    }
+}
 
 
 
