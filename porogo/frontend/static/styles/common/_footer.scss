@@ -2,7 +2,7 @@
 
 $gap-logo:1rem;
 
-footer{
+footer {
     height: 10rem;
     display: grid;
     grid-template-rows: 2fr 1fr;
@@ -10,7 +10,7 @@ footer{
     background-color: $background-color;
     color: $text-color-white;
 
-    .row-1{
+    .row-1 {
         display: flex;
         align-items: end;
         justify-content: center;
@@ -36,27 +36,48 @@ footer{
         }
     }
 
-    .link:hover{
+    .link:hover {
         color: $link-hover-color;
     }
 
-    .link:active{
+    .link:active {
         color: $link-click-color;
     }
 
-    li img{
+    li img {
         border: none;
         vertical-align: bottom;
     }
 
-    .row-2{
+    .row-2 {
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    .icons{
+    .icons {
         display: flex;
         gap: $gap-logo;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    footer {
+        height: auto;
+        width: 100%;
+
+        padding-top: 2rem;
+        
+        grid-template-rows: 4fr 1fr;
+
+        .row-1 > ul {
+            flex-direction: column;
+            margin-left: initial;
+            
+            & > span {
+                width: 60%;
+                height: 2px;
+            }
+        }
     }
 }
