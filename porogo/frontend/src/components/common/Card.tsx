@@ -15,7 +15,7 @@ function Card( { languages, authors, title, date } : {languages: string[], autho
     const displayedLanguages = languages.slice(0, 6);
     const hasMoreLanguages = languages.length > 6;
     return <>
-        <div className='container'>
+        <div className='card-container'>
             <div className='image-section'>
                 <img src='/static/assets/icons/porogo-logo.svg' alt='porogo'/>
             </div>
