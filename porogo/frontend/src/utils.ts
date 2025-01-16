@@ -52,6 +52,24 @@ interface Project {
     languages: string[]
 }
 
+interface Dev {
+    id: number;
+    featured_project: string;
+    first_name: string;
+    last_name: string;
+    picture: {
+        img: string, 
+        desc: string,
+        hover: string
+    };
+    short_description: string;
+    description_experience: string;
+    description_personal: string;
+    linkedin_url: string;
+    github_name: string;
+    email: string;
+}
+
 const emptyProject: Project = {
     id: 0,
     name: '',
@@ -73,4 +91,4 @@ const emptyProject: Project = {
     languages: [],
 };
 
-export { fetchData, Project, emptyProject };
+export { fetchData, Project, Dev, emptyProject };

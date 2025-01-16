@@ -30,7 +30,7 @@ export default function ProjectCard({ name }: { name: string }) {
             <p>{cardData.short_description || 'Failed to load card'}</p>
             <div className='options'>
                 {cardData.github_link.length > 0 &&
-                <Link to={`project/${name}`}>
+                <Link to={`/project/${name}`}>
                     <button>Learn more!</button>
                 </Link>}
                 {cardData.github_link && cardData.github_link.map((link, i) => <a key={`github-${cardData.name}-${i}`} className='github' target='__blank' href={link}><img src="/static/assets/icons/github-logo-black.svg" alt="Github Logo"/></a>)}
