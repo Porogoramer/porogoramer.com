@@ -9,10 +9,18 @@
     height: 75%;
     padding: 3em 1em 3em 5em;
     justify-content: space-evenly;
+    flex-direction: row-reverse;
     background-color: $color-gray;
 }
 
+.keyword {
+    background: -webkit-linear-gradient(360deg,rgb(235, 153, 2), rgb(221, 55, 55));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .about-content p {
+    max-width: 70%;
     line-height: 1.6;
     text-align: justify;
 }

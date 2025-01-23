@@ -2,6 +2,7 @@ import React from 'react';
 import {useEffect, useState } from 'react';
 import '../../../static/styles/views/_about-dev.scss';
 import ProjectCard from '../common/ProjectCard';
+import Card from '../common/Card';
 import { Link, useParams } from 'react-router-dom';
 import { fetchData, Dev } from '../../utils';
 
@@ -13,8 +14,8 @@ export default function AboutDev() {
     const { name } = useParams();
     const [devInfo, setDevInfo] = useState<Dev | null>(null);
     const [loading, setLoading] = useState(true);
-    
-
+    const keywords = ['javascript', 'python', 'sql', 'html', 'css', 'c#', 'java', 'apis', 'api', 'c', 'c++', 'arduino', 'raspberry', 'pi', 'c/c++', 'node', 'express', 'mongodb'];
+    let aboutMe;
     useEffect(()=>{
         /**
          * fetches developer info
@@ -22,7 +23,6 @@ export default function AboutDev() {
         async function getData(){
             const devInfo = await fetchData(`developer/${name}`);
             setDevInfo(devInfo);
-            console.log(devInfo);
             setLoading(false);
         }
         getData(); 
@@ -38,13 +38,24 @@ export default function AboutDev() {
                 </p>
             </div>;
         </>;
-            
     }else if (loading){
         return <>
             <div>Loading...</div>
         </>;
     }
-    
+    if (devInfo!==null){
+        aboutMe = devInfo.short_description.split(' ')
+            .map(word => {
+                const cleanWord = word.replace(/[^\w]/g, '').toLowerCase();
+                if (keywords.includes(cleanWord)){
+                    return '*'+word;
+                }else{
+                    return word;
+                }
+            })
+            .join(' ');
+    }
+
     return <>
         <div className='top-content' id='about-dev-top'>
             <section className='about-content'>
@@ -60,7 +71,29 @@ export default function AboutDev() {
                         <img className="icons" id="email" src="/static/assets/icons/email.svg" alt="Email Logo" />
                     </a>
                 </div>
-                <p>{devInfo.short_description}</p>
+                <p>
+                    {aboutMe?.split(' ').map((word, index) => {
+                        if (word.startsWith('*')) {
+                            const match = word.slice(1).match(/^(\w+)([^\w]*)$/);
+                            const styledWord = match ? match[1] : word.slice(1);
+                            const punctuation = match ? match[2] : '';
+
+                            return (
+                                <React.Fragment key={index}>
+                                    <span className="keyword">
+                                        {styledWord}
+                                    </span>
+                                    {punctuation}
+                                </React.Fragment>
+                            );
+                        }
+                        return (
+                            <React.Fragment key={index}>
+                                {word}
+                            </React.Fragment>
+                        );
+                    }).reduce((prev, curr) => [prev, ' ', curr])}
+                </p>
             </section> 
             <aside className='about-side'>
                 <img src={devInfo.picture.img}  alt={devInfo.picture.hover} />
@@ -113,5 +146,4 @@ async function fetchDevInfo(devName: string | undefined) {
         return error; 
     }
 }
-
 export {AboutDev, fetchDevInfo};
