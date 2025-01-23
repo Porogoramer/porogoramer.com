@@ -1,0 +1,9 @@
+.hamburger-container {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+
+    .hamburger-icon {
+        height: 100%;
+    }
+}

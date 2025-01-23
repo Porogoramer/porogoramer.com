@@ -9,7 +9,7 @@ header{
     height: $header-height;
     background-color: $background-color;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
     ul {
@@ -81,6 +81,32 @@ header{
 
         &:last-child{
             border-radius: 0 $border-radius $border-radius 0;
+        }
+    }
+
+    .mobile-header {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    header {
+        .desktop-header {
+            display: none;
+        }
+    
+        .mobile-header {
+            width: 80%;
+            height: 80%;
+
+            display: flex;
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+        .hamburger-items {
+            display: none;
         }
     }
 }
