@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Hamburger from './Hamburger';
 import '../../../static/styles/common/_header.scss';
 
-function Header(){
+function Header() {
+    const [expanded, setExpanded] = useState(false);
+
     const location = useLocation();
     const headerLogo = <>
         <li>
@@ -46,7 +48,7 @@ function Header(){
 
     return(
         <React.Fragment>
-            <header>
+            <header className={expanded ? 'expanded' : ''}>
                 <ul className='desktop-header'>
                     {headerLogo}
                     {mainHeader}
@@ -59,7 +61,7 @@ function Header(){
                         <img src="/static/assets/icons/porogo-logo.svg" alt="porogo icon"/>
                         <p className={`link${location.pathname === '/' ? ' curr-page' : ''}`}> Porogo </p>
                     </Link>
-                    <Hamburger white={true}>
+                    <Hamburger toggleExpandParent={() => setExpanded(b => !b)} white={true}>
                         {mainHeader}
                         {rightHeader}
                     </Hamburger>

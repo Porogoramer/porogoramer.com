@@ -5,12 +5,17 @@ $border-radius:1.25rem;
 
 @use "./variables" as *;
 
-header{
+header.expanded {
+    padding: 1em 0;
+
+    height: initial;
+}
+
+header {
     height: $header-height;
     background-color: $background-color;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
 
     ul {
         display: flex;
@@ -91,22 +96,40 @@ header{
 
 @media screen and (max-width: 767px) {
     header {
+        justify-content: center;
+
         .desktop-header {
             display: none;
         }
     
         .mobile-header {
-            width: 80%;
+            width: 90%;
             height: 80%;
 
             display: flex;
             align-items: center;
 
             justify-content: space-between;
-        }
 
-        .hamburger-items {
-            display: none;
+            span {
+                width: 60%;
+                height: 2px;
+            }
+
+            .language {
+                width: 40%;
+                display: flex;
+            }
+
+            .hamburger-container {
+                width: 60%;
+            }
+
+            li {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
         }
     }
 }
