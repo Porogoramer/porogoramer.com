@@ -94,6 +94,7 @@ export default function AboutDev() {
                         );
                     }).reduce((prev, curr) => [prev, ' ', curr])}
                 </p>
+                <h1 className="dev-header">I&apos;m familiar with</h1>
             </section> 
             <aside className='about-side'>
                 <img src={devInfo.picture.img}  alt={devInfo.picture.hover} />
