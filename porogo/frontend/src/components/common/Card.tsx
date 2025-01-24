@@ -1,5 +1,6 @@
 import '../../../static/styles/common/_card.scss';
 import React from 'react';
+import {Image} from '../../utils';
 
 // { src, alt, name, date, authors, tags, github }
 /**
@@ -9,15 +10,17 @@ import React from 'react';
  * @param props.authors Array of authors that made the project
  * @param props.title Title of the project
  * @param props.date Date of the project
+ * @param props.icon Icon of project
  * @returns Project card with little information of the project
  */
-function Card( { languages, authors, title, date } : {languages: string[], authors: string[], title: string, date: string}) {
+function Card( { languages, authors=[], title, date, icon } : {languages: string[], authors: string[] | undefined, title: string, date: string, icon: Image}) {
     const displayedLanguages = languages.slice(0, 6);
     const hasMoreLanguages = languages.length > 6;
     return <>
         <div className='container'>
             <div className='image-section'>
-                <img src='/static/assets/icons/porogo-logo.svg' alt='porogo'/>
+                <img src={icon.img} alt={icon.desc}/>
+                {/* <img src='porogo/frontend/static/assets/icons/porogo-logo.svg' alt="porogo"></img> */}
             </div>
             <div className='content-section'>
                 <h2>{title}</h2>

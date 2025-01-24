@@ -13,26 +13,10 @@ import { fetchData, Dev, Project } from '../../utils';
 export default function AboutDev() {
     const { name } = useParams();
     const [devInfo, setDevInfo] = useState<Dev | null>(null);
-    // const [projects, setProjects] = useState<Project[] | null>(null);
-    const [filteredCards, setFilteredCards] = useState<Card[]>([]);
+    const [projects, setProjects] = useState<Project[] | null>(null);
     const [loading, setLoading] = useState(true);
-    const keywords = ['javascript', 'python', 'sql', 'html', 'css', 'c#', 'java', 'apis', 'api', 'c', 'c++', 'arduino', 'raspberry', 'pi', 'c/c++', 'node', 'express', 'mongodb'];
+    const keywords = ['javascript', 'python', 'sql', 'html', 'css', 'c#', 'java', 'apis', 'api', 'c', 'c++', 'arduino', 'raspberry', 'pi', 'node', 'express', 'mongodb'];
     let aboutMe;
-
-
-    interface Card {
-        id: number;
-        languages: string[];
-        authors: string[];
-      }
-    const allCards = [
-        { id: 1, languages: ['JS'], authors: ['Axel', 'Yaneric'] },
-        { id: 2, languages: ['JAVA'], authors: ['Noah', 'Rida'] },
-        { id: 3, languages: ['PYTHON'], authors: ['Emily', 'Rida'] },
-        { id: 4, languages: ['C++'], authors: ['Yaneric', 'Rida'] },
-        { id: 5, languages: ['F#', 'JS', 'JAVA', 'PYTHON', 'C++', 'C#', 'HTML', 'CSS', 'Kotlin'], authors: ['Rida'] },
-    ];
-    
 
     useEffect(()=>{
         /**
@@ -40,12 +24,8 @@ export default function AboutDev() {
          */
         async function getData(){
             const devInfo = await fetchData(`developer/${name}`);
-            // const allCards = await fetchData('projects');
-            setFilteredCards(allCards.filter(
-                (card) =>
-                    card.authors.includes(devInfo.first_name)
-            ));
-            // setProjects(filteredCards); for when db is finished for projects
+            const allCards = await fetchData(`projects/?contrib=${name}`);
+            setProjects(allCards);
             setDevInfo(devInfo);
             setLoading(false);
         }
@@ -132,26 +112,21 @@ export default function AboutDev() {
                 </div>
             </div>
             <aside className='about-side'>
-                {
-                    devInfo.featured_project!==null &&
-                    <ProjectCard name={devInfo.featured_project}/>
-                }
+                {/* {
+                    devInfo.picture_personal!==null &&
+                    <img src={devInfo.picture_personal.img}  alt={devInfo.picture_personal.hover} />
+                } */}
             </aside>
         </section> 
-        <section className="projectCards">
-            {filteredCards.map((card) => (
-                <div key={card.id} className="card">
-                    <Card key={card.id} languages={card.languages} authors={card.authors} title="Porogo" date="2024-Today"/>
-                </div>
-            ))}
-        </section>
-        <section id="buttonParent">
-            <div className="linkProjects">
-                <Link to={'/project'}>
-                    <button>Click to see more projects!</button>
-                </Link>
-            </div>
-        </section>
+        {projects!== null &&
+            <section className="projectCards">
+                {projects.map((card) => (
+                    <div key={card.id} className="card">
+                        <Card key={card.id} languages={card.languages} title={card.name} date={card.end_year ? `${card.start_year}-${card.end_year}` : `${card.start_year}`} icon={card.icon}/>
+                    </div>
+                ))}
+            </section>
+        }
     </>;
 }
 
