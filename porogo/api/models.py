@@ -91,7 +91,7 @@ class Developer(models.Model):
     other_url_type = models.CharField(max_length=20, null=True, blank=True)
     picture = models.ForeignKey(Image, on_delete=models.CASCADE)
     picture_personal = models.ForeignKey(Image, on_delete=models.CASCADE)
-    languages = models.ManyToManyRel(Language)
+    languages = models.ManyToManyField(Language)
     models.UniqueConstraint(fields=["first_name", "last_name"], name="unique_full_name")
 
 class Tag(models.Model):
