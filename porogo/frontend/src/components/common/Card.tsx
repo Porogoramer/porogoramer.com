@@ -20,18 +20,20 @@ function Card( { languages, authors=[], title, date, icon } : {languages: string
         <div className='container'>
             <div className='image-section'>
                 <img src={icon.img} alt={icon.desc}/>
-                {/* <img src='porogo/frontend/static/assets/icons/porogo-logo.svg' alt="porogo"></img> */}
             </div>
             <div className='content-section'>
                 <h2>{title}</h2>
                 <p>{date}</p>
-                <div className='authors'>
-                    {authors.map((author, index) => (
-                        <span className='author' key={`author-${index}`}>
-                            {author}
-                        </span>
-                    ))}
-                </div>
+                {authors!==undefined &&
+                    <div className='authors'>
+                        {authors.map((author, index) => (
+                            <span className='author' key={`author-${index}`}>
+                                {author}
+                            </span>
+                        ))}
+                    </div>
+                }
+                
                 <div className='tags'>
                     {displayedLanguages.map((language, index) => (
                         <span className='tag' key={`language-${index}`}>

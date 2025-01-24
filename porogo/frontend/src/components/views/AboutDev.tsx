@@ -122,7 +122,7 @@ export default function AboutDev() {
             <section className="projectCards">
                 {projects.map((card) => (
                     <div key={card.id} className="card">
-                        <Card key={card.id} languages={card.languages} title={card.name} date={card.end_year ? `${card.start_year}-${card.end_year}` : `${card.start_year}`} icon={card.icon}/>
+                        <Card key={card.id} languages={card.languages} title={card.name} date={card.end_year ? `${card.start_year}-${card.end_year}` : `${card.start_year}`} icon={card.icon} authors={undefined}/>
                     </div>
                 ))}
             </section>
