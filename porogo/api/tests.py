@@ -57,7 +57,6 @@ class DeveloperEndpointTest(TestCase):
             "first_name":"Axel",
             "last_name":"Brochu",
             "email":"axel@porogoramer.com",
-            "short_description":"I am a porogoramer",
             "description_experience":"I studied at Dawson",
             "description_personal":"I love cats",
             "github_name":"Brochua",
@@ -65,6 +64,18 @@ class DeveloperEndpointTest(TestCase):
             "other_url":"gitlab.com/brochua1",
             "other_url_type":"gitlab",
             "picture":{
+                "id":1,
+                "img":"http://testserver/media/other/cat.png",
+                "desc":"A picture of a cat",
+                "hover":"Cat!"
+            },
+            "picture_arms":{
+                "id":1,
+                "img":"http://testserver/media/other/cat.png",
+                "desc":"A picture of a cat",
+                "hover":"Cat!"
+            },
+            "picture_personal":{
                 "id":1,
                 "img":"http://testserver/media/other/cat.png",
                 "desc":"A picture of a cat",
@@ -89,6 +100,18 @@ class DeveloperEndpointTest(TestCase):
                 "img":"http://testserver/media/other/dog.png",
                 "desc":"A picture of a dog",
                 "hover":"Important dog!"
+            },
+            "picture_arms":{
+                "id":1,
+                "img":"http://testserver/media/other/cat.png",
+                "desc":"A picture of a cat",
+                "hover":"Cat!"
+            },
+            "picture_personal":{
+                "id":1,
+                "img":"http://testserver/media/other/cat.png",
+                "desc":"A picture of a cat",
+                "hover":"Cat!"
             }
         },
         {
@@ -105,6 +128,18 @@ class DeveloperEndpointTest(TestCase):
             "other_url":"gitlab.com/noahg",
             "other_url_type":"gitlab",
             "picture":{
+                "id":1,
+                "img":"http://testserver/media/other/cat.png",
+                "desc":"A picture of a cat",
+                "hover":"Cat!"
+            },
+            "picture_arms":{
+                "id":1,
+                "img":"http://testserver/media/other/cat.png",
+                "desc":"A picture of a cat",
+                "hover":"Cat!"
+            },
+            "picture_personal":{
                 "id":1,
                 "img":"http://testserver/media/other/cat.png",
                 "desc":"A picture of a cat",
@@ -165,13 +200,14 @@ class DeveloperEndpointTest(TestCase):
             other_url="gitlab.com/brochua1",
             other_url_type="gitlab",
             picture=cat,
+            picture_arms=cat,
+            picture_personal=cat,
         )
 
         yaneric = Developer.objects.create(
             first_name="Yaneric",
             last_name="Roussy",
             email="yaneric@porogoramer.com",
-            short_description="I am also porogoramer",
             description_experience="I studied at Edouard",
             description_personal="I love asp.NET core",
             github_name="yan2arb4",
@@ -179,13 +215,14 @@ class DeveloperEndpointTest(TestCase):
             other_url="gitkraken.com/yanou",
             other_url_type="gitkraken",
             picture=dog,
+            picture_arms=cat,
+            picture_personal=cat,
         )
 
         Developer.objects.create(
             first_name="Noah",
             last_name="Gelinas",
             email="noahg@porogoramer.com",
-            short_description="I am also also porogoramer",
             description_experience="I studied at Dawson",
             description_personal="I love React core",
             github_name="noahgelinas",
@@ -193,6 +230,8 @@ class DeveloperEndpointTest(TestCase):
             other_url="gitlab.com/noahg",
             other_url_type="gitlab",
             picture=cat,
+            picture_arms=cat,
+            picture_personal=cat,
         )
 
         URL.objects.create(
