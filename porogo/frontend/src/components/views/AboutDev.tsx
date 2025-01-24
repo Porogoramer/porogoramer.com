@@ -40,12 +40,13 @@ export default function AboutDev() {
          */
         async function getData(){
             const devInfo = await fetchData(`developer/${name}`);
-            setDevInfo(devInfo);
+            // const allCards = await fetchData('projects');
             setFilteredCards(allCards.filter(
                 (card) =>
                     card.authors.includes(devInfo.first_name)
             ));
             // setProjects(filteredCards); for when db is finished for projects
+            setDevInfo(devInfo);
             setLoading(false);
         }
         getData(); 
@@ -106,16 +107,16 @@ export default function AboutDev() {
                                     <span className="keyword">
                                         {styledWord}
                                     </span>
-                                    {punctuation}
+                                    {punctuation}{' '}
                                 </React.Fragment>
                             );
                         }
                         return (
                             <React.Fragment key={index}>
-                                {word}
+                                {word}{' '}
                             </React.Fragment>
                         );
-                    }).reduce((prev, curr) => [prev, ' ', curr])}
+                    })}
                 </p>
                 <h1 className="dev-header">I&apos;m familiar with</h1>
             </section> 
