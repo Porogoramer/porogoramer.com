@@ -145,7 +145,7 @@ export default function AboutDev() {
                 </div>
             ))}
         </section>
-        <section id="parent">
+        <section id="buttonParent">
             <div className="linkProjects">
                 <Link to={'/project'}>
                     <button>Click to see more projects!</button>

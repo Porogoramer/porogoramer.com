@@ -60,14 +60,14 @@ aside a {
     justify-content: center ;
 }
 
-#parent {
+#buttonParent {
     height: 17%;
     padding-bottom: 5%;
     display: flex;
     justify-content: center;
 }
 
-#parent .linkProjects {
+#buttonParent .linkProjects {
     height:100%;
     width:33%; 
 }
@@ -75,7 +75,7 @@ aside a {
 a button{
     display: flex;
     font-size: 1em;
-    font-weight: bold;
+    font-weight:bold;
     justify-content: center;
     align-items: center;
     height: 100%;
