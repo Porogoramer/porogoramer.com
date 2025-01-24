@@ -26,10 +26,10 @@ export default function AboutDev() {
         authors: string[];
       }
     const allCards = [
-        { id: 1, languages: ['JS'], authors: ['Axel', 'Soup'] },
+        { id: 1, languages: ['JS'], authors: ['Axel', 'Yaneric'] },
         { id: 2, languages: ['JAVA'], authors: ['Noah', 'Rida'] },
-        { id: 3, languages: ['PYTHON'], authors: ['Spryte', 'Rida'] },
-        { id: 4, languages: ['C++'], authors: ['Soup', 'Rida'] },
+        { id: 3, languages: ['PYTHON'], authors: ['Emily', 'Rida'] },
+        { id: 4, languages: ['C++'], authors: ['Yaneric', 'Rida'] },
         { id: 5, languages: ['F#', 'JS', 'JAVA', 'PYTHON', 'C++', 'C#', 'HTML', 'CSS', 'Kotlin'], authors: ['Rida'] },
     ];
     
@@ -130,20 +130,12 @@ export default function AboutDev() {
                     <h1 className="dev-header">About Me</h1> 
                     <p>{devInfo.description_experience}</p>
                 </div>
-                <div id="bottom-about-me">
-                    <h1 className="dev-header">More About Me</h1>
-                    <p>{devInfo.description_personal}</p>
-                </div> 
             </div>
             <aside className='about-side'>
                 {
                     devInfo.featured_project!==null &&
                     <ProjectCard name={devInfo.featured_project}/>
                 }
-                <Link to={'/project'}>
-                    <button>Click to see more projects!</button>
-                </Link>
-                
             </aside>
         </section> 
         <section className="projectCards">
@@ -152,6 +144,13 @@ export default function AboutDev() {
                     <Card key={card.id} languages={card.languages} authors={card.authors} title="Porogo" date="2024-Today"/>
                 </div>
             ))}
+        </section>
+        <section id="parent">
+            <div className="linkProjects">
+                <Link to={'/project'}>
+                    <button>Click to see more projects!</button>
+                </Link>
+            </div>
         </section>
     </>;
 }

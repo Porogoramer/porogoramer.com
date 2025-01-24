@@ -39,7 +39,7 @@
     display: flex;
     flex-wrap: wrap; 
     justify-content: center; 
-    padding: 5% 0
+    padding-top: 5%
 }
 
 .card {
@@ -60,12 +60,26 @@ aside a {
     justify-content: center ;
 }
 
-aside a button{
+#parent {
+    height: 17%;
+    padding-bottom: 5%;
     display: flex;
     justify-content: center;
+}
+
+#parent .linkProjects {
+    height:100%;
+    width:33%; 
+}
+
+a button{
+    display: flex;
+    font-size: 1em;
+    font-weight: bold;
+    justify-content: center;
     align-items: center;
-    height: 35%;
-    width: 40%;
+    height: 100%;
+    width: 100%;
     border-radius: 0.5rem;
     border: none;
     background-color: $sandy-brown;
@@ -81,10 +95,6 @@ aside a button{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-}
-
-#bottom-about-me{
-    padding-top: 10%;
 }
 
 .about-side{
