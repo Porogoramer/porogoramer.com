@@ -83,7 +83,6 @@ class Developer(models.Model):
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     email = models.EmailField()
-    short_description = models.TextField(max_length=512)
     description_experience = models.TextField(max_length=1024)
     description_personal = models.TextField(max_length=1024)
     github_name = models.CharField(max_length=20, unique=True)
@@ -91,7 +90,8 @@ class Developer(models.Model):
     other_url = models.URLField(max_length=200, null=True, blank=True)
     other_url_type = models.CharField(max_length=20, null=True, blank=True)
     picture = models.ForeignKey(Image, on_delete=models.CASCADE)
-    featured_project = models.ForeignKey("Project", null=True, blank=True, on_delete=models.CASCADE)
+    picture_personal = models.ForeignKey(Image, on_delete=models.CASCADE)
+    languages = models.ManyToManyRel(Language)
     models.UniqueConstraint(fields=["first_name", "last_name"], name="unique_full_name")
 
 class Tag(models.Model):

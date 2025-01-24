@@ -36,7 +36,7 @@ class ProjectsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ('id', 'name', 'short_description', 'icon', 'github_link', 'contributors', 'languages')
+        fields = ('id', 'name', 'short_description', 'icon', 'github_link', 'contributors', 'languages', 'end_year', 'start_year')
         depth = 1
 
     def get_languages(self, obj):
