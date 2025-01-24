@@ -4,7 +4,7 @@ import '../../../static/styles/views/_about-dev.scss';
 import ProjectCard from '../common/ProjectCard';
 import Card from '../common/Card';
 import { Link, useParams } from 'react-router-dom';
-import { fetchData, Dev } from '../../utils';
+import { fetchData, Dev, Project } from '../../utils';
 
 /**
  * page about a specific developer
@@ -13,9 +13,27 @@ import { fetchData, Dev } from '../../utils';
 export default function AboutDev() {
     const { name } = useParams();
     const [devInfo, setDevInfo] = useState<Dev | null>(null);
+    // const [projects, setProjects] = useState<Project[] | null>(null);
+    const [filteredCards, setFilteredCards] = useState<Card[]>([]);
     const [loading, setLoading] = useState(true);
     const keywords = ['javascript', 'python', 'sql', 'html', 'css', 'c#', 'java', 'apis', 'api', 'c', 'c++', 'arduino', 'raspberry', 'pi', 'c/c++', 'node', 'express', 'mongodb'];
     let aboutMe;
+
+
+    interface Card {
+        id: number;
+        languages: string[];
+        authors: string[];
+      }
+    const allCards = [
+        { id: 1, languages: ['JS'], authors: ['Axel', 'Soup'] },
+        { id: 2, languages: ['JAVA'], authors: ['Noah', 'Rida'] },
+        { id: 3, languages: ['PYTHON'], authors: ['Spryte', 'Rida'] },
+        { id: 4, languages: ['C++'], authors: ['Soup', 'Rida'] },
+        { id: 5, languages: ['F#', 'JS', 'JAVA', 'PYTHON', 'C++', 'C#', 'HTML', 'CSS', 'Kotlin'], authors: ['Rida'] },
+    ];
+    
+
     useEffect(()=>{
         /**
          * fetches developer info
@@ -23,6 +41,11 @@ export default function AboutDev() {
         async function getData(){
             const devInfo = await fetchData(`developer/${name}`);
             setDevInfo(devInfo);
+            setFilteredCards(allCards.filter(
+                (card) =>
+                    card.authors.includes(devInfo.first_name)
+            ));
+            // setProjects(filteredCards); for when db is finished for projects
             setLoading(false);
         }
         getData(); 
@@ -122,6 +145,13 @@ export default function AboutDev() {
                 
             </aside>
         </section> 
+        <section className="projectCards">
+            {filteredCards.map((card) => (
+                <div key={card.id} className="card">
+                    <Card key={card.id} languages={card.languages} authors={card.authors} title="Porogo" date="2024-Today"/>
+                </div>
+            ))}
+        </section>
     </>;
 }
 

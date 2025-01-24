@@ -34,6 +34,22 @@
     max-height: 70% ;
     max-width: 70%;
 }
+
+.projectCards {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    padding: 5% 0
+}
+
+.card {
+    display: flex;
+    padding-bottom: 5%;
+    justify-content: center;
+    flex: 1 1 calc(33.33% - 20px);
+    box-sizing: border-box; 
+}
+
 aside a {
     display: flex;
     flex:.5;
