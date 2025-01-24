@@ -1,0 +1,22 @@
+.hamburger-container {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+
+    .hamburger-items {
+        width: 100%;
+        display: none;
+        margin-left: 0;
+    }
+
+    .hamburger-items.expanded {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hamburger-icon {
+        height: 100%;
+
+        align-self: flex-end;
+    }
+}
