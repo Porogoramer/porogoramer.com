@@ -289,7 +289,6 @@ class DeveloperEndpointTest(TestCase):
         dnd_app.contributors.set(Developer.objects.filter(first_name="Yaneric"))
         dnd_app.save()
 
-        yaneric.featured_project = Project.objects.get(name="DnD app backend")
         yaneric.save()
 
     @classmethod
