@@ -91,8 +91,10 @@ github_name = models.CharField(max_length=20, unique=True)
 linkedin_url = models.URLField(max_length=200, null=True)
 other_url = models.URLField(max_length=200, null=True)
 other_url_type = models.CharField(max_length=20, null=True)
-picture = models.ForeignKey(Image, on_delete=models.CASCADE)
-featured_project = models.ForeignKey(Project, on_delete=models.CASCADE)
+picture = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="developer_picture")
+picture_arms = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="developer_arms_picture")
+picture_personal = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="developer_personal_picture")
+languages = models.ManyToManyField(Language)
 UniqueConstraint(fields=["first_name", "last_name"], name="unique_full_name")
 ```
 
