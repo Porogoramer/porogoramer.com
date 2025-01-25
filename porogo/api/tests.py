@@ -79,7 +79,8 @@ class DeveloperEndpointTest(TestCase):
                 "img":"http://testserver/media/other/cat.png",
                 "desc":"A picture of a cat",
                 "hover":"Cat!"
-            }
+            },
+            "languages": []
         },
         {
             "id":2,
@@ -109,7 +110,8 @@ class DeveloperEndpointTest(TestCase):
                 "img":"http://testserver/media/other/cat.png",
                 "desc":"A picture of a cat",
                 "hover":"Cat!"
-            }
+            },
+            "languages": []
         },
         {
             "id":3,
@@ -139,7 +141,8 @@ class DeveloperEndpointTest(TestCase):
                 "img":"http://testserver/media/other/cat.png",
                 "desc":"A picture of a cat",
                 "hover":"Cat!"
-            }
+            },
+            "languages": []
         }
     ]
 
