@@ -2,6 +2,10 @@ import React from 'react';
 import ProjectCard from '../common/ProjectCard';
 import '../../../static/styles/views/_home.scss';
 
+/**
+ * Defines a component for the home page content of the site
+ * @returns React component describing the landing page of the site
+ */
 export default function Home() {
     return <>
         <section className='top-content'>
@@ -22,8 +26,8 @@ export default function Home() {
             <div id='home-projects'>
                 <h1>PROJECTS</h1>
                 <div>
-                    <ProjectCard name='Important Dog' desc='A discord bot that exists I guess' />
-                    <ProjectCard name='Portfolio Site' desc='A site to showcase some projects' />
+                    <ProjectCard name='porobot' />
+                    <ProjectCard name='portfolio' />
                 </div>
             </div>
         </section>
