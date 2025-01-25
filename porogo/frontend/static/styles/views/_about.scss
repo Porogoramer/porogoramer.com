@@ -1,4 +1,10 @@
 @use "../common/variables" as *;
+
+*{
+    outline: 1px solid red;
+    outline-offset: -1px;
+}
+
 .intro{
     height: $body-height;
     display: flex;
@@ -85,7 +91,26 @@
         align-items: center;
         justify-content: center;
         margin-right: 8%;
-        overflow: hidden;
+    }
+
+    .carousel-container {
+        width: 100%;
+
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+        }
+
+        .image {
+            object-fit: cover;
+            transition: transform 0.3s ease, z-index 0.3s ease;
+        }
+
+        .swiper-slide-active{
+            z-index: 5;
+            opacity: 1;
+            transform: scale(1.1);
+        }
     }
 }
 

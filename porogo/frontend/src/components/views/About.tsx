@@ -1,13 +1,11 @@
 import React from 'react';
 import '../../../static/styles/views/_about.scss';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import 'swiper/css/a11y';
-import ProjectShowcase from '../common/ProjectShowcase';
 import Card from '../common/Card';
 
 /**
@@ -57,11 +55,11 @@ export default function About() {
             </div>
             <div className='carousel-part'>
                 <Swiper
-                    modules={[Navigation, Pagination, Scrollbar, A11y]}
-                    spaceBetween={-30}
-                    slidesPerView={3}
-                    loop={true}
+                    modules={[Navigation, Pagination, Scrollbar]}
+                    slidesPerView={2}
+                    spaceBetween={-100}
                     centeredSlides={true}
+                    loop={true}
                     grabCursor={true}
                     navigation={true}
                     className='carousel-container'
