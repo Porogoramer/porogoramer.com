@@ -53,7 +53,6 @@ class DeveloperEndpointTest(TestCase):
     expected_developer = [
         {
             "id":1,
-            "featured_project":None,
             "first_name":"Axel",
             "last_name":"Brochu",
             "email":"axel@porogoramer.com",
@@ -84,7 +83,6 @@ class DeveloperEndpointTest(TestCase):
         },
         {
             "id":2,
-            "featured_project":"dnd app backend",
             "first_name":"Yaneric",
             "last_name":"Roussy",
             "email":"yaneric@porogoramer.com",
@@ -115,7 +113,6 @@ class DeveloperEndpointTest(TestCase):
         },
         {
             "id":3,
-            "featured_project":None,
             "first_name":"Noah",
             "last_name":"Gelinas",
             "email":"noahg@porogoramer.com",
