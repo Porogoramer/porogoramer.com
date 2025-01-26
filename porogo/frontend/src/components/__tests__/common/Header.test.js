@@ -14,7 +14,7 @@ afterEach(cleanup)
 describe('Rendering header', () => {
 	const SELECTED_PAGE = 'curr-page';
 	const setup = (entries = ['']) => {
-		const { getByRole, getByText } = render(<MemoryRouter initialEntries={entries}>
+		const { getAllByRole, getAllByText } = render(<MemoryRouter initialEntries={entries}>
 			<Header />
 		</MemoryRouter>);
 
@@ -22,15 +22,15 @@ describe('Rendering header', () => {
 
 		return {
 			user: user,
-			porogoLogo: getByRole('img', { name: /porogo/i }),
-			homeLink: getByText(/porogo/i),
-			aboutLink: getByRole('link', { name: /about/i }),
-			projectsLink: getByRole('link', { name: /projects/i }),
-			porobotLink: getByRole('link', { name: /porobot/i }),
-			contactLink: getByRole('link', { name: /contact/i }),
-			themeLink: getByRole('img', { name: /mode/i }),
-			frenchLink: getByRole('link', { name: /fr/i }),
-			englishLink: getByRole('link', { name: /en/i }),
+			porogoLogo: getAllByRole('img', { name: /porogo/i })[0],
+			homeLink: getAllByText(/porogo/i)[0],
+			aboutLink: getAllByRole('link', { name: /about/i })[0],
+			projectsLink: getAllByRole('link', { name: /projects/i })[0],
+			porobotLink: getAllByRole('link', { name: /porobot/i })[0],
+			contactLink: getAllByRole('link', { name: /contact/i })[0],
+			themeLink: getAllByRole('img', { name: /mode/i })[0],
+			frenchLink: getAllByRole('link', { name: /fr/i })[0],
+			englishLink: getAllByRole('link', { name: /en/i })[0],
 		};
 	}
 

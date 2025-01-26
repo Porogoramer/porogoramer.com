@@ -17,16 +17,11 @@ class DevelopersSerializer(serializers.ModelSerializer):
 
 class DeveloperSerializer(serializers.ModelSerializer):
     """Serializer for Developer Model for the /developer endpoint"""
-    featured_project = serializers.SerializerMethodField()
-
     class Meta:
         model = Developer
         fields = '__all__'
         depth = 1
 
-    def get_featured_project(self, obj):
-        """Replaces the project object with only its name"""
-        return obj.featured_project.name.lower() if obj.featured_project else None
     
 class ProjectsSerializer(serializers.ModelSerializer):
     """Serializer for Projects Model for the /projects endpoint"""
@@ -36,7 +31,7 @@ class ProjectsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ('id', 'name', 'short_description', 'icon', 'github_link', 'contributors', 'languages')
+        fields = ('id', 'name', 'short_description', 'icon', 'github_link', 'contributors', 'languages', 'end_year', 'start_year')
         depth = 1
 
     def get_languages(self, obj):
