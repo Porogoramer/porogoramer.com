@@ -55,16 +55,20 @@ interface Project {
 
 interface Dev {
     id: number;
-    featured_project: string;
     first_name: string;
     last_name: string;
-    picture: Image,
-    short_description: string;
+    picture: Image;
+    picture_personal: Image;
+    languages: Language[];
     description_experience: string;
     description_personal: string;
     linkedin_url: string;
     github_name: string;
     email: string;
+}
+
+interface Language {
+    name: string
 }
 
 interface Image {

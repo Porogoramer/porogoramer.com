@@ -24,6 +24,7 @@ export default function AboutDev() {
          */
         async function getData(){
             const devInfo = await fetchData(`developer/${name}`);
+            console.log(devInfo);
             const allCards = await fetchData(`projects/?contrib=${name}`);
             setProjects(allCards);
             setDevInfo(devInfo);
@@ -48,8 +49,8 @@ export default function AboutDev() {
         </>;
     }
     if (devInfo!==null){
-        aboutMe = devInfo.short_description.split(' ')
-            .map(word => {
+        aboutMe = devInfo.description_experience.split(' ')
+            .map(word => {  
                 const cleanWord = word.replace(/[^\w]/g, '').toLowerCase();
                 if (keywords.includes(cleanWord)){
                     return '*'+word;
@@ -99,6 +100,17 @@ export default function AboutDev() {
                     })}
                 </p>
                 <h1 className="dev-header">I&apos;m familiar with</h1>
+                <ul>
+                    {devInfo.languages.map((language, index)=>{
+                        return (
+                            <React.Fragment key={index}>
+                                <li>
+                                    {language.name}
+                                </li>
+                            </React.Fragment>
+                        );
+                    })}
+                </ul>
             </section> 
             <aside className='about-side'>
                 <img src={devInfo.picture.img}  alt={devInfo.picture.hover} />
@@ -107,7 +119,7 @@ export default function AboutDev() {
         <section className='full-content' id='about-dev-full'>
             <div className='about-content'>
                 <div>
-                    <h1 className="dev-header">About Me</h1> 
+                    <h1 className="dev-header">More about Me</h1> 
                     <p>{devInfo.description_experience}</p>
                 </div>
             </div>
