@@ -9,10 +9,11 @@ const BASE_URL = '/api';
  */
 async function fetchData(resource: string) {
     let resUrl = BASE_URL;
+    
     if (resource.charAt(0) !== '/')
         resUrl += '/';
     resUrl += resource;
-    if (resource.slice(-1) !== '/')
+    if (resource.slice(-1) !== '/' && !resource.includes('?'))
         resUrl += '/';
 
     const resp = await fetch(resUrl, {
@@ -54,20 +55,26 @@ interface Project {
 
 interface Dev {
     id: number;
-    featured_project: string;
     first_name: string;
     last_name: string;
-    picture: {
-        img: string, 
-        desc: string,
-        hover: string
-    };
-    short_description: string;
+    picture: Image;
+    picture_personal: Image;
+    languages: Language[];
     description_experience: string;
     description_personal: string;
     linkedin_url: string;
     github_name: string;
     email: string;
+}
+
+interface Language {
+    name: string
+}
+
+interface Image {
+    img: string, 
+    desc: string,
+    hover: string
 }
 
 const emptyProject: Project = {
@@ -91,4 +98,4 @@ const emptyProject: Project = {
     languages: [],
 };
 
-export { fetchData, Project, Dev, emptyProject };
+export { fetchData, Project, Dev, emptyProject, Image };

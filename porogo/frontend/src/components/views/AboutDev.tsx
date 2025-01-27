@@ -2,8 +2,9 @@ import React from 'react';
 import {useEffect, useState } from 'react';
 import '../../../static/styles/views/_about-dev.scss';
 import ProjectCard from '../common/ProjectCard';
+import Card from '../common/Card';
 import { Link, useParams } from 'react-router-dom';
-import { fetchData, Dev } from '../../utils';
+import { fetchData, Dev, Project } from '../../utils';
 
 /**
  * page about a specific developer
@@ -12,8 +13,10 @@ import { fetchData, Dev } from '../../utils';
 export default function AboutDev() {
     const { name } = useParams();
     const [devInfo, setDevInfo] = useState<Dev | null>(null);
+    const [projects, setProjects] = useState<Project[] | null>(null);
     const [loading, setLoading] = useState(true);
-    
+    const keywords = ['javascript', 'python', 'sql', 'html', 'css', 'c#', 'java', 'apis', 'api', 'c', 'c++', 'arduino', 'raspberry', 'pi', 'node', 'express', 'mongodb'];
+    let aboutMe;
 
     useEffect(()=>{
         /**
@@ -21,8 +24,10 @@ export default function AboutDev() {
          */
         async function getData(){
             const devInfo = await fetchData(`developer/${name}`);
-            setDevInfo(devInfo);
             console.log(devInfo);
+            const allCards = await fetchData(`projects/?contrib=${name}`);
+            setProjects(allCards);
+            setDevInfo(devInfo);
             setLoading(false);
         }
         getData(); 
@@ -38,13 +43,24 @@ export default function AboutDev() {
                 </p>
             </div>;
         </>;
-            
     }else if (loading){
         return <>
             <div>Loading...</div>
         </>;
     }
-    
+    if (devInfo!==null){
+        aboutMe = devInfo.description_experience.split(' ')
+            .map(word => {  
+                const cleanWord = word.replace(/[^\w]/g, '').toLowerCase();
+                if (keywords.includes(cleanWord)){
+                    return '*'+word;
+                }else{
+                    return word;
+                }
+            })
+            .join(' ');
+    }
+
     return <>
         <div className='top-content' id='about-dev-top'>
             <section className='about-content'>
@@ -60,7 +76,41 @@ export default function AboutDev() {
                         <img className="icons" id="email" src="/static/assets/icons/email.svg" alt="Email Logo" />
                     </a>
                 </div>
-                <p>{devInfo.short_description}</p>
+                <p>
+                    {aboutMe?.split(' ').map((word, index) => {
+                        if (word.startsWith('*')) {
+                            const match = word.slice(1).match(/^(\w+)([^\w]*)$/);
+                            const styledWord = match ? match[1] : word.slice(1);
+                            const punctuation = match ? match[2] : '';
+
+                            return (
+                                <React.Fragment key={index}>
+                                    <span className="keyword">
+                                        {styledWord}
+                                    </span>
+                                    {punctuation}{' '}
+                                </React.Fragment>
+                            );
+                        }
+                        return (
+                            <React.Fragment key={index}>
+                                {word}{' '}
+                            </React.Fragment>
+                        );
+                    })}
+                </p>
+                <h1 className="dev-header">I&apos;m familiar with</h1>
+                <ul className="familiarWith">
+                    {devInfo.languages.map((language, index)=>{
+                        return (
+                            <React.Fragment key={index}>
+                                <li>
+                                    {language.name}
+                                </li>
+                            </React.Fragment>
+                        );
+                    })}
+                </ul>
             </section> 
             <aside className='about-side'>
                 <img src={devInfo.picture.img}  alt={devInfo.picture.hover} />
@@ -69,25 +119,26 @@ export default function AboutDev() {
         <section className='full-content' id='about-dev-full'>
             <div className='about-content'>
                 <div>
-                    <h1 className="dev-header">About Me</h1> 
-                    <p>{devInfo.description_experience}</p>
-                </div>
-                <div id="bottom-about-me">
-                    <h1 className="dev-header">More About Me</h1>
+                    <h1 className="dev-header">More about Me</h1> 
                     <p>{devInfo.description_personal}</p>
-                </div> 
+                </div>
             </div>
             <aside className='about-side'>
                 {
-                    devInfo.featured_project!==null &&
-                    <ProjectCard name={devInfo.featured_project}/>
+                    devInfo.picture_personal!==null &&
+                    <img src={devInfo.picture_personal.img}  alt={devInfo.picture_personal.hover} />
                 }
-                <Link to={'/project'}>
-                    <button>Click to see more projects!</button>
-                </Link>
-                
             </aside>
         </section> 
+        {projects!== null &&
+            <section className="projectCards">
+                {projects.map((card) => (
+                    <div key={card.id} className="card">
+                        <Card key={card.id} languages={card.languages} title={card.name} date={card.end_year ? `${card.start_year}-${card.end_year}` : `${card.start_year}`} icon={card.icon} authors={undefined}/>
+                    </div>
+                ))}
+            </section>
+        }
     </>;
 }
 
@@ -113,5 +164,4 @@ async function fetchDevInfo(devName: string | undefined) {
         return error; 
     }
 }
-
 export {AboutDev, fetchDevInfo};

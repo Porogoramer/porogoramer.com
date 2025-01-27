@@ -9,10 +9,19 @@
     height: 75%;
     padding: 3em 1em 3em 5em;
     justify-content: space-evenly;
+    flex-direction: row-reverse;
     background-color: $color-gray;
 }
 
+.keyword {
+    background: -webkit-linear-gradient(360deg,rgb(235, 153, 2), rgb(221, 55, 55));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .about-content p {
+    padding-bottom: 30px;
+    max-width: 70%;
     line-height: 1.6;
     text-align: justify;
 }
@@ -22,9 +31,30 @@
 }
 
 .about-side img {
-    max-height: 100% ;
-    max-width: 100%;
+    max-height: 70%;
+    max-width: 70%;
+    border-radius: 50%;
 }
+
+.projectCards {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    padding-top: 5%
+}
+
+.card {
+    display: flex;
+    padding-bottom: 5%;
+    justify-content: center;
+    flex: 1 1 calc(33.33% - 20px);
+    box-sizing: border-box; 
+}
+
+.familiarWith {
+    padding-left: 3%;
+}
+
 aside a {
     display: flex;
     flex:.5;
@@ -35,12 +65,26 @@ aside a {
     justify-content: center ;
 }
 
-aside a button{
+#buttonParent {
+    height: 17%;
+    padding-bottom: 5%;
     display: flex;
     justify-content: center;
+}
+
+#buttonParent .linkProjects {
+    height:100%;
+    width:33%; 
+}
+
+a button{
+    display: flex;
+    font-size: 1em;
+    font-weight:bold;
+    justify-content: center;
     align-items: center;
-    height: 35%;
-    width: 40%;
+    height: 100%;
+    width: 100%;
     border-radius: 0.5rem;
     border: none;
     background-color: $sandy-brown;
@@ -56,10 +100,6 @@ aside a button{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-}
-
-#bottom-about-me{
-    padding-top: 10%;
 }
 
 .about-side{
