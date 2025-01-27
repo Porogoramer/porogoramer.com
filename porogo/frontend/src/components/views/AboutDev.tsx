@@ -100,7 +100,7 @@ export default function AboutDev() {
                     })}
                 </p>
                 <h1 className="dev-header">I&apos;m familiar with</h1>
-                <ul>
+                <ul className="familiarWith">
                     {devInfo.languages.map((language, index)=>{
                         return (
                             <React.Fragment key={index}>
@@ -120,14 +120,14 @@ export default function AboutDev() {
             <div className='about-content'>
                 <div>
                     <h1 className="dev-header">More about Me</h1> 
-                    <p>{devInfo.description_experience}</p>
+                    <p>{devInfo.description_personal}</p>
                 </div>
             </div>
             <aside className='about-side'>
-                {/* {
+                {
                     devInfo.picture_personal!==null &&
                     <img src={devInfo.picture_personal.img}  alt={devInfo.picture_personal.hover} />
-                } */}
+                }
             </aside>
         </section> 
         {projects!== null &&

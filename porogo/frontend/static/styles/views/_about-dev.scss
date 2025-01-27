@@ -31,8 +31,9 @@
 }
 
 .about-side img {
-    max-height: 70% ;
+    max-height: 70%;
     max-width: 70%;
+    border-radius: 50%;
 }
 
 .projectCards {
@@ -48,6 +49,10 @@
     justify-content: center;
     flex: 1 1 calc(33.33% - 20px);
     box-sizing: border-box; 
+}
+
+.familiarWith {
+    padding-left: 3%;
 }
 
 aside a {
