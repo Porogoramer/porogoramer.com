@@ -1,8 +1,10 @@
 @use "../common/variables" as *;
 
 *{
+    /*
     outline: 1px solid red;
     outline-offset: -1px;
+    */
 }
 
 .intro{
@@ -97,19 +99,43 @@
         width: 100%;
 
         .swiper-slide {
-            display: flex;
-            justify-content: center;
-        }
-
-        .image {
+            position: relative;
             object-fit: cover;
             transition: transform 0.3s ease, z-index 0.3s ease;
         }
 
-        .swiper-slide-active{
+        .name-dev{
             z-index: 5;
-            opacity: 1;
-            transform: scale(1.1);
+            position: absolute;
+            top: 10%;
+            left: 0;
+            padding: 10px;
+            color: white;
+            background-color: $background-color;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 1s ease;
+            pointer-events: none;
+        }
+    }
+
+    .swiper-slide-prev, 
+    .swiper-slide-next{
+        opacity: 0.8;
+    }
+    
+    .swiper-slide-active{
+        z-index: 5;
+        opacity: 1;
+        transform: scale(1.1);
+
+        .name-dev {
+            opacity: 0.8;
+            pointer-events: auto;
+        }
+
+        img:hover{
+            animation: shake 1s ease-in-out infinite;
         }
     }
 }
@@ -214,4 +240,15 @@
     line-height: $descriptionText-line-height;
     text-align: justify;
     text-justify: inter-word;
+}
+
+@keyframes shake {
+    0% { transform: translate(2px, 2px) rotate(0deg); }
+    15% { transform: translate(-2px, -3px) rotate(-1deg); }
+    30% { transform: translate(-4px, 0px) rotate(1deg); }
+    45% { transform: translate(4px, 3px) rotate(0deg); }
+    60% { transform: translate(2px, -2px) rotate(1deg); }
+    75% { transform: translate(-2px, 3px) rotate(-1deg); }
+    90% { transform: translate(-4px, 2px) rotate(0deg); }
+    100% { transform: translate(2px, -3px) rotate(-1deg); }
 }

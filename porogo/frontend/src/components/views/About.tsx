@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../../static/styles/views/_about.scss';
 import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
 import {Swiper, SwiperSlide} from 'swiper/react';
@@ -13,6 +13,7 @@ import Card from '../common/Card';
  *@returns page with three sections: intro, team, and projects
  */
 export default function About() {
+
     const allCards = [
         { id: 1, languages: ['JS'], authors: ['Axel', 'Soup'] },
         { id: 2, languages: ['JAVA'], authors: ['Noah'] },
@@ -65,8 +66,9 @@ export default function About() {
                     className='carousel-container'
                 >      
                     {people.map(person => (
-                        <SwiperSlide className='image' key={person}>
+                        <SwiperSlide key={person}>
                             <img src='/static/assets/images/yaneric.png'></img>
+                            <p className='name-dev'>Hey, I&apos;m {person} <br/> Click on me !</p>
                         </SwiperSlide>
                     ))}     
                 </Swiper>
